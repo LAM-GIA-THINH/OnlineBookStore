@@ -6,7 +6,9 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FacebookController;
+use App\Http\Controllers\AuthController;
+use App\Http\Livewire\DetailsComponent;
+
 
 
 /*
@@ -35,18 +37,35 @@ Route::get('/checkout',\App\Http\Livewire\CheckoutComponent::class)->name('shop.
 
 
 
-Route::middleware(['auth','authadmin'])->group (function(){
-    Route::get('/admin/dashboard', \App\Http\Livewire\Admin\AdminDashBoardComponent::class)->name('admin.dashboard');
+// Route::middleware(['auth','authadmin'])->group (function(){
+//     Route::get('/admin/dashboard', \App\Http\Livewire\Admin\AdminDashBoardComponent::class)->name('admin.dashboard');
+// });
+
+// Route::middleware(['auth'])->group (function(){
+//     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
+// });
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('facebook', [AuthController::class, 'redirectToFacebook'])->name('auth.facebook');
+    Route::get('facebook/callback', [AuthController::class, 'handleFacebookCallback']);
+    
+    Route::get('google', [AuthController::class, 'redirectToGoogle'])->name('auth.google');
+    Route::get('google/callback', [AuthController::class, 'handleGoogleCallback']);
 });
 
-Route::middleware(['auth'])->group (function(){
+Route::group(['middleware' => ['userLogin', 'verified']], function() {
+    Route::group(['middleware' => 'authAdmin'], function () {
+        //admin
+        Route::get('/admin/dashboard', \App\Http\Livewire\Admin\AdminDashBoardComponent::class)->name('admin.dashboard');
+    });
+    //user
     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
 });
-
-Route::controller(FacebookController::class)->group(function(){
-    Route::get('auth/facebook', 'redirectToFacebook')->name('auth.facebook');
-    Route::get('auth/facebook/callback', 'handleFacebookCallback');
-});
+Route::get('/',HomeComponent::class)-> name('home.index');
+Route::get('/shop',ShopComponent::class)-> name('shop');
+Route::get('/cart',CartComponent::class)-> name('shop.cart');
+Route::get('/checkout',CheckoutComponent::class)-> name('shop.checkout');
+Route::get('/product{slug}',DetailsComponent::class)-> name('product.details');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

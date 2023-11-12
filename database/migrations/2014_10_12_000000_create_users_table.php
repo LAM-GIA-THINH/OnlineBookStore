@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('utype')->default('USR')->comment('ADM for Admin and USR for Normal User');
+            $table->string('provider_id')->nullable();
+            $table->string('provider')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
@@ -32,4 +34,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
+
 };
