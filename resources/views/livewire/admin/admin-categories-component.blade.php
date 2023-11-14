@@ -1,13 +1,4 @@
 <div>
-    <style>
-        nav svg{
-            height: 20px;
-        }
-        nav .hidden{
-            display: block;
-        }
-    </style>
-    
     <main class="main">
             <div class="page-header breadcrumb-wrap">
                 <div class="container">
@@ -48,7 +39,10 @@
                                                         <td>{{$category->id}}</td>
                                                         <td>{{$category->name}}</td>
                                                         <td>{{$category->slug}}</td>
-                                                        <td></td>
+                                                        <td>
+                                                            <a href="{{route('admin.category.edit', ['category_id'=>$category->id])}}" class="text-info">Edit</a>
+                                                            <a href="{{route('admin.category.delete', ['category_id'=>$category->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                                 
@@ -62,3 +56,7 @@
                 </div>
             </section>
     </main>
+</div>
+
+
+
