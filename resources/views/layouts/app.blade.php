@@ -728,7 +728,9 @@
 <script src="{{ asset ('assets/js/plugins/jquery.elevatezoom.js')}}"></script>
 <!-- Template  JS -->
 <script src="{{ asset ('assets/js/main.js?v=3.3')}}"></script>
-<script src="{{ asset ('assets/js/shop.js?v=3.3')}}"></script></body>
+<script src="{{ asset ('assets/js/shop.js?v=3.3')}}"></script>
+
+
 @livewireStyles
 </body>
 </html>

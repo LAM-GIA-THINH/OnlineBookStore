@@ -58,6 +58,7 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
         //admin
         Route::get('/admin/dashboard', \App\Http\Livewire\Admin\AdminDashBoardComponent::class)->name('admin.dashboard');
         Route::get('/admin/catogories', \App\Http\Livewire\Admin\AdminCategoriesComponent::class)->name('admin.categories');
+        Route::get('/admin/catogory/add', \App\Http\Livewire\Admin\AdminAddCategoryComponent::class)->name('admin.category.add');
     });
     //user
     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
