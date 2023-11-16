@@ -396,18 +396,19 @@
                                         <ul class="sub-menu">
                                             <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                             <li><a href="#">Products</a></li>
-                                            <li><a href="#">Categories</a></li>
+                                            <li><a href="{{route('admin.categories')}}">Categories</a></li>
                                             <li><a href="#">Coupons</a></li>
                                             <li><a href="#">Orders</a></li>
-                                            <li><a href="#">Customers</a></li>                                       
+                                            <li><a href="#">Customers</a></li>
                                         </ul>
                                         @else
                                         <ul class="sub-menu">
                                             <li><a href="{{route('user.dashboard')}}">Dashboard</a></li>                                        
                                         </ul>
                                         @endif                                        
-                                    @endif
+                                    
                                     </li>
+                                    @endif
                                 </ul>
                             </nav>
                         </div>
@@ -703,7 +704,8 @@
                 </div>
             </div>
         </div>
-    </footer>    
+    </footer>  
+
     <!-- Vendor JS-->
 <script src="{{ asset ('assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
 <script src="{{ asset ('assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
@@ -727,7 +729,7 @@
 <script src="{{ asset ('assets/js/plugins/jquery.elevatezoom.js')}}"></script>
 <!-- Template  JS -->
 <script src="{{ asset ('assets/js/main.js?v=3.3')}}"></script>
-<script src="{{ asset ('assets/js/shop.js?v=3.3')}}"></script></body>
+<script src="{{ asset ('assets/js/shop.js?v=3.3')}}"></script>
 @livewireStyles
 </body>
 </html>
