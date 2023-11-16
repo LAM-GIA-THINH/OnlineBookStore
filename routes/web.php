@@ -4,10 +4,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\PaymentResultComponent;
 use App\Http\Livewire\ShopComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Livewire\DetailsComponent;
+use App\Http\Controllers\CheckoutController;
 
 
 
@@ -31,19 +33,6 @@ Route::get('/shop',\App\Http\Livewire\ShopComponent::class)->name('shop');
 Route::get('/cart',\App\Http\Livewire\CartComponent::class)->name('shop.cart');
 Route::get('/checkout',\App\Http\Livewire\CheckoutComponent::class)->name('shop.checkout');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-
-
-// Route::middleware(['auth','authadmin'])->group (function(){
-//     Route::get('/admin/dashboard', \App\Http\Livewire\Admin\AdminDashBoardComponent::class)->name('admin.dashboard');
-// });
-
-// Route::middleware(['auth'])->group (function(){
-//     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
-// });
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('facebook', [AuthController::class, 'redirectToFacebook'])->name('auth.facebook');
@@ -64,6 +53,9 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
     });
     //user
     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
+    Route::post('/vnpay-payment', [CheckoutController::class, 'vnpayPayment'])->name('vnpay.payment');
+    Route::get('/handle-vnpay-return', [CheckoutController::class, 'handleVNPayReturn'])->name('vnpay.return');
+    Route::get('/payment-result', PaymentResultComponent::class)->name('payment.result.view');
 });
 Route::get('/',HomeComponent::class)-> name('home.index');
 Route::get('/shop',ShopComponent::class)-> name('shop');
