@@ -729,7 +729,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-fill-out btn-block mt-30">Place Order</a>
+                            <form method="POST" action="{{route('vnpay.payment')}}">
+                                @csrf
+                                <input type="hidden" name="total_vnpay" value="20000"/>
+                                <button type="submit" name="redirect" class="btn btn-fill-out btn-block mt-30">Place Order</button>
+                            </form>
                         </div>
                     </div>
                 </div>
