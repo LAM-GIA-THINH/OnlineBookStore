@@ -1,4 +1,5 @@
 <div>
+@livewireStyles
 <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -14,6 +15,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
+                        @if(Session::has('success_message'))
+                            <div class="alert alert-success">
+                                <strong>Success | {{Session::get('success_message')}}</strong>
+                            </div>
+                         @endif
+                         @if(Cart::count()>0)
                             <table class="table shopping-summery text-center clean">
                                 <thead>
                                     <tr class="main-heading">
@@ -26,37 +33,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(cart::count()>0)
+                                 
+                                    @foreach(Cart::content() as $item)
                                     <tr>
-                                        <td class="image product-thumbnail"><img src="{{ asset('assets/imgs/shop/product-1-2.jpg')}}" alt="#"></td>
+                                        <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-') }}{{$item->model->id}}-1.jpg" alt="#"></td>
                                         <td class="product-des product-name">
-                                            <h5 class="product-name"><a href="product-details.html">J.Crew Mercantile Women's Short-Sleeve</a></h5>
-                                            <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
-                                            </p>
+                                            <h5 class="product-name"><a href="{{route('product.details',['slug'=>$item->model->slug])}}">{{$item->model->name}}</a></h5>
+                                            <!-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
+                                            </p> -->
                                         </td>
-                                        <td class="price" data-title="Price"><span>$65.00 </span></td>
+                                        <td class="price" data-title="Price"><span>{{$item->model->regular_price}}.VND</span></td>
                                         <td class="text-center" data-title="Stock">
                                             <div class="detail-qty border radius  m-auto">
-                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                                <span class="qty-val">1</span>
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                                <a href="{{route('shop.cart')}}" class="qty-down" wire:click.prevent="decreateQuantity('{{$item->rowId}}')"><i class="fi-rs-angle-small-down"></i></a>
+                                                <span class="qty-val">{{$item->qty}}</span>
+                                                <a href="{{route('shop.cart')}}" class="qty-up" wire:click.prevent="increateQuantity('{{$item->rowId}}')"><i class="fi-rs-angle-small-up"></i></a>
                                             </div>
                                         </td>
                                         <td class="text-right" data-title="Cart">
-                                            <span>$65.00 </span>
+                                            <span>{{$item->subtotal}} .VND </span>
                                         </td>
-                                        <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                        <td class="action" data-title="Remove" ><a href="#" class="text-muted" wire:click.prevent="destroy('{{$item->rowId}}')"><i class="fi-rs-trash"></i></a></td>
                                     </tr>   
-                                    @else
-                                        <p>No item in cart</p>
-                                    @endif
+                                    @endforeach
+                                   
                                     <tr>
                                         <td colspan="6" class="text-end">
-                                            <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
+                                            <a href="" class="text-muted" wire:click.prevent="clearAll()"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            @else
+                                <p>No item in cart</p>
+                            @endif
                         </div>
                         <div class="cart-action text-end">
                             <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a>
@@ -369,7 +379,11 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="cart_total_label">Cart Subtotal</td>
-                                                    <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">$240.00</span></td>
+                                                    <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">{{Cart::subtotal()}}</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="cart_total_label">Tax</td>
+                                                    <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">{{Cart::tax()}}</span></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Shipping</td>
@@ -377,12 +391,12 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
-                                                    <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">$240.00</span></strong></td>
+                                                    <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">{{Cart::total()}}</span></strong></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <a href="checkout.html" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Proceed To CheckOut</a>
+                                    <a href="{{route('shop.checkout')}}" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Proceed To CheckOut</a>
                                 </div>
                             </div>
                         </div>
@@ -391,4 +405,5 @@
             </div>
         </section>
     </main>
+    @livewireScripts
 </div>

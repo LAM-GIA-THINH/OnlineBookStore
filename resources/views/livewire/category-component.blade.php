@@ -24,7 +24,9 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found <strong class="text-brand">{{$products->total()}}</strong> items for you!
+                                <p> We found <strong class="text-brand">{{$products->total()}}</strong>
+                                    items for you from
+                                    <strong class="text-brand"> {{ $category_name}}</strong> Category
                                 </p>
                             </div>
                             <div class="sort-by-product-area">
@@ -178,7 +180,7 @@
                             </ul>
                         </div>
                         <!-- Fillter By Price -->
-                        <div class=" sidebar-widget price_range range mb-30">
+                        <div class="sidebar-widget price_range range mb-30">
                             <div class="widget-header position-relative mb-20 pb-10">
                                 <h5 class="widget-title mb-10">Fill by price</h5>
                                 <div class="bt-1 border-color-1"></div>

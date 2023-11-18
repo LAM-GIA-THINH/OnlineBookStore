@@ -62,6 +62,8 @@ Route::get('/shop',ShopComponent::class)-> name('shop');
 Route::get('/cart',CartComponent::class)-> name('shop.cart');
 Route::get('/checkout',CheckoutComponent::class)-> name('shop.checkout');
 Route::get('/product{slug}',DetailsComponent::class)-> name('product.details');
+Route::get('/products{category_id}',DetailsComponent::class)-> name('product.detailss');
+Route::get('/product-category/{slug}',App\Http\Livewire\CategoryComponent::class)-> name('product.category');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
