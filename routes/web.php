@@ -64,7 +64,9 @@ Route::get('/checkout',CheckoutComponent::class)-> name('shop.checkout');
 Route::get('/product{slug}',DetailsComponent::class)-> name('product.details');
 Route::get('/products{category_id}',DetailsComponent::class)-> name('product.detailss');
 Route::get('/product-category/{slug}',App\Http\Livewire\CategoryComponent::class)-> name('product.category');
-
+Route::get('/search',App\Http\Livewire\SearchComponent::class)->name('product.search');
+Route::get('/About',App\Http\Livewire\AboutComponent::class)->name('about');
+Route::get('/Blog',App\Http\Livewire\BlogComponent::class)->name('blog');
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

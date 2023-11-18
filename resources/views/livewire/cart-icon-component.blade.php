@@ -15,7 +15,7 @@
                 </div>
                 <div class="shopping-cart-title">
                     <h4><a href="{{route('product.details',['slug'=>$item->model->slug])}}">{{substr($item->model->name,0,20)}}...</a></h4>
-                    <h4><span>{{$item->qty}} X </span>{{$item->model->regular_price}}</h4>
+                    <h4><span>{{$item->qty}} X </span>{{$item->model->regular_price}} VND</h4>
                 </div>
                
             </li>
@@ -24,7 +24,7 @@
         </ul>
         <div class="shopping-cart-footer">
             <div class="shopping-cart-total">
-                <h4>Total <span>{{Cart::total()}} .VND</span></h4>
+                <h4>Total <span>{{Cart::total()}} VND</span></h4>
             </div>
             <div class="shopping-cart-button">
                 <a href="{{route('shop.cart')}}" class="outline">View cart</a>

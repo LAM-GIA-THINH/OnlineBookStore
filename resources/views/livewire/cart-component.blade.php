@@ -42,7 +42,7 @@
                                             <!-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
                                             </p> -->
                                         </td>
-                                        <td class="price" data-title="Price"><span>{{$item->model->regular_price}}.VND</span></td>
+                                        <td class="price" data-title="Price"><span>{{$item->model->regular_price}} VND</span></td>
                                         <td class="text-center" data-title="Stock">
                                             <div class="detail-qty border radius  m-auto">
                                                 <a href="{{route('shop.cart')}}" class="qty-down" wire:click.prevent="decreateQuantity('{{$item->rowId}}')"><i class="fi-rs-angle-small-down"></i></a>
@@ -51,7 +51,7 @@
                                             </div>
                                         </td>
                                         <td class="text-right" data-title="Cart">
-                                            <span>{{$item->subtotal}} .VND </span>
+                                            <span>{{$item->subtotal}}VND </span>
                                         </td>
                                         <td class="action" data-title="Remove" ><a href="#" class="text-muted" wire:click.prevent="destroy('{{$item->rowId}}')"><i class="fi-rs-trash"></i></a></td>
                                     </tr>   
