@@ -124,7 +124,7 @@
                                             </span>
                                         </div>
                                         <div class="product-price">
-                                            <span>{{$product->regular_price}} VND </span>
+                                            <span>{{$product->regular_price}} VND</span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
@@ -188,15 +188,16 @@
                         <!-- Fillter By Price -->
                         <div class=" sidebar-widget price_range range mb-30">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">Fillter by price</h5>
+                                <h5 class="widget-title mb-10">Fill by price</h5>
                                 <div class="bt-1 border-color-1"></div>
                             </div>
                             <div class="price-filter">
                                 <div class="price-filter-inner">
-                                    <div id="slider-range" wire:ignore></div>
+                                    <div id="slider-range"></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                            <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">${{$max_value}} VND</span>
+                                        <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">${{$max_value}} VND</span>
+                                                
                                         </div>
                                     </div>
                                 </div>
@@ -242,8 +243,13 @@
                             <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
                                 Fillter</a>
                         </div>
-                      
-                        
+                            <img src="{{ asset('assets/imgs/banner/banner-11.jpg')}}" alt="">
+                            <div class="banner-text">
+                                <span>Women Zone</span>
+                                <h4>Save 17% on <br>Office Dress</h4>
+                                <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 <div>
     <style>
+  
     .wishlisted{
         background-color: #F15412 !important;
         border: 1px solid transparent !important; 
@@ -24,7 +25,9 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found <strong class="text-brand">{{$products->total()}}</strong> items for you!
+                                <p> We found <strong class="text-brand">{{$products->total()}}</strong>
+                                    items for you from
+                                    <strong class="text-brand"> {{$category_name}}</strong> Category
                                 </p>
                             </div>
                             <div class="sort-by-product-area">
@@ -124,7 +127,7 @@
                                             </span>
                                         </div>
                                         <div class="product-price">
-                                            <span>{{$product->regular_price}} VND </span>
+                                            <span>{{$product->regular_price}} VND</span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
@@ -186,17 +189,18 @@
                             </ul>
                         </div>
                         <!-- Fillter By Price -->
-                        <div class=" sidebar-widget price_range range mb-30">
+                        <div class="sidebar-widget price_range range mb-30">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">Fillter by price</h5>
+                                <h5 class="widget-title mb-10">Fill by price</h5>
                                 <div class="bt-1 border-color-1"></div>
                             </div>
                             <div class="price-filter">
                                 <div class="price-filter-inner">
-                                    <div id="slider-range" wire:ignore></div>
+                                    <div id="slider-range"></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                            <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">${{$max_value}} VND</span>
+                                            <span>Range:</span><input type="text" id="amount" name="price"
+                                                placeholder="Add Your Price">
                                         </div>
                                     </div>
                                 </div>
@@ -242,8 +246,57 @@
                             <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
                                 Fillter</a>
                         </div>
-                      
-                        
+                        <!-- Product sidebar Widget -->
+                        <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">
+                            <div class="widget-header position-relative mb-20 pb-10">
+                                <h5 class="widget-title mb-10">New products</h5>
+                                <div class="bt-1 border-color-1"></div>
+                            </div>
+                            <div class="single-post clearfix">
+                                <div class="image">
+                                    <img src="{{ asset('assets/imgs/shop/thumbnail-3.jpg')}}" alt="#">
+                                </div>
+                                <div class="content pt-10">
+                                    <h5><a href="product-details.html">Chen Cardigan</a></h5>
+                                    <p class="price mb-0 mt-5">$99.50</p>
+                                    <div class="product-rate">
+                                        <div class="product-rating" style="width:90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-post clearfix">
+                                <div class="image">
+                                    <img src="{{ asset('assets/imgs/shop/thumbnail-4.jpg')}}" alt="#">
+                                </div>
+                                <div class="content pt-10">
+                                    <h6><a href="product-details.html">Chen Sweater</a></h6>
+                                    <p class="price mb-0 mt-5">$89.50</p>
+                                    <div class="product-rate">
+                                        <div class="product-rating" style="width:80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-post clearfix">
+                                <div class="image">
+                                    <img src="{{ asset('assets/imgs/shop/thumbnail-5.jpg')}}" alt="#">
+                                </div>
+                                <div class="content pt-10">
+                                    <h6><a href="product-details.html">Colorful Jacket</a></h6>
+                                    <p class="price mb-0 mt-5">$25</p>
+                                    <div class="product-rate">
+                                        <div class="product-rating" style="width:60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-img wow fadeIn mb-45 animated d-lg-block d-none">
+                            <img src="{{ asset('assets/imgs/banner/banner-11.jpg')}}" alt="">
+                            <div class="banner-text">
+                                <span>Women Zone</span>
+                                <h4>Save 17% on <br>Office Dress</h4>
+                                <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,22 +304,3 @@
     </main>
     @livewireScripts
 </div>
-@push('scripts')
-    <script>
-        var sliderrange = $('#slider-range');
-        var amountprice = $('#amount');
-        $(function() {
-            sliderrange.slider({
-                range: true,
-                min: 0,
-                max: 1000,
-                values: [0, 1000],
-                slide: function(event, ui) {
-                    //amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
-                    @this.set('min_value',ui.values[0]);
-                    @this.set('max_value',ui.values[1]);
-                }
-            });
-        }); 
-    </script>
-@endpush

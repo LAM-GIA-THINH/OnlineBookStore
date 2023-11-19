@@ -53,7 +53,7 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
     });
     //user
     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
-    Route::post('/vnpay-payment', [CheckoutController::class, 'vnpayPayment'])->name('vnpay.payment');
+    Route::post('/place-order', [CheckoutController::class, 'payment'])->name('user.payment');
     Route::get('/handle-vnpay-return', [CheckoutController::class, 'handleVNPayReturn'])->name('vnpay.return');
     Route::get('/payment-result', PaymentResultComponent::class)->name('payment.result.view');
 });
@@ -62,7 +62,11 @@ Route::get('/shop',ShopComponent::class)-> name('shop');
 Route::get('/cart',CartComponent::class)-> name('shop.cart');
 Route::get('/checkout',CheckoutComponent::class)-> name('shop.checkout');
 Route::get('/product{slug}',DetailsComponent::class)-> name('product.details');
-
+Route::get('/products{category_id}',DetailsComponent::class)-> name('product.detailss');
+Route::get('/product-category/{slug}',App\Http\Livewire\CategoryComponent::class)-> name('product.category');
+Route::get('/search',App\Http\Livewire\SearchComponent::class)->name('product.search');
+Route::get('/About',App\Http\Livewire\AboutComponent::class)->name('about');
+Route::get('/Blog',App\Http\Livewire\BlogComponent::class)->name('blog');
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
