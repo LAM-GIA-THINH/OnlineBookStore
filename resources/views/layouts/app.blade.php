@@ -83,7 +83,7 @@
                     @livewire('search')
                         <div class="header-action-right">
                             <div class="header-action-2">
-                                @livewire('wishlist-icon-component')
+                                @livewire('wishlish-icon-component')
                                 @livewire('cart-icon-component')
                             </div>
                         </div>

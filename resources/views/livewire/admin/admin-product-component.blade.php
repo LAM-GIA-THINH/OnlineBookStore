@@ -4,7 +4,7 @@
                 <div class="container">
                     <div class="breadcrumb">
                         <a href="/" rel="nofollow">Home</a>
-                        <span></span> All Categories
+                        <span></span> Tất cả sản phẩm
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                             <div class="card-header"> 
                                 <div class="row align-items-center">
                                     <div class="p-2">
-                                        <h4 class="mb-0">All Categories</h4>
+                                        <h4 class="mb-0">Tất cả sản phẩm</h4>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
@@ -25,7 +25,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 d-flex justify-content-end">
-                                        <a href="{{ route('admin.category.add') }}" class="btn btn-success btn-sx">Add New Category</a>
+                                        <a href="{{ route('admin.product.add') }}" class="btn btn-success btn-sx">Thêm sản phẩm</a>
                                     </div>
                                 </div>
                             </div>
@@ -33,28 +33,35 @@
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>Slug</th>
-                                                    <th>Action</th>
+                                                <th>#</th>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>Stock</th>
+                                                <th>Price</th>
+                                                <th>Category</th>
+                                                <th>Date</th>
+                                                <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($categories as $category)
+                                                @foreach($products as $product)
                                                     <tr>
-                                                        <td>{{$category->id}}</td>
-                                                        <td>{{$category->name}}</td>
-                                                        <td>{{$category->slug}}</td>
+                                                    <td>{{$product->id}}</td>
+                                                    <td><img src="{{ asset('assets/imgs/products/products')}}/{{$product->image}}" alt="{{$product->name}}" width="60" /></td>
+                                                    <td>{{$product->name}}</td>
+                                                    <td>{{$product->stock_status}}</td>
+                                                    <td>{{$product->regular_price}}</td>
+                                                    <td>{{$product->category->name}}</td>
+                                                    <td>{{$product->created_at}}</td>
                                                         <td>
-                                                            <a href="{{route('admin.category.edit', ['category_id'=>$category->id])}}" class="text-info">Edit</a>
-                                                            <a href="{{route('admin.category.delete', ['category_id'=>$category->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>
+                                                            
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                                 
                                             </tbody>
                                         </table>
-                                        {{$categories->links('pagination::bootstrap-4')}}
+                                        {{$products->links('pagination::bootstrap-4')}}
                                 </div>
                                 @livewireScripts
                             </div>

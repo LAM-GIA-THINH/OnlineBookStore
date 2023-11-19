@@ -2,21 +2,21 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Models\Publisher;
 
-class AdminCategoriesComponent extends Component 
+class AdminPublishersComponent extends Component
 {
     use WithPagination;
     public $search = '';
     public function render()
     {
-        $categories = Category::where('name', 'like', '%' . $this->search . '%')
+        $publishers = Publisher::where('name', 'like', '%' . $this->search . '%')
             ->orderBy('id', 'ASC')
             ->paginate(5);
     
-        return view('livewire.admin.admin-categories-component', ['categories' => $categories]);
+        return view('livewire.admin.admin-publishers-component', ['publishers' => $publishers]);
     }
 
     // Method to reset the search
@@ -24,6 +24,4 @@ class AdminCategoriesComponent extends Component
     {
         $this->search = '';
     }
-    
-
 }

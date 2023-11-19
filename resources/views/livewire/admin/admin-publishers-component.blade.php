@@ -4,7 +4,7 @@
                 <div class="container">
                     <div class="breadcrumb">
                         <a href="/" rel="nofollow">Home</a>
-                        <span></span> All Categories
+                        <span></span> Tất cả nhà phát hành
                     </div>
                 </div>
             </div>
@@ -13,10 +13,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                            <div class="card-header"> 
+                                <div class="card-header"> 
                                 <div class="row align-items-center">
                                     <div class="p-2">
-                                        <h4 class="mb-0">All Categories</h4>
+                                        <h4 class="mb-0">Tất cả nhà phát hành</h4>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
@@ -25,7 +25,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 d-flex justify-content-end">
-                                        <a href="{{ route('admin.category.add') }}" class="btn btn-success btn-sx">Add New Category</a>
+                                        <a href="{{ route('admin.publisher.add') }}" class="btn btn-success btn-sx">Thêm nhà phát hành</a>
                                     </div>
                                 </div>
                             </div>
@@ -34,27 +34,27 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name</th>
+                                                    <th>Tên</th>
                                                     <th>Slug</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($categories as $category)
+                                                @foreach($publishers as $publisher)
                                                     <tr>
-                                                        <td>{{$category->id}}</td>
-                                                        <td>{{$category->name}}</td>
-                                                        <td>{{$category->slug}}</td>
+                                                        <td>{{$publisher->id}}</td>
+                                                        <td>{{$publisher->name}}</td>
+                                                        <td>{{$publisher->slug}}</td>
                                                         <td>
-                                                            <a href="{{route('admin.category.edit', ['category_id'=>$category->id])}}" class="text-info">Edit</a>
-                                                            <a href="{{route('admin.category.delete', ['category_id'=>$category->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>
+                                                        <a href="{{route('admin.publisher.edit', ['publisher_id'=>$publisher->id])}}" class="text-info">Edit</a>
+                                                        <a href="{{route('admin.publisher.delete', ['publisher_id'=>$publisher->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>   
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                                 
                                             </tbody>
                                         </table>
-                                        {{$categories->links('pagination::bootstrap-4')}}
+                                        {{$publishers->links('pagination::bootstrap-4')}}
                                 </div>
                                 @livewireScripts
                             </div>
