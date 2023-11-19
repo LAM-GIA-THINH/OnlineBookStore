@@ -50,6 +50,16 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
         Route::get('/admin/category/add', \App\Http\Livewire\Admin\AdminAddCategoryComponent::class)->name('admin.category.add');
         Route::get('/admin/category/edit/{category_id}', \App\Http\Livewire\Admin\AdminEditCategoryComponent::class)->name('admin.category.edit');
         Route::get('/admin/category/delete/{category_id}', \App\Http\Livewire\Admin\AdminDeleteCategoryComponent::class)->name('admin.category.delete');
+        Route::get('/admin/authors', \App\Http\Livewire\Admin\AdminAuthorsComponent::class)->name('admin.authors');
+        Route::get('/admin/author/add', \App\Http\Livewire\Admin\AdminAuthorAddComponent::class)->name('admin.author.add');
+        Route::get('/admin/author/edit/{author_id}', \App\Http\Livewire\Admin\AdminAuthorEditComponent::class)->name('admin.author.edit');
+        Route::get('/admin/author/delete/{author_id}', \App\Http\Livewire\Admin\AdminAuthorDeleteComponent::class)->name('admin.author.delete');
+        Route::get('/admin/publishers', \App\Http\Livewire\Admin\AdminPublishersComponent::class)->name('admin.publishers');
+        Route::get('/admin/publisher/add', \App\Http\Livewire\Admin\AdminPublisherAddComponent::class)->name('admin.publisher.add');
+        Route::get('/admin/publisher/edit/{publisher_id}', \App\Http\Livewire\Admin\AdminPublisherEditComponent::class)->name('admin.publisher.edit');
+        Route::get('/admin/publisher/delete/{publisher_id}', \App\Http\Livewire\Admin\AdminPublisherDeleteComponent::class)->name('admin.publisher.delete');
+        Route::get('/admin/products', \App\Http\Livewire\Admin\AdminProductComponent::class)->name('admin.products');
+        Route::get('/admin/product/add', \App\Http\Livewire\Admin\AdminProductAddComponent::class)->name('admin.product.add');
     });
     //user
     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
