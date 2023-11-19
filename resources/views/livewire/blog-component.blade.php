@@ -14,7 +14,7 @@
                     <div class="col-lg-9">
                         <div class="single-page pr-30">
                             <div class="single-header style-2">
-                                <h1 class="mb-30">Best smartwatch 2022: the top wearables you can buy today</h1>
+                                <h1 class="mb-30">Best smartwatch 2023: the top wearables you can buy today</h1>
                                 <div class="single-header-meta">
                                     <div class="entry-meta meta-1 font-xs mt-15 mb-15">
                                         <span class="post-by">By <a href="#">Jonh</a></span>
@@ -37,10 +37,8 @@
                                 <img src="assets/imgs/blog/blog-6.jpg" alt="">
                             </figure>
                             <div class="single-content">
-                                <p>The best smartwatch needs to be able to monitor your health, track your location when exercising, offer a variety of other apps that you wouldn't normally see on your smartphone, sport good battery life and, perhaps most importantly, have an affordable price.</p>
-                                <p>We've reviewed and ranked all of the best smartwatches on the market right now, and we've made a definitive list of the top 10 devices you can buy today. One of the 10 picks below may just be your perfect next smartwatch.</p>
-                                <p>Those top-end wearables span from the Apple Watch to Fitbits, Garmin watches to Tizen-sporting Samsung watches. There's also Wear OS which is Google's own wearable operating system in the vein of Apple's watchOS - you’ll see it show up in a lot of these devices.</p>
-                                <p>Throughout our review process, we look at the design, features, battery life, spec, price and more for each smartwatch, rank it against the competition and enter it into the list you'll find below.</p>
+                                <p>Laravel is a web application framework with expressive, elegant syntax. A web framework provides a structure and starting point for creating your application, allowing you to focus on creating something amazing while we sweat the details.</p>
+
                                 <h4>1. Apple Watch SE</h4>
                                 <ul class="mb-20">
                                     <li>Updated content on a regular basis</li>
@@ -298,12 +296,12 @@
                                 </div>
                                 <div class="post-block-list post-module-1 post-module-5">
                                     <ul>
-                                        <li class="cat-item cat-item-2"><a href="blog.html">Beauty</a> (3)</li>
-                                        <li class="cat-item cat-item-3"><a href="blog.html">Book</a> (6)</li>
-                                        <li class="cat-item cat-item-4"><a href="blog.html">Design</a> (4)</li>
-                                        <li class="cat-item cat-item-5"><a href="blog.html">Fashion</a> (3)</li>
-                                        <li class="cat-item cat-item-6"><a href="blog.html">Lifestyle</a> (6)</li>
-                                        <li class="cat-item cat-item-7"><a href="blog.html">Travel</a> (2)</li>
+                                        <li class="cat-item cat-item-2"><a href="https://sachyeu.com/2023/05/17/top-10-cuon-sach-ky-nang-duoc-doc-gia-danh-gia-cao-nhat/">Life Skills</a> (3)</li>
+                                        <li class="cat-item cat-item-3"><a href="https://sachyeu.com/2023/04/05/top-nhung-cuon-sach-phat-trien-eq-cho-tre-mau-giao/">Book To Develop EQ For Children</a> (6)</li>
+                                        <li class="cat-item cat-item-4"><a href="https://sachyeu.com/2021/11/12/nhung-cuon-sach-hay-giup-ban-quan-ly-tai-chinh-ca-nhan-thong-minh/">Manage Personal Finance</a> (4)</li>
+                                        <li class="cat-item cat-item-5"><a href="https://sachyeu.com/2021/11/07/4-cuon-sach-chua-lanh-dua-tre-ben-trong-ban/">Healing Books</a> (4)</li>
+                                        <li class="cat-item cat-item-6"><a href="https://sachyeu.com/category/review-sach/van-hoc-tieu-thuyet/">Literature - Novels</a> (10)</li>
+                                        <li class="cat-item cat-item-7"><a href="https://sachyeu.com/category/review-sach/thuong-thuc-cuoc-song/">Enjoy The Life</a> (10)</li>
                                     </ul>
                                 </div>
                             </div>
@@ -320,10 +318,9 @@
                                             </a>
                                         </div>
                                         <div class="post-content media-body">
-                                            <h4 class="post-title mb-10 text-limit-2-row">The litigants on the screen are not actors </h4>
+                                           <a href="https://dcsignaturefactorie.vn/products/dac-nhan-tam"><h4 class="post-title mb-10 text-limit-2-row">ĐẮC NHÂN TÂM</h4></a> 
                                             <div class="entry-meta meta-13 font-xxs color-grey">
-                                                <span class="post-on mr-10">25 April</span>
-                                                <span class="hit-count has-dot ">126k Views</span>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -334,10 +331,9 @@
                                             </a>
                                         </div>
                                         <div class="post-content media-body">
-                                            <h6 class="post-title mb-10 text-limit-2-row">Water Partners With Rag &amp; Bone To Consume</h6>
+                                            <a href="https://dcsignaturefactorie.vn/products/quang-ganh-lo-di-va-vui-song"><h6 class="post-title mb-10 text-limit-2-row">Quẳng gánh lo đi và vui sống</h6></a>
                                             <div class="entry-meta meta-13 font-xxs color-grey">
-                                                <span class="post-on mr-10">25 April</span>
-                                                <span class="hit-count has-dot ">126k Views</span>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -348,10 +344,9 @@
                                             </a>
                                         </div>
                                         <div class="post-content media-body">
-                                            <h6 class="post-title mb-10 text-limit-2-row">The loss is not all that surprising</h6>
+                                        <a href="https://dcsignaturefactorie.vn/products/quang-ganh-lo-di-va-vui-song"><h6 class="post-title mb-10 text-limit-2-row">Lợi Thế Bán Hàng</h6></a>
                                             <div class="entry-meta meta-13 font-xxs color-grey">
-                                                <span class="post-on mr-10">25 April</span>
-                                                <span class="hit-count has-dot ">126k Views</span>
+                                                
                                             </div>
                                         </div>
                                     </div>

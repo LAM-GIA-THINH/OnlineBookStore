@@ -1,11 +1,11 @@
 <div>
     <style>
-    nav svg {
-        height: 20px;
+    .wishlisted{
+        background-color: #F15412 !important;
+        border: 1px solid transparent !important; 
     }
-
-    nav .hidden {
-        display: block;
+    .wishlisted i{
+        color: #fff !important;
     }
     </style>
     @livewireStyles
@@ -81,6 +81,9 @@
                             </div>
                         </div>
                         <div class="row product-grid-3">
+                            @php 
+                                $witems = Cart::instance('wishlist')->content()->pluck('id');
+                            @endphp
                             @foreach($products as $product )
                             <div class="col-lg-4 col-md-4 col-6 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
@@ -126,6 +129,11 @@
                                         </div>
                                         <div class="product-action-1 show">
                                             @livewireStyles
+                                            @if($witems->contains($product->id))
+                                                <a aria-label="Remove From Wishlist" class="action-btn hover-up wishlisted" href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fi-rs-heart"></i></a>
+                                            @else
+                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-heart"></i></a>
+                                            @endif
                                             <a aria-label="Add To Cart" class="action-btn hover-up"
                                                 wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i
                                                     class="fi-rs-shopping-bag-add"></i></a>
@@ -188,8 +196,8 @@
                                     <div id="slider-range"></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                            <span>Range:</span><input type="text" id="amount" name="price"
-                                                placeholder="Add Your Price">
+                                        <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">${{$max_value}} VND</span>
+                                                
                                         </div>
                                     </div>
                                 </div>
@@ -249,3 +257,22 @@
     </main>
     @livewireScripts
 </div>
+@push('scripts')
+    <script>
+        var sliderrange = $('#slider-range');
+        var amountprice = $('#amount');
+        $(function() {
+            sliderrange.slider({
+                range: true,
+                min: 0,
+                max: 1000,
+                values: [0, 1000],
+                slide: function(event, ui) {
+                    //amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
+                    @this.set('min_value',ui.values[0]);
+                    @this.set('max_value',ui.values[1]);
+                }
+            });
+        }); 
+    </script>
+@endpush
