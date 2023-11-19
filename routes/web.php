@@ -53,7 +53,7 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
     });
     //user
     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
-    Route::post('/vnpay-payment', [CheckoutController::class, 'vnpayPayment'])->name('vnpay.payment');
+    Route::post('/place-order', [CheckoutController::class, 'payment'])->name('user.payment');
     Route::get('/handle-vnpay-return', [CheckoutController::class, 'handleVNPayReturn'])->name('vnpay.return');
     Route::get('/payment-result', PaymentResultComponent::class)->name('payment.result.view');
 });
