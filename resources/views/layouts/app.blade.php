@@ -29,7 +29,7 @@
                         @livewire('search')
                         <div class="header-action-right">
                             <div class="header-action-2">
-                                @livewire('wishlish-icon-component')
+                                @livewire('wishlist-icon-component')
                                 @livewire('cart-icon-component')
                                 <!-- <div class="search-style-1">
                             <form action="#">                                
