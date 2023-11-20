@@ -28,9 +28,9 @@
                                     <tbody>
                                     @foreach(Cart::instance('cart')->content() as $item)
                                         <tr>
-                                            <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-') }}{{$item->model->id}}-1.jpg" alt="#"></td>
+                                            <td class="image product-thumbnail"><img src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="#"></td>
                                             <td>
-                                                <h5><a href="product-details.html">{{substr($item->model->name,0,50)}}...</a></h5> <span class="product-qty">x {{$item->qty}}</span>
+                                                <h5><a href="{{route('product.details',['slug'=>$rproduct->slug])}}">{{substr($item->model->name,0,50)}}...</a></h5> <span class="product-qty">x {{$item->qty}}</span>
                                             </td>
                                             <td>{{$item->subtotal}}VND</td>
                                         </tr>

@@ -1,4 +1,14 @@
 <div>
+<style>
+    .wishlisted{
+        background-color: #F15412 !important;
+        border: 1px solid transparent !important; 
+    }
+    .wishlisted i{
+        color: #fff !important;
+    }
+</style>
+@livewireStyles
 <main class="main">
         <section class="home-slider position-relative pt-50">
             <div class="hero-slider-1 dot-style-1 dot-style-1-position-1">
@@ -108,14 +118,17 @@
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
+                        @php 
+                             $witems = Cart::instance('wishlist')->content()->pluck('id');
+                        @endphp
                         @foreach($products as $product )
                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-6">
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="product-details.html">
-                                                <img class="default-img" src="{{ asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg" alt="">
-                                                <img class="hover-img" src="{{ asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpg" alt="">
+                                                <img class="default-img" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
+                                                <img class="hover-img" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                             </a>
                                         </div>
                                         <div class="product-action-1">
@@ -128,22 +141,26 @@
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
-                                        <div class="product-category">
-                                            <a href="shop.html">Clothing</a>
-                                        </div>
+                                        
                                         <h2><a href="product-details.html">{{$product->name}}</a></h2>
-                                        <div class="rating-result" title="90%">
-                                            <span>
-                                                <span>90%</span>
-                                            </span>
+                                       
+                                            
                                         </div>
                                         <div class="product-price">
                                             <span>${{$product->regular_price}} </span>
                                             <span class="old-price">$245.8</span>
                                         </div>
                                         <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
+                                        @livewireStyles
+                                            @if($witems->contains($product->id))
+                                                <a aria-label="Remove From Wishlist" class="action-btn hover-up wishlisted" href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fi-rs-heart"></i></a>
+                                            @else
+                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-heart"></i></a>
+                                            @endif
+                                            <a aria-label="Add To Cart" class="action-btn hover-up"
+                                                wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i
+                                                    class="fi-rs-shopping-bag-add"></i></a>
+                                            @livewireScripts                                     
                                     </div>
                                 </div>
                             </div>
@@ -772,7 +789,7 @@
         <section class="banner-2 section-padding pb-0">
             <div class="container">
                 <div class="banner-img banner-big wow fadeIn animated f-none">
-                    <img src="assets/imgs/banner/banner-4.png" alt="">
+                    <img src="assets/imgs/banner/banner-4.jpg" alt="">
                     <div class="banner-text d-md-block d-none">
                         <h4 class="mb-15 mt-40 text-brand">Repair Services</h4>
                         <h1 class="fw-600 mb-20">We're an Apple <br>Authorised Service Provider</h1>
@@ -781,39 +798,37 @@
                 </div>
             </div>
         </section>
-        <section class="popular-categories section-padding mt-15 mb-25">
-            
-        </section>
+        
         <section class="banners mb-15">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="banner-img wow fadeIn animated">
-                            <img src="assets/imgs/banner/banner-1.png" alt="">
+                            <img src="assets/imgs/banner/banner-1.jpg" alt="">
                             <div class="banner-text">
-                                <span>Smart Offer</span>
-                                <h4>Save 20% on <br>Woman Bag</h4>
-                                <a href="{{route('shop')}}">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                                <span >Smart Offer</span>
+                                <h4 >Save 20% on <br>Woman Bag</h4>
+                                <a href="{{route('shop')}}" class="btn">Shop Now <i class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="banner-img wow fadeIn animated">
-                            <img src="assets/imgs/banner/banner-2.png" alt="">
+                            <img src="assets/imgs/banner/banner-2.jpg" alt="">
                             <div class="banner-text">
-                                <span>Sale off</span>
-                                <h4>Great Summer <br>Collection</h4>
-                                <a href="{{route('shop')}}">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                                <span >Sale off</span>
+                                <h4 >Great Summer <br>Collection</h4>
+                                <a href="{{route('shop')}}" class="btn">Shop Now <i class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 d-md-none d-lg-flex">
                         <div class="banner-img wow fadeIn animated  mb-sm-0">
-                            <img src="assets/imgs/banner/banner-3.png" alt="">
+                            <img src="assets/imgs/banner/banner-3.jpg" alt="">
                             <div class="banner-text">
-                                <span>New Arrivals</span>
-                                <h4>Shop Today’s <br>Deals & Offers</h4>
-                                <a href="{{route('shop')}}">Shop Now <i class="fi-rs-arrow-right"></i></a>
+                                <span style="color:#F">New Arrivals</span>
+                                <h4 >Shop Today’s <br>Deals & Offers</h4>
+                                <a href="{{route('shop')}}" class="btn">Shop Now <i class="fi-rs-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -832,9 +847,9 @@
                         <div class="product-cart-wrap small hover-up">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="product-details.html">
-                                        <img class="default-img" src="{{ asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg" alt="">
-                                        <img class="hover-img" src="{{ asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpg" alt="">
+                                    <a href="">
+                                        <img class="default-img" style="height: 250px" src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
+                                        <img class="hover-img" src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                     </a>
                                 </div>
                                 <div class="product-action-1">
@@ -848,11 +863,7 @@
                                 </div>
                             </div>
                             <div class="product-content-wrap">
-                                <h2><a href="{{route('product.details',['slug'=>$product->slug])}}">{{substr($product->name,0,40)}}...</a></h2>
-                                <div class="rating-result" title="90%">
-                                    <span>
-                                    </span>
-                                </div>
+                                <h2><a href="{{route('product.details',['slug'=>$product->slug])}}">{{substr($product->name,0,60)}}...</a></h2>
                                 <div class="product-price">
                                     <span>{{$product->regular_price}}.VND</span>
                                     <span class="old-price">$185.8</span>
@@ -900,5 +911,5 @@
         </section>
         
     </main>
-
+    @livewireScripts  
 </div>
