@@ -32,6 +32,6 @@ class AdminPublisherDeleteComponent extends Component
     {
         $publisher = Publisher::find($this->publisher_id);
         $publisher->delete();
-        session()->flash ('message', 'publisher has been deleted successfully!');
+        session()->flash ('message', 'Đã xoá nhà phát hành thành công!');
     }
 }

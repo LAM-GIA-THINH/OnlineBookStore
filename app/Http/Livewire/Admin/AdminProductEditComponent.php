@@ -154,7 +154,7 @@ class AdminProductEditComponent extends Component
             $product->publisher_id = $this->publisher_id; // Corrected typo in the field name
             $product->save();
     
-            session()->flash('message', 'Product has been updated!');
+            session()->flash('message', 'Đã cập nhật sản phẩm thành công!');
     }
 
     public function render()

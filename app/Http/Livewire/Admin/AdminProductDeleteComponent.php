@@ -45,6 +45,6 @@ class AdminProductDeleteComponent extends Component
     {
         $product = Product::find($this->product_id);
         $product->delete();
-        session()->flash ('message', 'product has been deleted successfully!');
+        session()->flash ('message', 'Đã xoá sản phẩm thành công!');
     }
 }

@@ -128,7 +128,7 @@ class AdminProductAddComponent extends Component
             $product->publisher_id = $this->publisher_id; // Corrected typo in the field name
             $product->save();
     
-            session()->flash('message', 'Product has been added!');
+            session()->flash('message', 'Thêm sản phẩm thành công!');
     }
     public function render()
     {

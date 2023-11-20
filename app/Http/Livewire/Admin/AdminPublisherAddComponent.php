@@ -33,6 +33,6 @@ class AdminPublisherAddComponent extends Component
             'slug' => $this->slug
         ]);
 
-        session()->flash('message', 'Đã thêm tác giả thành công!');
+        session()->flash('message', 'Đã thêm nhà phát hành thành công!');
     }
 }
