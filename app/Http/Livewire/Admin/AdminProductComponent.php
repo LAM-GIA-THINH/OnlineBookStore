@@ -10,12 +10,25 @@ class AdminProductComponent extends Component
 {
     use WithPagination;
     public $search = '';
+    public $filterStockStatus = '';
+
     public function render()
     {
-        $products = Product::where('name', 'like', '%' . $this->search . '%')
-        ->orderBy('created_at', 'DESC')
-        ->paginate(5);
+        $products = $this->filterStockStatus()
+            ->orderBy('created_at', 'DESC')
+            ->paginate(5);
 
         return view('livewire.admin.admin-product-component', ['products' => $products]);
+    }
+
+    public function filterStockStatus()
+    {
+        $query = Product::where('name', 'like', '%' . $this->search . '%');
+
+        if ($this->filterStockStatus) {
+            $query->where('stock_status', $this->filterStockStatus);
+        }
+
+        return $query;
     }
 }

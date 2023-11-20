@@ -17,19 +17,28 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('short_description')->nullable();
             $table->text('description')->nullable();
-            $table->decimal('regular_price',8,2);
-            $table->decimal('sale_price',8,2)->nullable();
-            $table->string('SKU');
-            $table->enum('stock_status',['instock', 'outofstock']);;
+            $table->decimal('regular_price',8,0);
+            $table->decimal('sale_price',8,0)->nullable();
+            $table->string('ISBN')->nullable();
+            $table->string('cover_type');
+            $table->string('size')->nullable();
+            $table->string('release_date')->nullable();
+            $table->integer('weight')->nullable();
+            $table->string('language')->nullable();
+            $table->string('demographic')->nullable();
+            $table->enum('stock_status',['Còn hàng', 'Hết Hàng']);;
             $table->boolean('featured')->default(false);
             $table->unsignedInteger('quantity')->default(10);
             $table->string('image');
             $table->text('images')->nullable();
             $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->bigInteger('author_id')->unsigned()->nullable();
+            $table->bigInteger('publisher_id')->unsigned()->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->foreign('publisher_id')->references('id')->on('publishers')->onDelete('cascade');
         });
     }
 

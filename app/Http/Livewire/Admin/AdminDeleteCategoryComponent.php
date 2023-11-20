@@ -37,6 +37,6 @@ class AdminDeleteCategoryComponent extends Component
         // Close the modal after deletion
         $category = Category::find($this->category_id);
         $category->delete();
-        session()->flash ('message', 'Category has been deleted successfully!');
+        session()->flash ('message', 'Đã xoá danh mục thành công!');
     }
 }

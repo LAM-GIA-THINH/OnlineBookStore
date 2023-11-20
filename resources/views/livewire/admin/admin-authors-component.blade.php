@@ -3,7 +3,7 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="container">
                     <div class="breadcrumb">
-                        <a href="/" rel="nofollow">Home</a>
+                        <a href="/" rel="nofollow">Trang chủ</a>
                         <span></span> Tất cả tác giả
                     </div>
                 </div>
@@ -20,8 +20,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
-                                            <input wire:model="search" type="text" class="form-control" placeholder="Nhập tên...">
-                                            <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Clear</button>
+                                            <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên...">
+                                            <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Xoá</button>
                                         </div>
                                     </div>
                                     <div class="col-md-6 d-flex justify-content-end">
@@ -37,7 +37,7 @@
                                                     <th>Họ và tên</th>
                                                     <th>Thông tin</th>
                                                     <th>Slug</th>
-                                                    <th>Action</th>
+                                                    <th>Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -48,8 +48,8 @@
                                                         <td>{{$author->bio}}</td>
                                                         <td>{{$author->slug}}</td>
                                                         <td>
-                                                        <a href="{{route('admin.author.edit', ['author_id'=>$author->id])}}" class="text-info">Edit</a>
-                                                        <a href="{{route('admin.author.delete', ['author_id'=>$author->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>    
+                                                        <a href="{{route('admin.author.edit', ['author_id'=>$author->id])}}" class="text-info">Chỉnh sửa</a>
+                                                        <a href="{{route('admin.author.delete', ['author_id'=>$author->id])}}" class="text-danger" style="margin-left:20px;">Xoá</a>    
                                                         </td>
                                                     </tr>
                                                 @endforeach

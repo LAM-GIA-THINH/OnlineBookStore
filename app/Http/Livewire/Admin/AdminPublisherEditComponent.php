@@ -44,7 +44,7 @@ class AdminPublisherEditComponent extends Component
         $publisher->name= $this->name;
         $publisher->slug= $this->slug;
         $publisher->save();
-        session()->flash('message', 'publisher has been updated successfully!');
+        session()->flash('message', 'Đã cập nhật nhà phát hành thành công!');
     }
 
     public function render()

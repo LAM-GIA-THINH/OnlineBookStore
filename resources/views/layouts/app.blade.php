@@ -15,6 +15,20 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     @livewireStyles
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <!-- Add this script after including the Bootstrap Datepicker JS -->
+    <script>
+        $(document).ready(function () {
+            $('.datepicker').datepicker({
+                format: 'dd-mm-yyyy', // Use the desired date format
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
+    @livewireScripts
 </head>
 
 <body>
@@ -117,22 +131,26 @@
                                                 </ul>
                                             </li>
                                             @auth
-                                            <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
-                                                @if(Auth::user()->utype == 'ADM')
+                                            @if(Auth::user()->utype == 'ADM')
+                                            <li><a href="#">Quản lý<i class="fi-rs-angle-down"></i></a>
+                                                
                                                 <ul class="sub-menu">
-                                                    <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                                     <li><a href="{{route('admin.products')}}">Sản phẩm</a></li>
                                                     <li><a href="{{route('admin.categories')}}">Danh mục</a></li>
                                                     <li><a href="{{route('admin.authors')}}">Tác giả</a></li>
                                                     <li><a href="{{route('admin.publishers')}}">Nhà phát hành</a></li>
                                                 </ul>
-                                                @else
-                                                <ul class="sub-menu">
-                                                    <li><a href="{{route('user.dashboard')}}">Dashboard</a></li>
-                                                </ul>
-                                                @endif
 
-                                            </li>
+                                                </li>
+                                                @else
+                                                <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
+                                                
+                                                <ul class="sub-menu">
+                                                    <li><a href="{{route('admin.dashboard')}}">Trang cá nhân</a></li>
+                                                </ul>
+
+                                                </li>
+                                                @endif
                                             @endif
 
                                             <li><a href="{{route('shop')}}">Shop</a></li>
@@ -475,6 +493,7 @@
     <!-- Template  JS -->
     <script src="{{ asset ('assets/js/main.js?v=3.3')}}"></script>
     <script src="{{ asset ('assets/js/shop.js?v=3.3')}}"></script>
+    
 
     @livewireStyles
     @stack('scripts')

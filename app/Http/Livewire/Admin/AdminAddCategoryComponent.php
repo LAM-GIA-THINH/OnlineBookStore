@@ -34,7 +34,7 @@ class AdminAddCategoryComponent extends Component
             'slug' => $this->slug
         ]);
 
-        session()->flash('message', 'Category has been created successfully!');
+        session()->flash('message', 'Đã thêm danh mục thành công!');
     }
 
     // ... rest of your code
