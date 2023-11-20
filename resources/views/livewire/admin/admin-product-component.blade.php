@@ -53,9 +53,10 @@
                                                     <td>{{$product->regular_price}}</td>
                                                     <td>{{$product->category->name}}</td>
                                                     <td>{{$product->created_at}}</td>
-                                                        <td>
-                                                            
-                                                        </td>
+                                                    <td>
+                                                        <a href="{{route('admin.product.edit', ['product_id'=>$product->id])}}" class="text-info">Edit</a>
+                                                        <a href="{{route('admin.product.delete', ['product_id'=>$product->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>   
+                                                    </td>
                                                     </tr>
                                                 @endforeach
                                                 
