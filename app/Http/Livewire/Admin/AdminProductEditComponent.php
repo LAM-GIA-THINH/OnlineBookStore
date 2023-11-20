@@ -60,7 +60,42 @@ class AdminProductEditComponent extends Component
         $this->author_id = $product->author_id;
         $this->publisher_id = $product->publisher_id;
     }
+    public function increaseQuantity()
+    {
+        $this->quantity += 100;
+    }
 
+    public function decreaseQuantity()
+    {
+        $this->quantity -= 100;
+    }
+    public function increaseWeight()
+    {
+        $this->weight += 100;
+    }
+
+    public function decreaseWeight()
+    {
+        $this->weight -= 100;
+    }
+    public function increaseRegularprice()
+    {
+        $this->regular_price += 10000;
+    }
+
+    public function decreaseRegularprice()
+    {
+        $this->regular_price -= 10000;
+    }    
+    public function increaseSaleprice()
+    {
+        $this->sale_price += 10000;
+    }
+
+    public function decreaseSaleprice()
+    {
+        $this->sale_price -= 10000;
+    }    
     public function generateSlug()
     {
         $this->slug= Str::slug($this->name);

@@ -19,24 +19,59 @@ class AdminProductAddComponent extends Component
     public $name;
     public $slug;
     public $description;
-    public $regular_price;
-    public $sale_price;
+    public $regular_price = 10000;
+    public $sale_price = 10000;
     public $ISBN;
     public $cover_type="Bìa mềm";
     public $size;
     public $release_date;
-    public $weight;
+    public $weight =300;
     public $language="Tiếng Việt";
     public $demographic="3+";
     public $stock_status = "instock";
     public $featured = false;
-    public $quantity = 10;
+    public $quantity = 100;
     public $image;
     public $images; // Assuming this is for additional images
     public $category_id;
     public $author_id;
     public $publisher_id;
+    public function increaseQuantity()
+    {
+        $this->quantity += 100;
+    }
 
+    public function decreaseQuantity()
+    {
+        $this->quantity -= 100;
+    }
+    public function increaseWeight()
+    {
+        $this->weight += 100;
+    }
+
+    public function decreaseWeight()
+    {
+        $this->weight -= 100;
+    }
+    public function increaseRegularprice()
+    {
+        $this->regular_price += 10000;
+    }
+
+    public function decreaseRegularprice()
+    {
+        $this->regular_price -= 10000;
+    }    
+    public function increaseSaleprice()
+    {
+        $this->sale_price += 10000;
+    }
+
+    public function decreaseSaleprice()
+    {
+        $this->sale_price -= 10000;
+    }    
     public function generateSlug()
     {
         $this->slug= Str::slug($this->name);
