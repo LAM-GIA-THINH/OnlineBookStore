@@ -43,7 +43,7 @@ class AdminEditCategoryComponent extends Component
         $category->name= $this->name;
         $category->slug= $this->slug;
         $category->save();
-        session()->flash('message', 'Category has been updated successfully!');
+        session()->flash('message', 'Đã cập nhật danh mục thành công!');
     }
 
     public function render()

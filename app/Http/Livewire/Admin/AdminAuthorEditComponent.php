@@ -49,7 +49,7 @@ class AdminAuthorEditComponent extends Component
         $author->bio= $this->bio;
         $author->slug= $this->slug;
         $author->save();
-        session()->flash('message', 'Author has been updated successfully!');
+        session()->flash('message', 'Đã cập nhật tác giả thành công!');
     }
 
     public function render()

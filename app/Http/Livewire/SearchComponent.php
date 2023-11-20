@@ -16,7 +16,7 @@ class SearchComponent extends Component
     public $q;
     public $search_term;
     public $min_value =0;
-    public $max_value = 1000;
+    public $max_value = 100000000;
 
     public function mount(){
         $this->fill(request()->only('q'));

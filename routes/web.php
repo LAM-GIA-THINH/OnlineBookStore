@@ -60,6 +60,8 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
         Route::get('/admin/publisher/delete/{publisher_id}', \App\Http\Livewire\Admin\AdminPublisherDeleteComponent::class)->name('admin.publisher.delete');
         Route::get('/admin/products', \App\Http\Livewire\Admin\AdminProductComponent::class)->name('admin.products');
         Route::get('/admin/product/add', \App\Http\Livewire\Admin\AdminProductAddComponent::class)->name('admin.product.add');
+        Route::get('/admin/product/edit/{product_id}', \App\Http\Livewire\Admin\AdminProductEditComponent::class)->name('admin.product.edit');
+        Route::get('/admin/product/delete/{product_id}', \App\Http\Livewire\Admin\AdminProductDeleteComponent::class)->name('admin.product.delete');
     });
     //user
     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
@@ -77,6 +79,7 @@ Route::get('/product-category/{slug}',App\Http\Livewire\CategoryComponent::class
 Route::get('/search',App\Http\Livewire\SearchComponent::class)->name('product.search');
 Route::get('/About',App\Http\Livewire\AboutComponent::class)->name('about');
 Route::get('/Blog',App\Http\Livewire\BlogComponent::class)->name('blog');
+Route::get('/wishlist',App\Http\Livewire\WishlistComponent::class)->name('shop.wishlist');
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

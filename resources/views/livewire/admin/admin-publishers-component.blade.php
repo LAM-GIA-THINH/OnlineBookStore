@@ -3,7 +3,7 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="container">
                     <div class="breadcrumb">
-                        <a href="/" rel="nofollow">Home</a>
+                        <a href="/" rel="nofollow">Trang chủ</a>
                         <span></span> Tất cả nhà phát hành
                     </div>
                 </div>
@@ -34,9 +34,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Tên</th>
+                                                    <th>Tên nhà nhà phát hành</th>
                                                     <th>Slug</th>
-                                                    <th>Action</th>
+                                                    <th>Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -46,8 +46,8 @@
                                                         <td>{{$publisher->name}}</td>
                                                         <td>{{$publisher->slug}}</td>
                                                         <td>
-                                                        <a href="{{route('admin.publisher.edit', ['publisher_id'=>$publisher->id])}}" class="text-info">Edit</a>
-                                                        <a href="{{route('admin.publisher.delete', ['publisher_id'=>$publisher->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>   
+                                                        <a href="{{route('admin.publisher.edit', ['publisher_id'=>$publisher->id])}}" class="text-info">Chỉnh sửa</a>
+                                                        <a href="{{route('admin.publisher.delete', ['publisher_id'=>$publisher->id])}}" class="text-danger" style="margin-left:20px;">Xoá</a>   
                                                         </td>
                                                     </tr>
                                                 @endforeach

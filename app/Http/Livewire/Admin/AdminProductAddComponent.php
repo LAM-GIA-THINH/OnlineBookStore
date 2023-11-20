@@ -6,6 +6,8 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Author;
+use App\Models\Publisher;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
 
@@ -16,17 +18,60 @@ class AdminProductAddComponent extends Component
     use WithFileUploads;
     public $name;
     public $slug;
-    public $short_description;
     public $description;
-    public $regular_price;
-    public $sale_price;
-    public $sku;
+    public $regular_price = 10000;
+    public $sale_price = 10000;
+    public $ISBN;
+    public $cover_type="Bìa mềm";
+    public $size;
+    public $release_date;
+    public $weight =300;
+    public $language="Tiếng Việt";
+    public $demographic="3+";
     public $stock_status = "instock";
-    public $featured = 0;
-    public $quantity;
+    public $featured = false;
+    public $quantity = 100;
     public $image;
+    public $images; // Assuming this is for additional images
     public $category_id;
+    public $author_id;
+    public $publisher_id;
+    public function increaseQuantity()
+    {
+        $this->quantity += 100;
+    }
 
+    public function decreaseQuantity()
+    {
+        $this->quantity -= 100;
+    }
+    public function increaseWeight()
+    {
+        $this->weight += 100;
+    }
+
+    public function decreaseWeight()
+    {
+        $this->weight -= 100;
+    }
+    public function increaseRegularprice()
+    {
+        $this->regular_price += 10000;
+    }
+
+    public function decreaseRegularprice()
+    {
+        $this->regular_price -= 10000;
+    }    
+    public function increaseSaleprice()
+    {
+        $this->sale_price += 10000;
+    }
+
+    public function decreaseSaleprice()
+    {
+        $this->sale_price -= 10000;
+    }    
     public function generateSlug()
     {
         $this->slug= Str::slug($this->name);
@@ -34,41 +79,68 @@ class AdminProductAddComponent extends Component
     public function addProduct()
     {
         $this->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'short_description' => 'required',
+            'name' => 'required|unique:products',
+            'slug' => 'required|unique:products',
             'description' => 'required',
             'regular_price' => 'required',
             'sale_price' => 'required',
-            'sku' => 'required',
+            'ISBN' => 'required',
+            'cover_type' => 'required',
+            'size' => 'required',
+            'release_date' => 'required|date',
+            'weight' => 'required',
+            'language' => 'required',
+            'demographic' => 'required',
             'stock_status' => 'required',
             'featured' => 'required',
             'quantity' => 'required',
-            'image' => 'required',
-            'category_id' => 'required'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required',
+            'author_id' => 'required',
+            'publisher_id' => 'required',
             ]);
-        $product = new Product();
-        $product->name = $this->name;
-        $product->slug= $this->slug;
-        $product->short_description = $this->short_description;
-        $product->description = $this->description;
-        $product->regular_price = $this->regular_price;
-        $product->sale_price = $this->sale_price;
-        $product->sku = $this->sku;
-        $product->stock_status = $this->stock_status;
-        $product->featured = $this->featured;
-        $product->quantity = $this->quantity;
-        $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('products', $imageName);
-        $product->image = $imageName;
-        $product->category_id = $this->category_id;
-        $product->save();
-        session()->flash('message', 'Product has been added!');
+            $product = new Product();
+            $product->name = $this->name;
+            $product->slug = $this->slug;
+            $product->description = $this->description;
+            $product->regular_price = $this->regular_price;
+            $product->sale_price = $this->sale_price;
+            $product->ISBN = $this->ISBN;
+            $product->cover_type = $this->cover_type;
+            $product->size = $this->size;
+            $product->release_date = $this->release_date;
+            $product->weight = $this->weight;
+            $product->language = $this->language;
+            $product->demographic = $this->demographic;
+            $product->stock_status = $this->stock_status;
+            $product->featured = $this->featured;
+            $product->quantity = $this->quantity;
+    
+            // Upload and store the main product image
+            $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
+            $this->image->storeAs('products', $imageName);
+            $product->image = $imageName;
+    
+            // Additional logic for handling multiple images if needed
+    
+            $product->category_id = $this->category_id;
+            $product->author_id = $this->author_id;
+            $product->publisher_id = $this->publisher_id; // Corrected typo in the field name
+            $product->save();
+    
+            session()->flash('message', 'Thêm sản phẩm thành công!');
     }
     public function render()
     {
         $categories = Category::orderBy('name', 'ASC')->get();
-        return view('livewire.admin.admin-product-add-component', ['categories'=>$categories]);
+        $authors = Author::orderBy('name', 'ASC')->get();
+        $publishers = Publisher::orderBy('name', 'ASC')->get();
+
+        return view('livewire.admin.admin-product-add-component', [
+            'categories' => $categories,
+            'authors' => $authors,
+            'publishers' => $publishers,
+        ]);
     }
 
 

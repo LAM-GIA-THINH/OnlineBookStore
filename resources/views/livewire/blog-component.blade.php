@@ -14,7 +14,7 @@
                     <div class="col-lg-9">
                         <div class="single-page pr-30">
                             <div class="single-header style-2">
-                                <h1 class="mb-30">Best smartwatch 2023: the top wearables you can buy today</h1>
+                                <h1 class="mb-30">Đắc Nhân Tâm</h1>
                                 <div class="single-header-meta">
                                     <div class="entry-meta meta-1 font-xs mt-15 mb-15">
                                         <span class="post-by">By <a href="#">Jonh</a></span>
@@ -33,88 +33,42 @@
                                     </div>
                                 </div>
                             </div>
-                            <figure class="single-thumbnail">
-                                <img src="assets/imgs/blog/blog-6.jpg" alt="">
+                            <figure class="single-thumbnail" style="margin-left: 7%">
+                                <img src="assets/imgs/blog/dacnhantam.jpg" alt="">
                             </figure>
                             <div class="single-content">
-                                <p>Laravel is a web application framework with expressive, elegant syntax. A web framework provides a structure and starting point for creating your application, allowing you to focus on creating something amazing while we sweat the details.</p>
-
-                                <h4>1. Apple Watch SE</h4>
-                                <ul class="mb-20">
-                                    <li>Updated content on a regular basis</li>
-                                    <li>Secure &amp; hassle-free payment</li>
-                                    <li>1-click checkout</li>
-                                    <li>Easy access &amp; smart user dashboard</li>
+                                <ul>
+                                    <li>1951: được in lần đầu tiên tại Sài Gòn (bởi nhà xuất bản Phạm Văn Tươi), do học giả Nguyễn Hiến Lê biên dịch và đặt tựa tiếng Việt</li>
+                                    <li>2005: được nhà xuất bản First News - Trí Việt mua lại bản quyền trực tiếp từ gia đình Dale Carnegie</li>
+                                    <li>2008: chính thức được hiệu chỉnh bởi CEO của Dale Carnegie Việt Nam</li>
                                 </ul>
-                                <h4>2. Samsung Galaxy Watch 3</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque esse eos minima. Eius quo autem impedit quibusdam maiores, voluptatum quae sunt sit nisi voluptatem sed, esse quisquam labore, at est!</p>
-                                <table class="font-md">
-                                    <tbody>
-                                        <tr class="stand-up">
-                                            <th>Stand Up</th>
-                                            <td>
-                                                <p>35″L x 24″W x 37-45″H(front to back wheel)</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="folded-wo-wheels">
-                                            <th>Folded (w/o wheels)</th>
-                                            <td>
-                                                <p>32.5″L x 18.5″W x 16.5″H</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="folded-w-wheels">
-                                            <th>Folded (w/ wheels)</th>
-                                            <td>
-                                                <p>32.5″L x 24″W x 18.5″H</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="door-pass-through">
-                                            <th>Door Pass Through</th>
-                                            <td>
-                                                <p>24</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="frame">
-                                            <th>Frame</th>
-                                            <td>
-                                                <p>Aluminum</p>
-                                            </td>
-                                        </tr>
-                                        <tr class="weight-wo-wheels">
-                                            <th>Weight (w/o wheels)</th>
-                                            <td>
-                                                <p>20 LBS</p>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <h4>3. Apple Watch 6</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque esse eos minima. Eius quo autem impedit quibusdam maiores, voluptatum quae sunt sit nisi voluptatem sed, esse quisquam labore, at est!</p>
-                                <ul class="product-more-infor mb-30">
-                                    <li><span>Type Of Packing</span> Bottle</li>
-                                    <li><span>Color</span> Green, Pink, Powder Blue, Purple</li>
-                                    <li><span>Quantity Per Case</span> 100ml</li>
-                                    <li><span>Ethyl Alcohol</span> 70%</li>
-                                    <li><span>Piece In One</span> Carton</li>
-                                </ul>
-                                <h4>4. Fitbit Versa 3</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque esse eos minima. Eius quo autem impedit quibusdam maiores, voluptatum quae sunt sit nisi voluptatem sed, esse quisquam labore, at est!</p>
+                                <p>Là tác phẩm nổi tiếng nhất thế giới và có tầm ảnh hưởng mạnh mẽ nhất mọi thời đại. Cuốn sách đã được chuyển ngữ sang hầu hết các thứ tiếng trên thế giới và có mặt ở hàng trăm quốc gia. Đây là cuốn sách liên tục đứng đầu danh mục sách bán chạy nhất (Best-selling Books) do thời báo New York Times bình chọn suốt 10 năm liền. Tác phẩm có sức lan tỏa vô cùng rộng lớn - dù bạn đi đến bất cứ đâu, bất kỳ quốc gia nào cũng đều có thể nhìn thấy. Tác phẩm được đánh giá là cuốn sách đầu tiên và hay nhất về thể loại phát triển bản thân, có ảnh hưởng làm thay đổi cuộc đời hàng triệu người trên thế giới. </p>
+                                
+                                <h4>1. Thương hiệu:  <span style="font-size: 18px; color:#4F5D77" > First News</span></h4>
+    
+                                <h4>2. Loại: <span style="font-size: 18px; color:#4F5D77">Bộ di sản từ Dale Carnegie</span></h4>
+                              
+                                <h4>4. Tác giả: </h4>
+                                <p>Tác giả Đắc Nhân Tâm là ông Dale Carnegie tên đầy đủ là Dale Breckenridge Carnegie sinh năm 1888 tại Maryville, Missouri của nước Mỹ. Gia đình ông làm nghề nông chính vì vậy cuộc sống thời thơ ấu của tác giả đều gắn liền với những buổi sáng dậy sớm vắt sữa bò, và làm việc phụ gia đình. Ông tốt nghiệp trường State Teacher’s College tại Warrensburg, sau đó đã làm rất nhiều những công việc khác nhau để kiếm sống.</p>
+                                <p>Đến năm 1911 sau khi có được số tiền vốn 500$ Dale Carnegie quyết định theo đuổi giấc mơ trở thành một nhà thuyết trình của mình. Vậy nhưng cuộc sống lại một lần nữa đưa đẩy ông trở thành một học viên của học viện Nghệ Thuật kịch Mỹ tại New York. Và để rồi sau đó lại rơi vào cảnh phá sản, thất nghiệp. Cũng trong chính thời gian khó khăn này, Dale Carnegie đã cho ra các khóa dạy kỹ năng giao tiếp, khả năng nói trước công chúng. Thật may mắn các lớp học của ông rất được chú ý và thu hút rất nhiều học viên. Dale Carnegie dần trở nên nổi tiếng và có thể kiếm được khoảng 10.000$ (ngày nay) mỗi tuần.</p>
+                                <p>Sau này khi ông trở nên rất nổi tiếng ở nước Mỹ, với những buổi thuyết giảng chật kín người. Những tác phẩm sách của ông viết cũng được xuất bản với số lượng lớn. Thì có lẽ thành tựu lớn nhất, đưa tên tuổi của Dale Carnegie vang danh khắp các nước trên thế giới chính là tác phẩm đắc nhân tâm do nhà xuất bản Simon & Schuster xuất bản vào năm 1936.</p>
                                 <div class="banner-img banner-big wow fadeIn f-none  mb-30  animated">
                                     <img class="border-radius-10" src="assets/imgs/banner/banner-4.png" alt="">
-                                    <div class="banner-text">
-                                        <h6 class="mb-15 mt-40">Repair Services</h6>
-                                        <h5 class="fw-600 mb-20">We're an Apple <br>Authorised Service Provider</h5>
-                                    </div>
+                                    
                                 </div>
-                                <h4>5. Samsung Galaxy Watch Active 2</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque esse eos minima. Eius quo autem impedit quibusdam maiores, voluptatum quae sunt sit nisi voluptatem sed, esse quisquam labore, at est!</p>
+                                <h4>5. Tìm hiểu về cuốn sách Đắc nhân tâm</h4>
+                                <p>Đắc nhân tâm có tên tiếng Anh là How to Win Friends and Influence People là một quyển sách nhằm tự giúp bản thân (self-help) bán chạy nhất từ trước đến nay. Quyển sách này do Dale Carnegie viết và đã được xuất bản lần đầu vào năm 1936, nó đã được bán 15 triệu bản trên khắp thế giới. Nó cũng là quyển sách bán chạy nhất của New York Times trong 10 năm. Tác phẩm được đánh giá là cuốn sách đầu tiên và hay nhất trong thể loại này, có ảnh hưởng thay đổi cuộc đời đối với hàng triệu người trên thế giới.</p>
                                 <ul class="product-more-infor mt-30">
-                                    <li><span>Type Of Packing</span> Bottle</li>
-                                    <li><span>Color</span> Green, Pink, Powder Blue, Purple</li>
-                                    <li><span>Quantity Per Case</span> 100ml</li>
-                                    <li><span>Ethyl Alcohol</span> 70%</li>
-                                    <li><span>Piece In One</span> Carton</li>
+                                    <li>Phần 1: Nghệ thuật ứng xử cơ bản</li>
+                                    <li>phần 2: giới thiệu đến bạn 6 cách để tạo thiện cảm với người khác</li>
+                                    <li>Phần 3: 12 cách hướng người khác suy nghĩ theo bạn</li>
+                                    <li>Phần 4: Chuyển hóa người khác mà không gây ra sự chống đối hay oán hận</li>
+                                    
                                 </ul>
+                                <div class="banner-img banner-big wow fadeIn f-none  mb-30  animated">
+                                    <img class="border-radius-10" src="assets/imgs/banner/banner-10.png" alt="">
+                                    
+                                </div>
                             </div>
                             <div class="entry-bottom mt-50 mb-30 wow fadeIn  animated" style="visibility: visible; animation-name: fadeIn;">
                                 <div class="tags w-50 w-sm-100">
@@ -357,10 +311,9 @@
                                             </a>
                                         </div>
                                         <div class="post-content media-body">
-                                            <h6 class="post-title mb-10 text-limit-2-row">We got a right to pick a little fight, Bonanza </h6>
+                                        <a href="https://dcsignaturefactorie.vn/products/bo-danh-dau-trang-sach-bookmark"><h6 class="post-title mb-10 text-limit-2-row">Bộ Đánh Dấu Trang Sách </h6></a>
                                             <div class="entry-meta meta-13 font-xxs color-grey">
-                                                <span class="post-on mr-10">25 April</span>
-                                                <span class="hit-count has-dot ">126k Views</span>
+                                               
                                             </div>
                                         </div>
                                     </div>
@@ -371,24 +324,16 @@
                                             </a>
                                         </div>
                                         <div class="post-content media-body">
-                                            <h6 class="post-title mb-10 text-limit-2-row">My entrance exam was on a book of matches </h6>
+                                        <a href="https://dcsignaturefactorie.vn/products/quyen-sach-vang-golden-book"><h6 class="post-title mb-10 text-limit-2-row">Quyển Sách Vàng</h6></a>
                                             <div class="entry-meta meta-13 font-xxs color-grey">
-                                                <span class="post-on mr-10">25 April</span>
-                                                <span class="hit-count has-dot ">126k Views</span>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!--Widget ads-->
-                            <div class="banner-img wow fadeIn mb-45 animated d-lg-block d-none animated">
-                                <img src="assets/imgs/banner/banner-11.jpg" alt="">
-                                <div class="banner-text">
-                                    <span>Women Zone</span>
-                                    <h4>Save 17% on <br>Office Dress</h4>
-                                    <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                                </div>
-                            </div>
+                      
                             <!--Widget Tags-->
                             <div class="sidebar-widget widget_tags mb-50">
                                 <div class="widget-header position-relative mb-20 pb-10">

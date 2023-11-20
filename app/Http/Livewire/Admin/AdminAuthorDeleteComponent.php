@@ -32,6 +32,6 @@ class AdminAuthorDeleteComponent extends Component
     {
         $author = Author::find($this->author_id);
         $author->delete();
-        session()->flash ('message', 'Author has been deleted successfully!');
+        session()->flash ('message', 'Đã xoá tác giả thành công!');
     }
 }
