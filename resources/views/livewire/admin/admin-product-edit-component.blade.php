@@ -4,7 +4,7 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="container">
                     <div class="breadcrumb">
-                        <a href="/" rel="nofollow">Home</a>
+                        <a href="/" rel="nofollow">Trang chủ</a>
                         <span></span> Chỉnh sửa sản phẩm 
                     </div>
                 </div>
@@ -238,7 +238,7 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>                                                                                                                                           
-                                        <button type="submit" class="btn btn-primary float-end">Submit</button>
+                                        <button type="submit" class="btn btn-primary float-end">Cập nhật</button>
                                 </form>
                                 </div>
                                 @livewireScripts

@@ -3,8 +3,8 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="container">
                     <div class="breadcrumb">
-                        <a href="/" rel="nofollow">Home</a>
-                        <span></span> All Categories
+                        <a href="/" rel="nofollow">Trang chủ</a>
+                        <span></span> Tất cả Danh mục
                     </div>
                 </div>
             </div>
@@ -16,16 +16,16 @@
                             <div class="card-header"> 
                                 <div class="row align-items-center">
                                     <div class="p-2">
-                                        <h4 class="mb-0">All Categories</h4>
+                                        <h4 class="mb-0">Tất cả Danh mục</h4>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
-                                            <input wire:model="search" type="text" class="form-control" placeholder="Search by name...">
-                                            <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Clear</button>
+                                            <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên...">
+                                            <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Xoá</button>
                                         </div>
                                     </div>
                                     <div class="col-md-6 d-flex justify-content-end">
-                                        <a href="{{ route('admin.category.add') }}" class="btn btn-success btn-sx">Add New Category</a>
+                                        <a href="{{ route('admin.category.add') }}" class="btn btn-success btn-sx">Thêm danh mục</a>
                                     </div>
                                 </div>
                             </div>
@@ -34,9 +34,9 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Name</th>
+                                                    <th>Tên</th>
                                                     <th>Slug</th>
-                                                    <th>Action</th>
+                                                    <th>Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -46,8 +46,8 @@
                                                         <td>{{$category->name}}</td>
                                                         <td>{{$category->slug}}</td>
                                                         <td>
-                                                            <a href="{{route('admin.category.edit', ['category_id'=>$category->id])}}" class="text-info">Edit</a>
-                                                            <a href="{{route('admin.category.delete', ['category_id'=>$category->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>
+                                                            <a href="{{route('admin.category.edit', ['category_id'=>$category->id])}}" class="text-info">Chỉnh sửa</a>
+                                                            <a href="{{route('admin.category.delete', ['category_id'=>$category->id])}}" class="text-danger" style="margin-left:20px;">Xoá</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

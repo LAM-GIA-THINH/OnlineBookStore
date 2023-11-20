@@ -3,7 +3,7 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="container">
                     <div class="breadcrumb">
-                        <a href="/" rel="nofollow">Home</a>
+                        <a href="/" rel="nofollow">Trang chủ</a>
                         <span></span> Tất cả sản phẩm
                     </div>
                 </div>
@@ -20,8 +20,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
-                                            <input wire:model="search" type="text" class="form-control" placeholder="Search by name...">
-                                            <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Clear</button>
+                                            <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên...">
+                                            <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Xoá</button>
                                         </div>
                                     </div>
                                     <div class="col-md-6 d-flex justify-content-end">
@@ -34,13 +34,13 @@
                                             <thead>
                                                 <tr>
                                                 <th>#</th>
-                                                <th>Image</th>
-                                                <th>Name</th>
-                                                <th>Stock</th>
-                                                <th>Price</th>
-                                                <th>Category</th>
-                                                <th>Date</th>
-                                                <th>Action</th>
+                                                <th>Ảnh</th>
+                                                <th>Tên sách</th>
+                                                <th>Tình trạng hàng</th>
+                                                <th>Giá</th>
+                                                <th>Danh mục</th>
+                                                <th>Ngày thêm</th>
+                                                <th>Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -54,8 +54,8 @@
                                                     <td>{{$product->category->name}}</td>
                                                     <td>{{$product->created_at}}</td>
                                                     <td>
-                                                        <a href="{{route('admin.product.edit', ['product_id'=>$product->id])}}" class="text-info">Edit</a>
-                                                        <a href="{{route('admin.product.delete', ['product_id'=>$product->id])}}" class="text-danger" style="margin-left:20px;">Delete</a>   
+                                                        <a href="{{route('admin.product.edit', ['product_id'=>$product->id])}}" class="text-info">Chỉnh sửa</a>
+                                                        <a href="{{route('admin.product.delete', ['product_id'=>$product->id])}}" class="text-danger" style="margin-left:20px;">Xoá</a>   
                                                     </td>
                                                     </tr>
                                                 @endforeach

@@ -2,9 +2,9 @@
     <div class="row">
         <div class="offset-md-4 col-md-8 text-center">
             <div class="confirmation-box p-4" style="max-width: 400px;">
-                <h4 class="pb-3">Do you want to delete this record?</h4>
-                <button type="button" class="btn btn-secondary" wire:click="cancelDelete">Cancel</button>
-                <button type="button" class="btn btn-danger" wire:click="deleteProduct">Delete</button>
+                <h4 class="pb-3">Bạn có muốn xoá không?</h4>
+                <button type="button" class="btn btn-secondary" wire:click="cancelDelete">Trở lại</button>
+                <button type="button" class="btn btn-danger" wire:click="deleteProduct">Xoá</button>
             </div>
         </div>
     </div>

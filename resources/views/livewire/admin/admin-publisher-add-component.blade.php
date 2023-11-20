@@ -3,8 +3,8 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="container">
                     <div class="breadcrumb">
-                        <a href="/" rel="nofollow">Home</a>
-                        <span></span> Thêm nhà xuất bản
+                        <a href="/" rel="nofollow">Trang chủ</a>
+                        <span></span> Thêm nhà phát hành
                     </div>
                 </div>
             </div>
@@ -16,10 +16,10 @@
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-md-6">
-                                        Thêm nhà xuất bản
+                                        Thêm nhà phát hành
                                         </div>
                                         <div class="col-md-6">
-                                        <a href="{{route('admin.publishers')}}" class="btn btn-success float-end">Tất cả nhà xuất bản</a>
+                                        <a href="{{route('admin.publishers')}}" class="btn btn-success float-end">Tất cả nhà phát hành</a>
                                         </div>
                                     </div>
                                 </div>
@@ -29,20 +29,20 @@
                                     @endif
                                 <form wire:submit.prevent="storePublisher">
                                     <div class="mb-3 mt-3">
-                                        <label for="name" class="form-label">Tên</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Enter publisher name" wire:model="name" wire:keyup="generateSlug"/>
+                                        <label for="name" class="form-label">Tên nhà phát hành</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Nhập tên" wire:model="name" wire:keyup="generateSlug"/>
                                         @error('name')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="slug" class="form-label">Slug</label>
-                                        <input type="text" name="slug" class="form-control" placeholder="Enter publisher slug" wire:model="slug"/>
+                                        <input type="text" name="slug" class="form-control" placeholder="Nhập slug" wire:model="slug"/>
                                         @error('slug')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror                                        
                                     </div>                                    
-                                        <button type="submit" class="btn btn-primary float-end">Submit</button>
+                                        <button type="submit" class="btn btn-primary float-end">Thêm</button>
                                 </form>
                                 </div>
                                 @livewireScripts

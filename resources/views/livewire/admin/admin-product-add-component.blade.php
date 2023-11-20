@@ -3,7 +3,7 @@
             <div class="page-header breadcrumb-wrap">
                 <div class="container">
                     <div class="breadcrumb">
-                        <a href="/" rel="nofollow">Home</a>
+                        <a href="/" rel="nofollow">Trang chủ</a>
                         <span></span> Thêm sản phẩm mới
                     </div>
                 </div>
