@@ -91,10 +91,10 @@
                                         <div class="product-img product-img-zoom">
                                             <a href="{{route('product.details',['slug'=>$product->slug])}}">
                                                 <img class="default-img"
-                                                    src="{{ asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg"
+                                                    src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}"
                                                     alt="{{$product->name}}">
                                                 <img class="hover-img"
-                                                    src="{{ asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpg"
+                                                    src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}"
                                                     alt="{{$product->name}}">
                                             </a>
                                         </div>
@@ -242,14 +242,7 @@
                             </div>
                             <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
                                 Fillter</a>
-                        </div>
-                            <img src="{{ asset('assets/imgs/banner/banner-11.jpg')}}" alt="">
-                            <div class="banner-text">
-                                <span>Women Zone</span>
-                                <h4>Save 17% on <br>Office Dress</h4>
-                                <a href="shop.html">Shop Now <i class="fi-rs-arrow-right"></i></a>
-                            </div>
-                        </div>
+                    
                     </div>
                 </div>
             </div>

@@ -79,6 +79,7 @@ Route::get('/product-category/{slug}',App\Http\Livewire\CategoryComponent::class
 Route::get('/search',App\Http\Livewire\SearchComponent::class)->name('product.search');
 Route::get('/About',App\Http\Livewire\AboutComponent::class)->name('about');
 Route::get('/Blog',App\Http\Livewire\BlogComponent::class)->name('blog');
+Route::get('/wishlist',App\Http\Livewire\WishlistComponent::class)->name('shop.wishlist');
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
