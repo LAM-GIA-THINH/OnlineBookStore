@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
@@ -68,11 +69,12 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
     Route::post('/place-order', [CheckoutController::class, 'payment'])->name('user.payment');
     Route::get('/handle-vnpay-return', [CheckoutController::class, 'handleVNPayReturn'])->name('vnpay.return');
     Route::get('/payment-result', PaymentResultComponent::class)->name('payment.result.view');
+    Route::get('/order-detail' , [OrderDetailController::class, 'show'])->name('order.detail.view');
+    Route::get('/checkout',CheckoutComponent::class)-> name('shop.checkout');
 });
 Route::get('/',HomeComponent::class)-> name('home.index');
 Route::get('/shop',ShopComponent::class)-> name('shop');
 Route::get('/cart',CartComponent::class)-> name('shop.cart');
-Route::get('/checkout',CheckoutComponent::class)-> name('shop.checkout');
 Route::get('/product{slug}',DetailsComponent::class)-> name('product.details');
 Route::get('/products{category_id}',DetailsComponent::class)-> name('product.detailss');
 Route::get('/product-category/{slug}',App\Http\Livewire\CategoryComponent::class)-> name('product.category');

@@ -19,10 +19,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone');
-            $table->string('amount');
+            $table->unsignedBigInteger('amount');
             $table->string('payment_method');
-            $table->string('payment_status');
-            $table->string('order_status');
+            $table->tinyInteger('payment_status');
+            $table->tinyInteger('order_status');
+            $table->unsignedBigInteger('sub_total');
+            $table->unsignedBigInteger('tax');
+            $table->unsignedBigInteger('shipping');
             $table->string('note')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
