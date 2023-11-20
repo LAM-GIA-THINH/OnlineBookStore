@@ -131,22 +131,26 @@
                                                 </ul>
                                             </li>
                                             @auth
-                                            <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
-                                                @if(Auth::user()->utype == 'ADM')
+                                            @if(Auth::user()->utype == 'ADM')
+                                            <li><a href="#">Quản lý<i class="fi-rs-angle-down"></i></a>
+                                                
                                                 <ul class="sub-menu">
-                                                    <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                                     <li><a href="{{route('admin.products')}}">Sản phẩm</a></li>
                                                     <li><a href="{{route('admin.categories')}}">Danh mục</a></li>
                                                     <li><a href="{{route('admin.authors')}}">Tác giả</a></li>
                                                     <li><a href="{{route('admin.publishers')}}">Nhà phát hành</a></li>
                                                 </ul>
-                                                @else
-                                                <ul class="sub-menu">
-                                                    <li><a href="{{route('user.dashboard')}}">Dashboard</a></li>
-                                                </ul>
-                                                @endif
 
-                                            </li>
+                                                </li>
+                                                @else
+                                                <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
+                                                
+                                                <ul class="sub-menu">
+                                                    <li><a href="{{route('admin.dashboard')}}">Trang cá nhân</a></li>
+                                                </ul>
+
+                                                </li>
+                                                @endif
                                             @endif
 
                                             <li><a href="{{route('shop')}}">Shop</a></li>
