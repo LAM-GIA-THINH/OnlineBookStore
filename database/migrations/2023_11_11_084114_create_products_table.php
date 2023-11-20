@@ -34,11 +34,11 @@ return new class extends Migration
             $table->text('images')->nullable();
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->bigInteger('author_id')->unsigned()->nullable();
-            $table->bigInteger('publiser_id')->unsigned()->nullable();
+            $table->bigInteger('publisher_id')->unsigned()->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
-            $table->foreign('publiser_id')->references('id')->on('publishers')->onDelete('cascade');
+            $table->foreign('publisher_id')->references('id')->on('publishers')->onDelete('cascade');
         });
     }
 

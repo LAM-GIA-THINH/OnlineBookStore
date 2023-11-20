@@ -21,7 +21,15 @@
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên...">
+                                            <div class="input-group-text" style="height: 50px;">
+                                                <select wire:model="filterStockStatus" class="form-control" style="width: 120px;">
+                                                    <option value="">Trạng thái ▼</option>
+                                                    <option value="Còn hàng">Còn hàng</option>
+                                                    <option value="Hết hàng">Hết hàng</option>
+                                                </select>
+                                            </div>
                                             <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Xoá</button>
+
                                         </div>
                                     </div>
                                     <div class="col-md-6 d-flex justify-content-end">
