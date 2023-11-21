@@ -31,4 +31,8 @@ class AdminProductComponent extends Component
 
         return $query;
     }
+    public function clearSearch()
+    {
+        $this->search = '';
+    }
 }

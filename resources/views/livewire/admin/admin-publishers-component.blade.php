@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
-                                            <input wire:model="search" type="text" class="form-control" placeholder="Search by name...">
+                                            <input wire:model="search" type="text" class="form-control" placeholder="Search by name..." style="border: 1px solid #ccc; border-radius: 4px;">
                                             <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Clear</button>
                                         </div>
                                     </div>

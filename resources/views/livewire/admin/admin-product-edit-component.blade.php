@@ -5,7 +5,7 @@
                 <div class="container">
                     <div class="breadcrumb">
                         <a href="/" rel="nofollow">Trang chủ</a>
-                        <span></span> Chỉnh sửa sản phẩm 
+                        <span></span> Cập nhật sản phẩm 
                     </div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                                 <div class="card-header">
                                     <div class="row">
                                         <div class="col-md-6">
-                                        Chỉnh sửa sản phẩm 
+                                        Cập nhật sản phẩm 
                                         </div>
                                         <div class="col-md-6">
                                         <a href="{{route('admin.products')}}" class="btn btn-success float-end">Tất cả sản phẩm</a>

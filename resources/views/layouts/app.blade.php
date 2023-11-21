@@ -93,15 +93,15 @@
                                                     <li class="sub-mega-menu sub-mega-menu-width-22">
                                                         <a class="menu-title" href="#">Truyện chữ</a>
                                                         <ul>
-                                                            <li><a href="product-details.html">Truyện chữ Hàn Quốc</a>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-chu-han-quoc']) }}">Truyện chữ Hàn Quốc</a>
                                                             </li>
-                                                            <li><a href="product-details.html">Truyện chữ Nhật Bản</a>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-chu-nhat-ban']) }}">Truyện chữ Nhật Bản</a>
                                                             </li>
-                                                            <li><a href="product-details.html">Truyện chữ Phương Tây</a>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-chu-phuong-tay']) }}">Truyện chữ Phương Tây</a>
                                                             </li>
-                                                            <li><a href="product-details.html">Truyện chữ Việt Nam</a>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-chu-viet-nam']) }}">Truyện chữ Việt Nam</a>
                                                             </li>
-                                                            <li><a href="product-details.html">Truyện chữ Trung Quốc</a>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-chu-trung-quoc']) }}">Truyện chữ Trung Quốc</a>
                                                             </li>
 
                                                         </ul>
@@ -109,23 +109,23 @@
                                                     <li class="sub-mega-menu sub-mega-menu-width-22">
                                                         <a class="menu-title" href="#">Truyện tranh</a>
                                                         <ul>
-                                                            <li><a href="product-details.html">Truyện tranh Hàn Quốc</a>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-tranh-han-quoc']) }}">Truyện tranh Hàn Quốc</a>
                                                             </li>
-                                                            <li><a href="product-details.html">Truyện tranh Nhật Bản</a>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-tranh-nhat-ban']) }}">Truyện tranh Nhật Bản</a>
                                                             </li>
-                                                            <li><a href="product-details.html">Truyện tranh Phương
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-tranh-phuong-tay']) }}">Truyện tranh Phương
                                                                     Tây</a></li>
-                                                            <li><a href="product-details.html">Truyện tranh Việt Nam</a>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-tranh-viet-nam']) }}">Truyện tranh Việt Nam</a>
                                                             </li>
-                                                            <li><a href="product-details.html">Truyện tranh Trung
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-tranh-trung-quoc']) }}">Truyện tranh Trung
                                                                     Quốc</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="sub-mega-menu sub-mega-menu-width-22">
                                                         <a class="menu-title" href="#">Khác</a>
                                                         <ul>
-                                                            <li><a href="product-details.html">Art Book</a></li>
-                                                            <li><a href="product-details.html">Truyện chọn bộ</a></li>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'artbook']) }}">Art Book</a></li>
+                                                            <li><a href="{{ route('product.category', ['slug' => 'truyen-chon-bo']) }}">Truyện chọn bộ</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
@@ -135,6 +135,7 @@
                                             <li><a href="#">Quản lý<i class="fi-rs-angle-down"></i></a>
                                                 
                                                 <ul class="sub-menu">
+                                                    <li><a href="{{route('admin.orders')}}">Đơn hàng</a></li>
                                                     <li><a href="{{route('admin.products')}}">Sản phẩm</a></li>
                                                     <li><a href="{{route('admin.categories')}}">Danh mục</a></li>
                                                     <li><a href="{{route('admin.authors')}}">Tác giả</a></li>
@@ -146,7 +147,7 @@
                                                 <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
                                                 
                                                 <ul class="sub-menu">
-                                                    <li><a href="{{route('admin.dashboard')}}">Trang cá nhân</a></li>
+                                                    <li><a href="{{route('user.dashboard')}}">Trang cá nhân</a></li>
                                                 </ul>
 
                                                 </li>

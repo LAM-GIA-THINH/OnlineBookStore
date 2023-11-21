@@ -20,8 +20,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
-                                            <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên...">
-                                            <div class="input-group-text" style="height: 50px;">
+                                            <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên..." style="border: 1px solid #ccc; border-radius: 4px;">
+                                            <div class="input-group-text" style="height: 48px;">
                                                 <select wire:model="filterStockStatus" class="form-control" style="width: 120px;">
                                                     <option value="">Trạng thái ▼</option>
                                                     <option value="Còn hàng">Còn hàng</option>
