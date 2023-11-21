@@ -13,8 +13,7 @@ class HomeComponent extends Component
     use WithPagination;
     public $pageSize = 8;
     public $orderBy ="Default Sorting";
-    public $min_value =0;
-    public $max_value = 100000000;
+   
 
     public function store($product_id, $product_name, $product_price){
         Cart::instance('cart')->add($product_id,$product_name,1,$product_price)->associate('\App\Models\Product');

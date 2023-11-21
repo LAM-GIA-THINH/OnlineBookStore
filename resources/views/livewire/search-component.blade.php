@@ -193,11 +193,10 @@
                             </div>
                             <div class="price-filter">
                                 <div class="price-filter-inner">
-                                    <div id="slider-range"></div>
+                                    <div id="slider-range" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                        <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">${{$max_value}} VND</span>
-                                                
+                                            <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">{{$max_value}} VND</span>
                                         </div>
                                     </div>
                                 </div>
@@ -257,9 +256,9 @@
         $(function() {
             sliderrange.slider({
                 range: true,
-                min: 0,
-                max: 1000,
-                values: [0, 1000],
+                min: 1000,
+                max: 1000000,
+                values: [1000, 1000000],
                 slide: function(event, ui) {
                     //amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
                     @this.set('min_value',ui.values[0]);
