@@ -75,7 +75,7 @@
                                                     <td>{{$order->phone}}</td>
                                                     <td>    @if($order->payment_method == 'cod')
                                                             Thanh toán khi giao hàng
-                                                        @elseif($order->payment_method == 'vnpay')
+                                                        @elseif($order->payment_method == 'vnp')
                                                             Chuyển khoản
                                                         @endif
                                                     </td>

@@ -89,6 +89,10 @@
                                         <input type="text" name="amount" class="form-control"  wire:model="amount" readonly>
                                     </div>
                                     <div class="mb-3 mt-3">
+                                        <label for="tracking" class="form-label">Vận chuyển</label>
+                                        <input type="text" name="tracking" class="form-control"  wire:model="tracking" >
+                                    </div>         
+                                    <div class="mb-3 mt-3">
                                         <label for="order_status" class="form-label" wire:model="order_status">Trạng thái đơn hàng</label>
                                             <select class="form-control" name="order_status" wire:model="order_status" >
                                                 <option value="0">Chờ duyệt</option>
@@ -98,7 +102,7 @@
                                                 <option value="4">Đã huỷ</option>
                                             </select>
                                     </div>   
-                                                                                                                                        
+                                                                                                                               
                                         <button type="submit" class="btn btn-primary float-end">Cập nhật</button>
                                 </form>
                                 </div>

@@ -78,6 +78,10 @@
                                             <td colspan="2" class="product-subtotal"><span
                                                     class="font-xl text-brand fw-900">{{$order->amount}} VND</span></td>
                                         </tr>
+                                        <tr>
+                                            <th>Tình trạng vận chuyển</th>
+                                            <td colspan="2"><a href="{{$order->tracking}}">{{$order->tracking}}</a></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

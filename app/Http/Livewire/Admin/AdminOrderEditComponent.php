@@ -20,6 +20,7 @@ class AdminOrderEditComponent extends Component
     public $shipping;
     public $amount;
     public $note;
+    public $tracking;
 
     public function mount($order_id){
         $order = Order::find($order_id);
@@ -36,12 +37,14 @@ class AdminOrderEditComponent extends Component
         $this->shipping = number_format($order->shipping, 0, ',', ',') . ' VND';
         $this->amount = number_format($order->amount, 0, ',', ',') . ' VND';
         $this->note = $order->note;
+        $this->tracking = $order->tracking;
     }
 
     public function updateOrder()
     {
             $order = Order::find($this->order_id);
             $order->order_status = $this->order_status;
+            $order->tracking = $this->tracking;
             $order->save();
     
             session()->flash('message', 'Đã cập nhật đơn hàng thành công!');

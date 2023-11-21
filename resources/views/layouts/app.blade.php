@@ -147,7 +147,7 @@
                                                 <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
                                                 
                                                 <ul class="sub-menu">
-                                                    <li><a href="{{route('admin.dashboard')}}">Trang cá nhân</a></li>
+                                                    <li><a href="{{route('user.dashboard')}}">Trang cá nhân</a></li>
                                                 </ul>
 
                                                 </li>
