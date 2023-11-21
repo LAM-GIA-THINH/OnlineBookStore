@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
-                                            <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên...">
+                                            <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên..." style="border: 1px solid #ccc; border-radius: 4px;">
                                             <button wire:click="clearSearch" class="btn btn-secondary btn-sm">Xoá</button>
                                         </div>
                                     </div>

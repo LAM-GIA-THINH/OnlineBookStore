@@ -63,6 +63,8 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
         Route::get('/admin/product/add', \App\Http\Livewire\Admin\AdminProductAddComponent::class)->name('admin.product.add');
         Route::get('/admin/product/edit/{product_id}', \App\Http\Livewire\Admin\AdminProductEditComponent::class)->name('admin.product.edit');
         Route::get('/admin/product/delete/{product_id}', \App\Http\Livewire\Admin\AdminProductDeleteComponent::class)->name('admin.product.delete');
+        Route::get('/admin/orders', \App\Http\Livewire\Admin\AdminOrdersComponent::class)->name('admin.orders');
+        Route::get('/admin/order/edit/{order_id}', \App\Http\Livewire\Admin\AdminOrderEditComponent::class)->name('admin.order.edit');
     });
     //user
     Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
