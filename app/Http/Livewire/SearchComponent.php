@@ -15,8 +15,8 @@ class SearchComponent extends Component
     public $orderBy ="Default Sorting";
     public $q;
     public $search_term;
-    public $min_value =0;
-    public $max_value = 100000000;
+    public $min_value =10000;
+    public $max_value = 900000;
 
     public function mount(){
         $this->fill(request()->only('q'));

@@ -13,8 +13,8 @@ class ShopComponent extends Component
     use WithPagination;
     public $pageSize = 12;
     public $orderBy ="Default Sorting";
-    public $min_value =0;
-    public $max_value = 100000000;
+    public $min_value =10000;
+    public $max_value = 900000;
 
     public function store($product_id, $product_name, $product_price){
         Cart::instance('cart')->add($product_id,$product_name,1,$product_price)->associate('\App\Models\Product');

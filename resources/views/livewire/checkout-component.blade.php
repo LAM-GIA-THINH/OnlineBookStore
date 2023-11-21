@@ -40,32 +40,31 @@
                                                 <h5>
                                                     <a
                                                         href="{{ route('product.details',['slug'=>$item->model->slug]) }}">
-                                                        {{ substr($item->model->name, 0, 50) }}...
+                                                        {{ $item->model->name }}
                                                     </a>
                                                 </h5>
                                                 <span class="product-qty">x {{ $item->qty }}</span>
                                             </td>
-                                            <td>{{ $item->subtotal }}VND</td>
+                                            <td>{{number_format(intval(str_replace(',', '',$item->subtotal)))}} VND</td>
                                         </tr>
                                         @endforeach
                                         <tr>
                                             <th>SubTotal</th>
-                                            <td class="product-subtotal" colspan="2">{{Cart::subtotal()}}VND</td>
+                                            <td class="product-subtotal" colspan="2">{{number_format(intval(str_replace(',', '',Cart::subtotal())))}} VND</td>
                                         </tr>
                                         <tr>
                                             <th>Tax</th>
-                                            <td class="product-subtotal" colspan="2">{{Cart::tax()}}VND</td>
+                                            <td class="product-subtotal" colspan="2">{{number_format(intval(str_replace(',', '',Cart::tax())))}} VND</td>
                                         </tr>
 
                                         <tr>
                                             <th>Shipping</th>
-                                            <td colspan="2"><em>30.000 VND</em></td>
+                                            <td colspan="2"><em>30,000 VND</em></td>
                                         </tr>
                                         <tr>
                                             <th>Total</th>
                                             <td colspan="2" class="product-subtotal"><span
-                                                    class="font-xl text-brand fw-900">{{intval(str_replace(',', '',
-                                                    Cart::total())) +30000 }}VND</span></td>
+                                                class="font-xl text-brand fw-900">{{number_format(intval(str_replace(',', '',Cart::total())) +30000)}} VND</span></td>
                                         </tr>
                                     </tbody>
                                 </table>

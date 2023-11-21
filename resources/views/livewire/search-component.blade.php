@@ -124,7 +124,7 @@
                                             </span>
                                         </div>
                                         <div class="product-price">
-                                            <span>{{$product->regular_price}} VND</span>
+                                            <span>{{number_format($product->regular_price)}} VND</span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
@@ -193,11 +193,10 @@
                             </div>
                             <div class="price-filter">
                                 <div class="price-filter-inner">
-                                    <div id="slider-range"></div>
+                                    <div id="slider-range" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                        <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">${{$max_value}} VND</span>
-                                                
+                                            <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">{{$max_value}} VND</span>
                                         </div>
                                     </div>
                                 </div>
@@ -257,11 +256,11 @@
         $(function() {
             sliderrange.slider({
                 range: true,
-                min: 0,
-                max: 1000,
-                values: [0, 1000],
+                min: 10000,
+                max: 900000,
+                values: [10000, 900000],
                 slide: function(event, ui) {
-                    //amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
+                    
                     @this.set('min_value',ui.values[0]);
                     @this.set('max_value',ui.values[1]);
                 }

@@ -163,7 +163,7 @@
                                 </div>
                             </div>
                             <div class="hotline d-none d-lg-block">
-                                <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+1) 0000-000-000 </p>
+                                <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+84) 0966-948-914 </p>
                             </div>
                             <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up
                                 to 40%

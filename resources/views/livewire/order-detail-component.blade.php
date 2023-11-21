@@ -57,26 +57,27 @@
                                                         href="{{route('product.details',['slug'=>$products[$item->product_id]->slug])}}">{{$products[$item->product_id]->name}}</a>
                                                 </h5> <span class="product-qty">x {{$item->quantity}}</span>
                                             </td>
-                                            <td>{{$item->amount}} VND</td>
+                                            <td>{{number_format($item->amount)}} VND</td>
                                         </tr>
                                         @endforeach
                                         <tr>
                                             <th>Tổng tiền các sản phẩm</th>
-                                            <td class="product-subtotal" colspan="2">{{$order->sub_total}} VND</td>
+                                            <td class="product-subtotal" colspan="2">{{number_format($order->sub_total)}} VND</td>
                                         </tr>
                                         <tr>
                                             <th>Thuế</th>
-                                            <td class="product-subtotal" colspan="2">{{$order->tax}} VND</td>
+                                            <td class="product-subtotal" colspan="2"> {{number_format($order->tax)}} VND</td>
                                         </tr>
 
                                         <tr>
                                             <th>Phí giao hàng</th>
-                                            <td colspan="2"><em>{{$order->shipping}} VND</em></td>
+                                            <td colspan="2"><em>{{number_format($order->shipping)}} VND</em></td>
                                         </tr>
                                         <tr>
                                             <th>Tổng cộng</th>
                                             <td colspan="2" class="product-subtotal"><span
-                                                    class="font-xl text-brand fw-900">{{$order->amount}} VND</span></td>
+                                           
+                                                    class="font-xl text-brand fw-900">{{number_format($order->amount)}} VND</span></td>
                                         </tr>
                                         <tr>
                                             <th>Tình trạng vận chuyển</th>
