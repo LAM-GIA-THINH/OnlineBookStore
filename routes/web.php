@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\OrderDetailController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
@@ -29,21 +29,21 @@ use App\Http\Controllers\CheckoutController;
 //     return view('welcome');
 // });
 
-Route::get('/',\App\Http\Livewire\HomeComponent::class)->name('dashboard');
-Route::get('/shop',\App\Http\Livewire\ShopComponent::class)->name('shop');
-Route::get('/cart',\App\Http\Livewire\CartComponent::class)->name('shop.cart');
-Route::get('/checkout',\App\Http\Livewire\CheckoutComponent::class)->name('shop.checkout');
+Route::get('/', \App\Http\Livewire\HomeComponent::class)->name('dashboard');
+Route::get('/shop', \App\Http\Livewire\ShopComponent::class)->name('shop');
+Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('shop.cart');
+Route::get('/checkout', \App\Http\Livewire\CheckoutComponent::class)->name('shop.checkout');
 
 
 Route::group(['prefix' => 'auth'], function () {
     Route::get('facebook', [AuthController::class, 'redirectToFacebook'])->name('auth.facebook');
     Route::get('facebook/callback', [AuthController::class, 'handleFacebookCallback']);
-    
+
     Route::get('google', [AuthController::class, 'redirectToGoogle'])->name('auth.google');
     Route::get('google/callback', [AuthController::class, 'handleGoogleCallback']);
 });
 
-Route::group(['middleware' => ['userLogin', 'verified']], function() {
+Route::group(['middleware' => ['userLogin', 'verified']], function () {
     Route::group(['middleware' => 'authAdmin'], function () {
         //admin
         Route::get('/admin/dashboard', \App\Http\Livewire\Admin\AdminDashBoardComponent::class)->name('admin.dashboard');
@@ -69,23 +69,24 @@ Route::group(['middleware' => ['userLogin', 'verified']], function() {
     Route::post('/place-order', [CheckoutController::class, 'payment'])->name('user.payment');
     Route::get('/handle-vnpay-return', [CheckoutController::class, 'handleVNPayReturn'])->name('vnpay.return');
     Route::get('/payment-result', PaymentResultComponent::class)->name('payment.result.view');
-    Route::get('/order-detail' , [OrderDetailController::class, 'show'])->name('order.detail.view');
-    Route::get('/checkout',CheckoutComponent::class)-> name('shop.checkout');
+    Route::get('/order-detail/{order_id}', [OrderController::class, 'show'])->name('order.detail.view');
+    Route::post('/order-cancel/{order_id}', [OrderController::class, 'cancel'])->name('order.cancel');
+    Route::get('/checkout', CheckoutComponent::class)->name('shop.checkout');
 });
-Route::get('/',HomeComponent::class)-> name('home.index');
-Route::get('/shop',ShopComponent::class)-> name('shop');
-Route::get('/cart',CartComponent::class)-> name('shop.cart');
-Route::get('/product{slug}',DetailsComponent::class)-> name('product.details');
-Route::get('/products{category_id}',DetailsComponent::class)-> name('product.detailss');
-Route::get('/product-category/{slug}',App\Http\Livewire\CategoryComponent::class)-> name('product.category');
-Route::get('/search',App\Http\Livewire\SearchComponent::class)->name('product.search');
-Route::get('/About',App\Http\Livewire\AboutComponent::class)->name('about');
-Route::get('/Blog',App\Http\Livewire\BlogComponent::class)->name('blog');
-Route::get('/wishlist',App\Http\Livewire\WishlistComponent::class)->name('shop.wishlist');
+Route::get('/', HomeComponent::class)->name('home.index');
+Route::get('/shop', ShopComponent::class)->name('shop');
+Route::get('/cart', CartComponent::class)->name('shop.cart');
+Route::get('/product{slug}', DetailsComponent::class)->name('product.details');
+Route::get('/products{category_id}', DetailsComponent::class)->name('product.detailss');
+Route::get('/product-category/{slug}', App\Http\Livewire\CategoryComponent::class)->name('product.category');
+Route::get('/search', App\Http\Livewire\SearchComponent::class)->name('product.search');
+Route::get('/About', App\Http\Livewire\AboutComponent::class)->name('about');
+Route::get('/Blog', App\Http\Livewire\BlogComponent::class)->name('blog');
+Route::get('/wishlist', App\Http\Livewire\WishlistComponent::class)->name('shop.wishlist');
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

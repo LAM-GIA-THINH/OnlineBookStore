@@ -1,4 +1,9 @@
 <div>
+    @if (Cart::instance('cart')->count() == 0)
+    @php
+    redirect()->route('shop');
+    @endphp
+    @else
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -26,18 +31,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach(Cart::instance('cart')->content() as $item)
+                                        @foreach (Cart::instance('cart')->content() as $item)
                                         <tr>
                                             <td class="image product-thumbnail"><img
-                                                    src="{{asset('assets/imgs/products/products')}}/{{$item->model->image}}"
+                                                    src="{{ asset('assets/imgs/products/products') }}/{{ $item->model->image }}"
                                                     alt="#"></td>
                                             <td>
                                                 <h5>
                                                     <a
-                                                        href="{{route('product.details',['slug'=>$item->model->slug])}}">{{substr($item->model->name,0,50)}}...</a>
-                                                </h5> <span class="product-qty">x {{$item->qty}}</span>
+                                                        href="{{ route('product.details',['slug'=>$item->model->slug]) }}">
+                                                        {{ substr($item->model->name, 0, 50) }}...
+                                                    </a>
+                                                </h5>
+                                                <span class="product-qty">x {{ $item->qty }}</span>
                                             </td>
-                                            <td>{{$item->subtotal}}VND</td>
+                                            <td>{{ $item->subtotal }}VND</td>
                                         </tr>
                                         @endforeach
                                         <tr>
@@ -108,7 +116,7 @@
                                     <input type="hidden" name="sub_total" value="{{Cart::subtotal()}}" />
                                     <input type="hidden" name="tax" value="{{Cart::tax()}}" />
                                     <input type="hidden" name="shipping" value="30000" />
-                                    
+
 
                                     <button type="submit" name="redirect" class="btn btn-fill-out btn-block mt-30">Place
                                         Order</button>
@@ -120,4 +128,5 @@
             </div>
         </section>
     </main>
+    @endif
 </div>
