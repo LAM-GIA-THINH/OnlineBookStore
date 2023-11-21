@@ -22,8 +22,8 @@ class OrderController extends Controller
             $products = [];
 
             foreach ($orderItems as $value) {
-                $products[$value->product_id] = Product::where('id', $value->product_id)->first();
-            }
+                $products[$value->product_id] = Product::withTrashed()->where('id', $value->product_id)->first();
+            } 
 
             session(['order' => $order]);
             session(['orderItems' => $orderItems]);
@@ -41,8 +41,8 @@ class OrderController extends Controller
         if ($order) {
             $orderItems = Order_Item::where('order_id', $order_id)->get();
             foreach ($orderItems as $value) {
-                product::where('id', $value->product_id)->increment('quantity', $value->quantity);
-            }
+                product::withTrashed()->where('id', $value->product_id)->increment('quantity', $value->quantity);
+            } 
             $order->order_status = 4;
             $order->save();
             return redirect(route('order.detail.view', ['order_id' => $order_id]));
