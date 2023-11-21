@@ -20,6 +20,7 @@ class Order extends Model
         'sub_total',
         'tax',
         'shipping',
+        'tracking',
         'amount',
         'note',
     ];

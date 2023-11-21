@@ -5,8 +5,8 @@
                 {{$message}}
             </h3>
             @if(isset($order_id))
-            <a href="/order-detail/?id={{$order_id}}" name="redirect" class="btn btn-fill-out btn-block mt-30">Order
-                detail</a>
+            <a href="{{route('order.detail.view', ['order_id' => $order_id])}}"
+                class="btn btn-fill-out btn-block mt-30">Chi tiết đơn hàng</a>
             @endif
         </div>
     </section>

@@ -24,8 +24,9 @@ return new class extends Migration
             $table->tinyInteger('payment_status');
             $table->tinyInteger('order_status');
             $table->unsignedBigInteger('sub_total');
-            $table->unsignedBigInteger('tax');
-            $table->unsignedBigInteger('shipping');
+            $table->unsignedBigInteger('tax')->default(0);
+            $table->unsignedBigInteger('shipping')->default(0);
+            $table->string('tracking')->nullable();
             $table->string('note')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

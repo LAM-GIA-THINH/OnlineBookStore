@@ -54,20 +54,19 @@ class CheckoutController extends Controller
                 ]));
             } else {
                 // Xử lý tình huống khi không đủ sản phẩm
-                // Ví dụ: thông báo cho người dùng hoặc xử lý khác tùy thuộc vào yêu cầu của bạn
                 dd("không đủ sản phẩm");
             }
         }
-        
-        
-        
+
+
+
         if ($data["payment_option"] == "cod") {
             $order->save();
             foreach ($orderItems as $value) {
                 $value->save();
             }
             Cart::instance('cart')->destroy();
-            return redirect()->to('order-detail/?id=' . $orderId);
+            return redirect(route('order.detail.view', ['order_id' => $orderId]));
         } else if ($data["payment_option"] == "vnp") {
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
             $vnp_ReturnUrl = "http://localhost:8000/handle-vnpay-return";
