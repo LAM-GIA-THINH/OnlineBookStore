@@ -4,12 +4,19 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Cart;
+use App\Models\Product;
 
 class CartComponent extends Component
 {
     public function increateQuantity($rowId){
+
         $product = Cart::instance('cart')->get($rowId);
-        $qty = $product->qty + 1;
+        $products = Product::find($product->id);
+        if($product->qty < $products->quantity)
+            $qty = $product->qty + 1;
+        else
+            $qty = $product->qty;
+        
         Cart::instance('cart')->update($rowId, $qty);
         $this->emitTo('livewire.cart-icon-component','refreshComponent' );
     }

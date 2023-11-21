@@ -1,3 +1,4 @@
+
 <div>
 @livewireStyles
     
@@ -56,7 +57,7 @@
                                         </div>
                                         <div class="clearfix product-price-cover">
                                             <div class="product-price primary-color float-left">
-                                                <ins><span class="text-brand">{{$product->regular_price}}VND</span></ins>
+                                                <ins><span class="text-brand">{{number_format($product->regular_price)}} VND</span></ins>
                                                 <!-- <ins><span class="old-price font-md ml-15">$200.00</span></ins> -->
                                                 <span class="save-price  font-md color3 ml-15">25% Off</span>
                                             </div>
@@ -75,15 +76,19 @@
                                        
                                         <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                         <div class="detail-extralink">
-                                            <div class="detail-qty border radius">
-                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                                <span class="qty-val">1</span>
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                            </div>
+                                            
                                             <div class="product-extra-link2">
                                                 <button type="button" class="button button-add-to-cart" wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to cart</button>
-                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                                <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+                                                @php 
+                                                    $witems = Cart::instance('wishlist')->content()->pluck('id');
+                                                @endphp
+                                                
+                                                @if($witems->contains($product->id))
+                                                <a aria-label="Remove From Wishlist" class="action-btn hover-up wishlisted" href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fi-rs-heart" ></i></a>
+                                                 @else
+                                                 <a aria-label="Add To Wishlist" class="action-btn hover-up"   wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-heart" ></i></a>
+                                                @endif
+                                                
                                             </div>
                                         </div>
                                         <ul class="product-meta font-xs color-grey mt-50">
@@ -137,13 +142,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-content-wrap">
-                                                    <h2><a href="{{route('product.details',['slug'=>$rproduct->slug])}}" tabindex="0">{{substr($rproduct->name,0,60)}}...</a></h2>
-                                                    <div class="rating-result" title="90%">
-                                                        <span>
-                                                        </span>
-                                                    </div>
+                                                    <h2><a href="{{route('product.details',['slug'=>$rproduct->slug])}}" tabindex="0">{{substr($rproduct->name,0,60)}}</a></h2>
+                                                    
                                                     <div class="product-price">
-                                                        <span>{{$rproduct->regular_price}}VND</span>
+                                                        <span>{{number_format($product->regular_price)}} VND</span>
                                                         <!-- <span class="old-price">$245.8</span> -->
                                                     </div>
                                                 </div>
@@ -184,7 +186,7 @@
                                 </div>
                                 <div class="content pt-10">
                                     <h5><a href="{{route('product.details',['slug'=>$nproduct->slug])}}">{{substr($nproduct->name,0,50)}}...</a></h5>
-                                    <p class="price mb-0 mt-5">{{$nproduct->regular_price}}VND</p>
+                                    <p class="price mb-0 mt-5">{{number_format($product->regular_price)}} VND</p>
                                     
                                 </div>
                             </div>
@@ -198,3 +200,22 @@
     </main>
     @livewireScripts
 </div>
+@push('scripts')
+    <script>
+        var sliderrange = $('#slider-range');
+        var amountprice = $('#amount');
+        $(function() {
+            sliderrange.slider({
+                range: true,
+                min: 10000,
+                max: 900000,
+                values: [10000, 900000],
+                slide: function(event, ui) {
+                    
+                    @this.set('min_value',ui.values[0]);
+                    @this.set('max_value',ui.values[1]);
+                }
+            });
+        }); 
+    </script>
+@endpush

@@ -41,8 +41,8 @@
                                             <h5 class="product-name"><a href="{{route('product.details',['slug'=>$item->model->slug])}}">{{$item->model->name}}</a></h5>
                                             <!-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
                                             </p> -->
-                                        </td>
-                                        <td class="price" data-title="Price"><span>{{$item->model->regular_price}} VND</span></td>
+                                        </td> 
+                                        <td class="price" data-title="Price"><span>{{number_format(intval(str_replace(',', '',$item->model->regular_price)))}} VND</span></td>
                                         <td class="text-center" data-title="Stock">
                                             <div class="detail-qty border radius  m-auto">
                                                 <a href="{{route('shop.cart')}}" class="qty-down" wire:click.prevent="decreateQuantity('{{$item->rowId}}')"><i class="fi-rs-angle-small-down"></i></a>
@@ -51,7 +51,7 @@
                                             </div>
                                         </td>
                                         <td class="text-right" data-title="Cart">
-                                            <span>{{$item->subtotal}}VND </span>
+                                            <span>{{number_format(intval(str_replace(',', '',$item->subtotal)))}} VND </span>
                                         </td>
                                         <td class="action" data-title="Remove" ><a href="#" class="text-muted" wire:click.prevent="destroy('{{$item->rowId}}')"><i class="fi-rs-trash"></i></a></td>
                                     </tr>   
@@ -69,12 +69,12 @@
                             @endif
                         </div>
                         <div class="cart-action text-end">
-                            <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-shuffle mr-10"></i>Update Cart</a>
-                            <a class="btn "><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
+                         
+                            <a class="btn " href="{{route('shop')}}"><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
                         </div>
                         <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
                         <div class="row mb-50">
-                           
+                        @if(Cart::instance('cart')->count()>0)
                             <div class="col-lg-6 col-md-12" style="margin-left:25%">
                                 <div class="border p-md-4 p-30 border-radius cart-totals">
                                     <div class="heading_s1 mb-3">
@@ -85,19 +85,19 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="cart_total_label">Cart Subtotal</td>
-                                                    <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">{{Cart::subtotal()}}</span></td>
+                                                    <td class="cart_total_amount">{{number_format(intval(str_replace(',', '',Cart::subtotal())))}} VND</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Tax</td>
-                                                    <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">{{Cart::tax()}}</span></td>
+                                                    <td class="cart_total_amount">{{number_format(intval(str_replace(',', '',Cart::tax())) )}} VND</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Shipping</td>
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i> Free Shipping</td>
+                                                    <td class="cart_total_amount">30,000 VND</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
-                                                    <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">{{Cart::total()}}</span></strong></td>
+                                                    <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">{{number_format(intval(str_replace(',', '',Cart::total())) +30000)}} VND</span></strong></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -105,6 +105,8 @@
                                     <a href="{{route('shop.checkout')}}" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Proceed To CheckOut</a>
                                 </div>
                             </div>
+                        
+                        @endif
                         </div>
                     </div>
                 </div>

@@ -120,7 +120,7 @@
                                         </h2>
                                        
                                         <div class="product-price">
-                                            <span>{{$product->regular_price}} VND </span>
+                                            <span>{{number_format($product->regular_price)}} VND </span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
@@ -254,9 +254,9 @@
         $(function() {
             sliderrange.slider({
                 range: true,
-                min: 1000,
-                max: 1000000,
-                values: [1000, 1000000],
+                min: 10000,
+                max: 900000,
+                values: [10000, 900000],
                 slide: function(event, ui) {
                     //amountprice.val("$" + ui.values[0] + " - $" + ui.values[1]);
                     @this.set('min_value',ui.values[0]);

@@ -58,7 +58,7 @@
                                         </h2>
                                        
                                         <div class="product-price">
-                                            <span>{{$item->model->regular_price}} VND </span>
+                                            <span>{{number_format($product->regular_price)}} VND </span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
