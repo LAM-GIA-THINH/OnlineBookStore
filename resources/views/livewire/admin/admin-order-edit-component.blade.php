@@ -96,10 +96,10 @@
                                         <label for="order_status" class="form-label" wire:model="order_status">Trạng thái đơn hàng</label>
                                             <select class="form-control" name="order_status" wire:model="order_status" >
                                                 <option value="0">Chờ duyệt</option>
-                                                <option value="1">Đã duyệt</option>
+                                                <option value="1">Duyệt</option>
                                                 <option value="2">Đang giao hàng</option>
                                                 <option value="3">Hoàn thành</option>
-                                                <option value="4">Đã huỷ</option>
+                                                <option value="4">Huỷ</option>
                                             </select>
                                     </div>   
                                                                                                                                

@@ -31,7 +31,7 @@ return new class extends Migration
             $table->boolean('featured')->default(false);
             $table->unsignedInteger('quantity')->default(10);
             $table->string('image');
-            $table->text('images')->nullable();
+            $table->softDeletes();
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->bigInteger('author_id')->unsigned()->nullable();
             $table->bigInteger('publisher_id')->unsigned()->nullable();
