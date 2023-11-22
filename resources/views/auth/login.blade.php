@@ -4,8 +4,8 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="/" rel="nofollow">Home</a>                    
-                    <span></span> Login
+                    <a href="/" rel="nofollow">Trang chủ</a>                    
+                    <span></span> Đăng nhập
                 </div>
             </div>
         </div>
@@ -18,8 +18,13 @@
                                 <div class="login_wrap widget-taber-content p-30 background-white border-radius-10 mb-md-5 mb-lg-0 mb-sm-5">
                                     <div class="padding_eight_all bg-white">
                                         <div class="heading_s1">
-                                            <h3 class="mb-30">Login</h3>
+                                            <h3 class="mb-30">Đăng nhập</h3>
                                         </div>
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger mt-3 mb-3">
+                                                Email hoặc mật khẩu sai vui lòng thử lại.
+                                            </div>
+                                        @endif
                                         <form method="post" action="{{ route('login') }}">
                                             @csrf
                                             <div>
@@ -28,16 +33,16 @@
                                             </div>
 
                                             <div class="mt-4">
-                                                <x-label for="password" value="{{ __('Password') }}" />
+                                                <x-label for="password" value="{{ __('Mật khẩu') }}" />
                                                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
                                             </div>
 
-                                            <div class="block mt-4">
+                                            <!-- <div class="block mt-4">
                                                 <label for="remember_me" class="flex items-center">
                                                     <x-checkbox id="remember_me" name="remember" style="width: 20px; height: 15px; margin-top: 2px;" />
-                                                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                                                    <span class="ml-2 text-sm text-gray-600">{{ __('Ghi nhớ') }}</span>
                                                 </label>
-                                            </div>
+                                            </div> -->
 
 
 
@@ -45,12 +50,12 @@
                                             <div class="flex items-center justify-end mt-4">
                                                 @if (Route::has('password.request'))
                                                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                                                        {{ __('Forgot your password?') }}
+                                                        {{ __('Quên mật khẩu?') }}
                                                     </a>
                                                 @endif
 
                                                 <x-button class="ml-110">
-                                                    {{ __('Log in') }}
+                                                    {{ __('Đăng nhập') }}
                                                 </x-button>
                                             </div>
                                             <div class="flex items-center justify-end mt-4">

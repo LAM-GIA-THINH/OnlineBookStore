@@ -33,7 +33,18 @@ class NewPasswordController extends Controller
             'token' => ['required'],
             'email' => ['required', 'email'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ], [
+            'email.required' => 'Vui lòng nhập địa chỉ email.',
+            'email.string' => 'Địa chỉ email phải là một chuỗi ký tự.',
+            'email.email' => 'Địa chỉ email không hợp lệ.',
+            'email.max' => 'Địa chỉ email không được vượt quá 255 ký tự.',
+            'email.unique' => 'Địa chỉ email đã được sử dụng.',
+            'email.ends_with' => 'Địa chỉ email phải là địa chỉ Gmail.',
+            'password.required' => 'Vui lòng nhập mật khẩu.',
+            'password.confirmed' => 'Mật khẩu xác nhận không khớp.',
+            'password.*' => 'Mật khẩu phải chứa ít nhất 8 ký tự.',
         ]);
+
 
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
