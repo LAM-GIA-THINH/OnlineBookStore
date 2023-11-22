@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+use App\Mail\ShippingNotification;
 
 class AdminOrderEditComponent extends Component
 {
@@ -42,12 +45,23 @@ class AdminOrderEditComponent extends Component
 
     public function updateOrder()
     {
-            $order = Order::find($this->order_id);
-            $order->order_status = $this->order_status;
-            $order->tracking = $this->tracking;
-            $order->save();
-    
-            session()->flash('message', 'Đã cập nhật đơn hàng thành công!');
+        $order = Order::find($this->order_id);
+        $previousStatus = $order->order_status;
+
+        // Update the order status
+        $order->order_status = $this->order_status;
+        $order->tracking = $this->tracking;
+        $order->save();
+
+        // Check if the order status is now "Đang giao hàng"
+        if (in_array($this->order_status, ['2', '3', '4']) && $previousStatus !== $this->order_status) {
+            // Fetch the associated user's email from the User model using the relationship
+            $userEmail = $order->user->email;
+        
+            // Send the shipping email
+            Mail::to($userEmail)->send(new ShippingNotification($order));
+        }        
+        session()->flash('message', 'Đã cập nhật đơn hàng thành công!');
     }
 
 

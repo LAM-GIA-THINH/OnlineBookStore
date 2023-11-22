@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="tracking" class="form-label">Vận chuyển</label>
-                                        <input type="text" name="tracking" class="form-control"  wire:model="tracking" >
+                                        <input type="text" name="tracking" class="form-control"  wire:model="tracking" @if($order_status != '2') readonly @endif>
                                     </div>         
                                     <div class="mb-3 mt-3">
                                         <label for="order_status" class="form-label" wire:model="order_status">Trạng thái đơn hàng</label>
