@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone');
+            $table->string('email');
             $table->unsignedBigInteger('amount');
             $table->string('payment_method');
             $table->tinyInteger('payment_status');

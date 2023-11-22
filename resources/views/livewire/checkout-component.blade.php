@@ -85,6 +85,9 @@
                                     <div class="form-group">
                                         <input required="" type="text" name="phone" placeholder="Phone *">
                                     </div>
+                                    <div class="form-group">
+                                        <input required="" type="text" name="email" placeholder="Email *">
+                                    </div>
 
                                     <div class="mb-20">
                                         <h5>Additional information</h5>
@@ -119,6 +122,19 @@
 
                                     <button type="submit" name="redirect" class="btn btn-fill-out btn-block mt-30">Place
                                         Order</button>
+                                        @if ($errors->any())
+                                        <div class=" alert alert-danger mt-3 mb-3">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                @if($error === 'The email has already been taken.')
+                                                <li>Email đã được sử dụng</li>
+                                                @else
+                                                <li>{{ $error }}</li>
+                                                @endif
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @endif
                                 </form>
                             </div>
                         </div>

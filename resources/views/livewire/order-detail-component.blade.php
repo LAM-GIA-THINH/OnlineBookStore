@@ -100,6 +100,9 @@
                                 <input type="text" value="SĐT: {{$order->phone}}" disabled>
                             </div>
                             <div class="form-group">
+                                <input type="text" value="Email: {{$order->email}}" disabled>
+                            </div>
+                            <div class="form-group">
                                 <input type="text"
                                     value="PT Thanh toán: {{$order->payment_method == 'cod' ? 'Thanh toán khi nhận hàng' : 'VNPay'}}"
                                     disabled>

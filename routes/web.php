@@ -7,6 +7,7 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\PaymentResultComponent;
 use App\Http\Livewire\ShopComponent;
+use App\Http\Livewire\User\UserOrdersComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Livewire\DetailsComponent;
@@ -43,7 +44,7 @@ Route::group(['prefix' => 'auth'], function () {
     Route::get('google/callback', [AuthController::class, 'handleGoogleCallback']);
 });
 
-Route::group(['middleware' => ['userLogin', 'verified']], function () {
+Route::group(['middleware' => ['userLogin']], function () {
     Route::group(['middleware' => 'authAdmin'], function () {
         //admin
         Route::get('/admin/dashboard', \App\Http\Livewire\Admin\AdminDashBoardComponent::class)->name('admin.dashboard');
@@ -67,7 +68,11 @@ Route::group(['middleware' => ['userLogin', 'verified']], function () {
         Route::get('/admin/order/edit/{order_id}', \App\Http\Livewire\Admin\AdminOrderEditComponent::class)->name('admin.order.edit');
     });
     //user
-    Route::get('/user/dashboard', \App\Http\Livewire\User\UserDashBoardComponent::class)->name('user.dashboard');
+    Route::group(['prefix'=> 'user'], function () {
+        Route::get('profile', [ProfileController::class, 'edit'])->name('user.profile.edit');
+        Route::put('profile', [ProfileController::class, 'update'])->name('user.profile.update');
+        Route::get('orders', UserOrdersComponent::class)->name('user.orders.show');
+    });
     Route::post('/place-order', [CheckoutController::class, 'payment'])->name('user.payment');
     Route::get('/handle-vnpay-return', [CheckoutController::class, 'handleVNPayReturn'])->name('vnpay.return');
     Route::get('/payment-result', PaymentResultComponent::class)->name('payment.result.view');

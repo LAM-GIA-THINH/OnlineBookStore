@@ -14,6 +14,7 @@ class Order extends Model
         'address',
         'name',
         'phone',
+        'email',
         'order_status',
         'payment_method',
         'payment_status',

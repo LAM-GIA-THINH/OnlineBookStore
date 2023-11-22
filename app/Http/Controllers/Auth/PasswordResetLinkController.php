@@ -26,7 +26,15 @@ class PasswordResetLinkController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'ends_with:@gmail.com', 'exists:users,email', ],
+        ], [
+            'email.required' => 'Vui lòng nhập địa chỉ email.',
+            'email.string' => 'Địa chỉ email phải là một chuỗi ký tự.',
+            'email.email' => 'Địa chỉ email không hợp lệ.',
+            'email.max' => 'Địa chỉ email không được vượt quá 255 ký tự.',
+            'email.ends_with' => 'Địa chỉ email phải là địa chỉ Gmail.',
+            'email.exists' => 'Địa chỉ email không tồn tại trong hệ thống.',
+            'email.unique' => 'Bạn đã gửi quá nhiều yêu cầu. Vui lòng thử lại sau một thời gian.',
         ]);
 
         // We will send the password reset link to this user. Once we have attempted
@@ -37,8 +45,8 @@ class PasswordResetLinkController extends Controller
         );
 
         return $status == Password::RESET_LINK_SENT
-                    ? back()->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+            ? back()->with('status', __($status))
+            : back()->withInput($request->only('email'))
+                ->withErrors(['email' => __($status)]);
     }
 }
