@@ -499,11 +499,16 @@
   
   <!-- Messenger Plugin chat Code -->
         <!-- Messenger Plugin chat Code -->
+        @auth
+        @if(Auth::user()->utype == 'USR')
             <div id="fb-root"></div>
 
         <!-- Your Plugin chat code -->
         <div id="fb-customer-chat" class="fb-customerchat">
         </div>
+        @else
+        @endif
+        @endif
 
         <script>
         var chatbox = document.getElementById('fb-customer-chat');
