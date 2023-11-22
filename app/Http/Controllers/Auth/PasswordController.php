@@ -39,7 +39,6 @@ class PasswordController extends Controller
             'current_password.required' => 'Vui lòng nhập mật khẩu hiện tại.',
             'password.required' => 'Vui lòng nhập mật khẩu mới.',
             'password.confirmed' => 'Mật khẩu xác nhận không khớp.',
-            'password.*' => 'Mật khẩu phải chứa ít nhất 8 ký tự.',
         ]);
 
         $request->user()->update([
