@@ -1,4 +1,5 @@
 <main class="main">
+     
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
@@ -70,6 +71,7 @@
                                     
                                 </div>
                             </div>
+                               
                             <div class="entry-bottom mt-50 mb-30 wow fadeIn  animated" style="visibility: visible; animation-name: fadeIn;">
                                 <div class="tags w-50 w-sm-100">
                                     <a href="blog.html" rel="tag" class="hover-up btn btn-sm btn-rounded mr-10">deer</a>
@@ -353,5 +355,7 @@
                     </div>
                 </div>
             </div>
+       
         </section>
+
     </main>
