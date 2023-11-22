@@ -15,15 +15,13 @@
                         <div class="col-md-12 mb-3">
                             <div class="dashboard-menu">
                                 <ul class="nav flex-row" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="orders-tab" data-bs-toggle="tab" href="#orders"
-                                            role="tab" aria-controls="orders" aria-selected="false"><i
+                                <li class="nav-item">
+                                        <a class="nav-link active" id="orders-tab" href="{{route('user.orders.show')}}"><i
                                                 class="fi-rs-shopping-bag mr-10"></i>Đơn hàng</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab"
-                                            href="#account-detail" role="tab" aria-controls="account-detail"
-                                            aria-selected="true"><i class="fi-rs-user mr-10"></i>Thông tin tài khoản</a>
+                                        <a class="nav-link" href="{{route('user.profile.edit')}}">
+                                            <i class="fi-rs-user mr-10"></i>Thông tin tài khoản</a>
                                     </li>
                                 </ul>
                             </div>
@@ -92,66 +90,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="account-detail" role="tabpanel"
-                                    aria-labelledby="account-detail-tab">
-                                    <div class="card mb-4">
-                                        <div class="card-header">
-                                            <h5>Thông tin tài khoản</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <form method="post" name="enq">
-                                                <div class="row">
-                                                    <div class="form-group col-md-12">
-                                                        <label>Họ tên <span class="required">*</span></label>
-                                                        <input required="" class="form-control square" name="dname"
-                                                            type="text" value="{{Auth::user()->name}}">
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label>Email <span class="required">*</span></label>
-                                                        <input required="" class="form-control square" name="email"
-                                                            type="email" value="{{Auth::user()->email}}">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <button type="submit" class="btn btn-fill-out submit"
-                                                            name="submit" value="Submit">Lưu</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    @if (Auth::user()->provider_id === NULL)
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h5>Đổi mật khẩu</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <form method="post" name="enq">
-                                                <div class="row">
-                                                    <div class="form-group col-md-12">
-                                                        <label>Mật khẩu hiện tại <span class="required">*</span></label>
-                                                        <input required="" class="form-control square" name="password"
-                                                            type="password">
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label>Mật khẩu mới <span class="required">*</span></label>
-                                                        <input required="" class="form-control square" name="npassword"
-                                                            type="password">
-                                                    </div>
-                                                    <div class="form-group col-md-12">
-                                                        <label>Nhập lại mật khẩu <span class="required">*</span></label>
-                                                        <input required="" class="form-control square" name="cpassword"
-                                                            type="password">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <button type="submit" class="btn btn-fill-out submit"
-                                                            name="submit" value="Submit">Lưu</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
                             </div>
                         </div>
                     </div>

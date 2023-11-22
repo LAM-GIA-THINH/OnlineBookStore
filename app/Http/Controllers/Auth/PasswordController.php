@@ -15,13 +15,34 @@ class PasswordController extends Controller
      */
     public function update(Request $request): RedirectResponse
     {
-        $validated = $request->validateWithBag('updatePassword', [
-            'current_password' => ['required', 'current_password'],
-            'password' => ['required', Password::defaults(), 'confirmed'],
+        $request->validate([
+            'current_password' => [
+                'required',
+                function ($attribute, $value, $fail) use ($request) {
+                    if (!Hash::check($value, $request->user()->password)) {
+                        $fail('Mật khẩu hiện tại không chính xác.');
+                    }
+                    
+                }
+            ],
+            'password' => [
+                'required',
+                Password::defaults(),
+                'confirmed',
+                function ($attribute, $value, $fail) use ($request) {
+                    if (Hash::check($value, $request->user()->password)) {
+                        $fail('Mật khẩu mới không được trùng với mật khẩu hiện tại.');
+                    }
+                }
+            ],
+        ], [
+            'current_password.required' => 'Vui lòng nhập mật khẩu hiện tại.',
+            'password.required' => 'Vui lòng nhập mật khẩu mới.',
+            'password.confirmed' => 'Mật khẩu xác nhận không khớp.',
         ]);
 
         $request->user()->update([
-            'password' => Hash::make($validated['password']),
+            'password' => Hash::make($request->input('password')),
         ]);
 
         return back()->with('status', 'password-updated');

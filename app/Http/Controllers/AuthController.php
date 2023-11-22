@@ -69,6 +69,7 @@ class AuthController extends Controller
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
                     'provider_id' => $googleUser->getId(),
+                    'email_verified_at' => date('m/d/Y h:i:s a', time()),
                     'password' => bcrypt(Str::random(8)),
                     'provider' => 'google',
                     'profile_photo_path' => $googleUser->getAvatar()

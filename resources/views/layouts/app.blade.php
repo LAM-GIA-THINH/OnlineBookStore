@@ -144,11 +144,18 @@
                                                 </ul>
 
                                                 </li>
+                                                <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
+                                                
+                                                <ul class="sub-menu">
+                                                    <li><a href="{{route('user.profile.edit')}}">Trang cá nhân</a></li>
+                                                </ul>
+
+                                                </li>
                                                 @else
                                                 <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
                                                 
                                                 <ul class="sub-menu">
-                                                    <li><a href="{{route('user.dashboard')}}">Trang cá nhân</a></li>
+                                                    <li><a href="{{route('user.profile.edit')}}">Trang cá nhân</a></li>
                                                 </ul>
 
                                                 </li>
@@ -499,11 +506,16 @@
   
   <!-- Messenger Plugin chat Code -->
         <!-- Messenger Plugin chat Code -->
+        @auth
+        @if(Auth::user()->utype == 'USR')
             <div id="fb-root"></div>
 
         <!-- Your Plugin chat code -->
         <div id="fb-customer-chat" class="fb-customerchat">
         </div>
+        @else
+        @endif
+        @endif
 
         <script>
         var chatbox = document.getElementById('fb-customer-chat');

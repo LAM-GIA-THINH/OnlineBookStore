@@ -21,6 +21,7 @@ class CheckoutController extends Controller
             'user_id' => $data['user_id'],
             'address' => $data['address'],
             'name' => $data['fullName'],
+            'email' => $data['email'],
             'phone' => $data['phone'],
             'payment_method' => $data['payment_option'],
             'payment_status' => 0,
