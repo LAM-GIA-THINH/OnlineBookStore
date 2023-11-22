@@ -22,15 +22,18 @@ class PasswordController extends Controller
                     if (!Hash::check($value, $request->user()->password)) {
                         $fail('Mật khẩu hiện tại không chính xác.');
                     }
-                    if (Hash::check($value, $request->user()->password)) {
-                        $fail('Mật khẩu mới không được trùng với mật khẩu hiện tại.');
-                    }
+                    
                 }
             ],
             'password' => [
                 'required',
                 Password::defaults(),
                 'confirmed',
+                function ($attribute, $value, $fail) use ($request) {
+                    if (Hash::check($value, $request->user()->password)) {
+                        $fail('Mật khẩu mới không được trùng với mật khẩu hiện tại.');
+                    }
+                }
             ],
         ], [
             'current_password.required' => 'Vui lòng nhập mật khẩu hiện tại.',
