@@ -96,6 +96,10 @@
                                         <input class="form-control"  name="phone"  wire:model="phone" readonly></input>
                                     </div>  
                                     <div class="mb-3 mt-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="text" name="email" class="form-control"  wire:model="email" readonly/>                                    
+                                    </div>
+                                    <div class="mb-3 mt-3">
                                         <label for="address" class="form-label">Điạ chỉ</label>
                                         <input type="text" name="address" class="form-control"  wire:model="address" readonly/>                                    
                                     </div>

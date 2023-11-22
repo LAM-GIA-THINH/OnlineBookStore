@@ -15,6 +15,7 @@ class AdminOrderEditComponent extends Component
     public $address;
     public $name;
     public $phone;
+    public $email;
     public $order_status;
     public $payment_method;
     public $payment_status;
@@ -33,6 +34,7 @@ class AdminOrderEditComponent extends Component
         $this->user_id = $order->user_id;
         $this->address = $order->address;
         $this->phone = $order->phone;
+        $this->email = $order->email;
         $this->order_status = $order->order_status;
         $this->payment_method = $order->payment_method;
         $this->payment_status = $order->payment_status;
@@ -53,7 +55,7 @@ class AdminOrderEditComponent extends Component
         $order->tracking = $this->tracking;
         $order->save();
         if (in_array($this->order_status, ['2', '3', '4']) && $previousStatus !== $this->order_status) {
-            $userEmail = $order->user->email;
+            $userEmail = $order->email;
             Mail::to($userEmail)->send(new ShippingNotification($order));
         }        
        
