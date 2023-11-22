@@ -41,6 +41,9 @@ class AdminOrderEditComponent extends Component
         $this->amount = number_format($order->amount, 0, ',', ',') . ' VND';
         $this->note = $order->note;
         $this->tracking = $order->tracking;
+        $this->orderItems = session('orderItems');
+        $this->products = session('products');
+        $this->order = session('order');
     }
 
     public function updateOrder()
@@ -68,6 +71,6 @@ class AdminOrderEditComponent extends Component
     public function render()
     {
         
-        return view('livewire.admin.admin-order-edit-component');
+        return view('livewire.admin.admin-order-edit-component' ,['order' => $this->order,'orderItems' => $this->orderItems, 'products'=>$this->products]);
     }
 }

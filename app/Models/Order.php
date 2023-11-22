@@ -24,6 +24,7 @@ class Order extends Model
         'amount',
         'note',
     ];
+    
     public function user()
     {
         return $this->belongsTo(User::class);
