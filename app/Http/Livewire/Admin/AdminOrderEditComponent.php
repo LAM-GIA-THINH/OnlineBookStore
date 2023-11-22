@@ -24,6 +24,7 @@ class AdminOrderEditComponent extends Component
     public $amount;
     public $note;
     public $tracking;
+    
 
     public function mount($order_id){
         $order = Order::find($order_id);
@@ -50,21 +51,16 @@ class AdminOrderEditComponent extends Component
     {
         $order = Order::find($this->order_id);
         $previousStatus = $order->order_status;
-
-        // Update the order status
         $order->order_status = $this->order_status;
         $order->tracking = $this->tracking;
         $order->save();
-
-        // Check if the order status is now "Đang giao hàng"
         if (in_array($this->order_status, ['2', '3', '4']) && $previousStatus !== $this->order_status) {
-            // Fetch the associated user's email from the User model using the relationship
             $userEmail = $order->user->email;
-        
-            // Send the shipping email
             Mail::to($userEmail)->send(new ShippingNotification($order));
         }        
+       
         session()->flash('message', 'Đã cập nhật đơn hàng thành công!');
+        
     }
 
 

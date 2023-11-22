@@ -52,19 +52,46 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($orderItems as $item)
-                                                    <tr>
-                                                        <td class="image product-thumbnail"><img
-                                                                src="{{asset('assets/imgs/products/products')}}/{{$products[$item->product_id]->image}}"
-                                                                alt="#"></td>
-                                                        <td>
-                                                            <h5><a
-                                                                    href="{{route('product.details',['slug'=>$products[$item->product_id]->slug])}}">{{$products[$item->product_id]->name}}</a>
-                                                            </h5> <span class="product-qty">x {{$item->quantity}}</span>
-                                                        </td>
-                                                        <td>{{number_format($item->amount)}} VND</td>
-                                                    </tr>
-                                                    @endforeach
+@foreach($orderItems as $item)
+    @if(isset($products[$item->product_id]))
+        <tr>
+            <td class="image product-thumbnail">
+                @if(isset($products[$item->product_id]->image))
+                    <img src="{{ asset('assets/imgs/products/products') }}/{{ $products[$item->product_id]->image }}" alt="#">
+                @else
+                    <span>No Image</span>
+                @endif
+            </td>
+            <td>
+                <h5>
+                    @if(isset($products[$item->product_id]->slug))
+                        <a href="{{ route('product.details', ['slug' => $products[$item->product_id]->slug]) }}">
+                            @if(isset($products[$item->product_id]->name))
+                                {{ $products[$item->product_id]->name }}
+                            @else
+                                Product Name Not Available
+                            @endif
+                        </a>
+                    @else
+                        @if(isset($products[$item->product_id]->name))
+                            {{ $products[$item->product_id]->name }}
+                        @else
+                            Product Name Not Available
+                        @endif
+                    @endif
+                </h5>
+                <span class="product-qty">x {{ $item->quantity }}</span>
+            </td>
+            <td>{{ number_format($item->amount) }} VND</td>
+        </tr>
+    @else
+        <tr>
+            <td colspan="3">Product not found</td>
+        </tr>
+    @endif
+@endforeach
+
+
                                                     <tr>
                                                         <th>Tổng tiền các sản phẩm</th>
                                                         <td class="product-subtotal" colspan="2">{{number_format($order->sub_total)}} VND</td>
