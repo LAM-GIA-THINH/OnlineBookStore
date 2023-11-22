@@ -29,10 +29,26 @@
                         @if (session('status'))
                         <div class="col-md-12 mb-3">
                             <div class="alert alert-success mb-3 col-md-12">
-                                Cập nhật mật khẩu thành công.
+                                Cập nhật thành công.
                             </div>
                         </div>
-
+                        @endif
+                        @if ($errors->any())
+                        <div class="col-md-12 mb-3">
+                            <div class=" alert alert-danger mt-3 mb-3">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    @if($error === 'The email has already been taken.')
+                                    <li>Email đã được sử dụng</li>
+                                    @elseif($error === 'The password must be at least 8 characters.')
+                                    <li>Mật khẩu phải có ít nhất 8 ký tự</li>
+                                    @else
+                                    <li>{{ $error }}</li>
+                                    @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                         @endif
                         <div class="col-md-12">
                             <div class="tab-content dashboard-content">
@@ -61,21 +77,6 @@
                                                     <div class="col-md-12">
                                                         <button type="submit" class="btn btn-fill-out submit"
                                                             name="submit" value="Submit">Lưu</button>
-
-
-                                                        @if ($errors->has('email') || $errors->has('name'))
-                                                        <div class=" alert alert-danger mt-3 mb-3">
-                                                            <ul>
-                                                                @foreach ($errors->all() as $error)
-                                                                @if($error === 'The email has already been taken.')
-                                                                <li>Email đã được sử dụng</li>
-                                                                @else
-                                                                <li>{{ $error }}</li>
-                                                                @endif
-                                                                @endforeach
-                                                            </ul>
-                                                        </div>
-                                                        @endif
                                                     </div>
                                                 </div>
                                             </form>
@@ -110,17 +111,6 @@
                                                     <div class="col-md-12">
                                                         <button type="submit" class="btn btn-fill-out submit"
                                                             name="submit" value="Submit">Lưu</button>
-                                                        @if ($errors->has('current_password') ||
-                                                        $errors->has('password') ||
-                                                        $errors->has('password_confirmation'))
-                                                        <div class="alert alert-danger mt-3 mb-3">
-                                                            <ul>
-                                                                @foreach ($errors->all() as $error)
-                                                                <li>{{ $error }}</li>
-                                                                @endforeach
-                                                            </ul>
-                                                        </div>
-                                                        @endif
                                                     </div>
                                                 </div>
                                             </form>
