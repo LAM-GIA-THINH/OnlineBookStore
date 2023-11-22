@@ -32,6 +32,7 @@
 </head>
 
 <body>
+    
     <header class="header-area header-style-1 header-height-2">
         <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
             <div class="container">
@@ -157,7 +158,7 @@
                                             <li><a href="{{route('shop')}}">Shop</a></li>
                                             <li><a href="{{route('about')}}">Về website</a></li>
                                             <li><a href="{{route('blog')}}">Blog </a></li>
-                                            <li><a href="contact.html">Liên hệ</a></li>
+                                            
                                         </ul>
                                     </nav>
                                 </div>
@@ -495,9 +496,42 @@
     <script src="{{ asset ('assets/js/main.js?v=3.3')}}"></script>
     <script src="{{ asset ('assets/js/shop.js?v=3.3')}}"></script>
     
+  
+  <!-- Messenger Plugin chat Code -->
+        <!-- Messenger Plugin chat Code -->
+            <div id="fb-root"></div>
 
-    @livewireStyles
-    @stack('scripts')
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat">
+        </div>
+
+        <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "164229313445795");
+        chatbox.setAttribute("attribution", "biz_inbox");
+        </script>
+
+        <!-- Your SDK code -->
+        <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+            xfbml            : true,
+            version          : 'v18.0'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        </script>
+        @livewireStyles
+        @stack('scripts')
+     
+        
 </body>
 
 </html>
