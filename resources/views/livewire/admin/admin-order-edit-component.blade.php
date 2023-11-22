@@ -41,9 +41,7 @@
                                         <label for="name" class="form-label">Tên khách hàng</label>
                                         <input type="text" name="name" class="form-control"  wire:model="name" readonly/>
                                     </div>
-
-
-                                        <div class="table-responsive order_table text-center">
+                                    <div class="table-responsive order_table text-center">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
@@ -52,65 +50,44 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-@foreach($orderItems as $item)
-    @if(isset($products[$item->product_id]))
-        <tr>
-            <td class="image product-thumbnail">
-                @if(isset($products[$item->product_id]->image))
-                    <img src="{{ asset('assets/imgs/products/products') }}/{{ $products[$item->product_id]->image }}" alt="#">
-                @else
-                    <span>No Image</span>
-                @endif
-            </td>
-            <td>
-                <h5>
-                    @if(isset($products[$item->product_id]->slug))
-                        <a href="{{ route('product.details', ['slug' => $products[$item->product_id]->slug]) }}">
-                            @if(isset($products[$item->product_id]->name))
-                                {{ $products[$item->product_id]->name }}
-                            @else
-                                Product Name Not Available
-                            @endif
-                        </a>
-                    @else
-                        @if(isset($products[$item->product_id]->name))
-                            {{ $products[$item->product_id]->name }}
-                        @else
-                            Product Name Not Available
-                        @endif
-                    @endif
-                </h5>
-                <span class="product-qty">x {{ $item->quantity }}</span>
-            </td>
-            <td>{{ number_format($item->amount) }} VND</td>
-        </tr>
-    @else
-        <tr>
-            <td colspan="3">Product not found</td>
-        </tr>
-    @endif
-@endforeach
+                                    @foreach($orderItemsWithProducts as $orderItem)
 
+                                            <tr>
+                                                <td class="image product-thumbnail">
+                                                        <img src="{{ asset('assets/imgs/products/products') }}/{{ $orderItem->product->image }}" alt="#">
 
-                                                    <tr>
-                                                        <th>Tổng tiền các sản phẩm</th>
-                                                        <td class="product-subtotal" colspan="2">{{number_format($order->sub_total)}} VND</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Thuế</th>
-                                                        <td class="product-subtotal" colspan="2"> {{number_format($order->tax)}} VND</td>
-                                                    </tr>
+                                                </td>
+                                                <td>
+                                                    <h5>
+                                                            <a href="{{ route('product.details', ['slug' => $orderItem->product->slug]) }}">
 
-                                                    <tr>
-                                                        <th>Phí giao hàng</th>
-                                                        <td colspan="2"><em>{{number_format($order->shipping)}} VND</em></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Tổng cộng</th>
-                                                        <td colspan="2" class="product-subtotal"><span
-                                                    
-                                                                class="font-xl text-brand fw-900">{{number_format($order->amount)}} VND</span></td>
-                                                    </tr>
+                                                                    {{ $orderItem->product->name }}
+                                                            </a>
+                                                    </h5>
+                                                    <span class="product-qty">x {{ $orderItem->quantity }}</span>
+                                                </td>
+                                                <td>{{ number_format($orderItem->amount) }} VND</td>
+                                            </tr>
+                                    @endforeach
+                                    <tr>
+                                                <th>Tổng tiền các sản phẩm</th>
+                                                <td class="product-subtotal" colspan="2">{{$sub_total}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Thuế</th>
+                                                <td class="product-subtotal" colspan="2">{{$tax}}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Phí giao hàng</th>
+                                                <td colspan="2"><em>{{$shipping}}</em></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tổng cộng</th>
+                                                <td colspan="2" class="product-subtotal">
+                                                    <span class="font-xl text-brand fw-900">{{$amount}}</span>
+                                                </td>
+                                            </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -160,10 +137,13 @@
                                         <button type="submit" class="btn btn-primary float-end">Cập nhật</button>
                                 </form>
                                 </div>
-                                @livewireScripts
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
     </main>
+    
+    @livewireScripts
+    </div>

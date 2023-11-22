@@ -24,7 +24,7 @@ class AdminOrderEditComponent extends Component
     public $amount;
     public $note;
     public $tracking;
-    
+    public $orderItemsWithProducts;
 
     public function mount($order_id){
         $order = Order::find($order_id);
@@ -42,9 +42,7 @@ class AdminOrderEditComponent extends Component
         $this->amount = number_format($order->amount, 0, ',', ',') . ' VND';
         $this->note = $order->note;
         $this->tracking = $order->tracking;
-        $this->orderItems = session('orderItems');
-        $this->products = session('products');
-        $this->order = session('order');
+        $this->orderItemsWithProducts = $order->orderItems()->with('product')->get();
     }
 
     public function updateOrder()
@@ -60,13 +58,13 @@ class AdminOrderEditComponent extends Component
         }        
        
         session()->flash('message', 'Đã cập nhật đơn hàng thành công!');
-        
+        return redirect()->route('admin.order.edit', ['order_id' => $this->order_id]);
     }
 
 
     public function render()
     {
         
-        return view('livewire.admin.admin-order-edit-component' ,['order' => $this->order,'orderItems' => $this->orderItems, 'products'=>$this->products]);
+        return view('livewire.admin.admin-order-edit-component',['orderItemsWithProducts' => $this->orderItemsWithProducts] );
     }
 }
