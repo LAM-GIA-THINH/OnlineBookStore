@@ -34,14 +34,87 @@
                                         <input type="text" name="order_id" class="form-control"  wire:model="order_id" readonly/>
                                     </div>
                                     <div class="mb-3 mt-3">
-                                        <label for="name" class="form-label">Tên khách hàng</label>
-                                        <input type="text" name="name" class="form-control"  wire:model="name" readonly/>
-                                    </div>
-                                    <div class="mb-3 mt-3">
                                         <label for="user_id" class="form-label">Mã khách hàng</label>
                                         <input type="text" name="user_id" class="form-control"  wire:model="user_id" readonly/>                                     
                                     </div>
                                     <div class="mb-3 mt-3">
+                                        <label for="name" class="form-label">Tên khách hàng</label>
+                                        <input type="text" name="name" class="form-control"  wire:model="name" readonly/>
+                                    </div>
+
+
+                                        <div class="table-responsive order_table text-center">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2">Các sản phẩm</th>
+                                                        <th>Tổng tiền</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+@foreach($orderItems as $item)
+    @if(isset($products[$item->product_id]))
+        <tr>
+            <td class="image product-thumbnail">
+                @if(isset($products[$item->product_id]->image))
+                    <img src="{{ asset('assets/imgs/products/products') }}/{{ $products[$item->product_id]->image }}" alt="#">
+                @else
+                    <span>No Image</span>
+                @endif
+            </td>
+            <td>
+                <h5>
+                    @if(isset($products[$item->product_id]->slug))
+                        <a href="{{ route('product.details', ['slug' => $products[$item->product_id]->slug]) }}">
+                            @if(isset($products[$item->product_id]->name))
+                                {{ $products[$item->product_id]->name }}
+                            @else
+                                Product Name Not Available
+                            @endif
+                        </a>
+                    @else
+                        @if(isset($products[$item->product_id]->name))
+                            {{ $products[$item->product_id]->name }}
+                        @else
+                            Product Name Not Available
+                        @endif
+                    @endif
+                </h5>
+                <span class="product-qty">x {{ $item->quantity }}</span>
+            </td>
+            <td>{{ number_format($item->amount) }} VND</td>
+        </tr>
+    @else
+        <tr>
+            <td colspan="3">Product not found</td>
+        </tr>
+    @endif
+@endforeach
+
+
+                                                    <tr>
+                                                        <th>Tổng tiền các sản phẩm</th>
+                                                        <td class="product-subtotal" colspan="2">{{number_format($order->sub_total)}} VND</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Thuế</th>
+                                                        <td class="product-subtotal" colspan="2"> {{number_format($order->tax)}} VND</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>Phí giao hàng</th>
+                                                        <td colspan="2"><em>{{number_format($order->shipping)}} VND</em></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Tổng cộng</th>
+                                                        <td colspan="2" class="product-subtotal"><span
+                                                    
+                                                                class="font-xl text-brand fw-900">{{number_format($order->amount)}} VND</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="mb-3 mt-3">
                                         <label for="phone" class="form-label">Số điện thoại</label>
                                         <input class="form-control"  name="phone"  wire:model="phone" readonly></input>
                                     </div>  
@@ -51,12 +124,9 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="note" class="form-label">Ghi chú</label>
-                                        <input type="text" name="note" class="form-control"  wire:model="address" readonly/>                                    
+                                        <input type="text" name="note" class="form-control"  wire:model="note" readonly/>                                    
                                     </div>
-                                    <div class="mb-3 mt-3">
-                                        <label for="payment_method" class="form-label" >Phương thức thanh toán</label>
-                                        <input type="text" name="payment_method" class="form-control"  wire:model="payment_method" readonly/>
-                                    </div>
+
                                     <div class="mb-3 mt-3">
                                         <label for="payment_method" class="form-label" wire:model="payment_method">Phương thức thanh toán</label>
                                             <select class="form-control" name="payment_method" wire:model="payment_method" readonly>
@@ -71,22 +141,6 @@
                                                 <option value="0">Chưa thanh toán</option>
                                                 <option value="1">Đã thanh toán</option>
                                             </select>
-                                    </div>   
-                                    <div class="mb-3 mt-3">
-                                        <label for="sub_total" class="form-label">Số tiền</label>
-                                        <input type="text" name="sub_total" class="form-control"  wire:model="sub_total" readonly>
-                                    </div>
-                                    <div class="mb-3 mt-3">
-                                        <label for="tax" class="form-label">Thuế</label>
-                                        <input type="text" name="tax" class="form-control"  wire:model="tax" readonly>
-                                    </div>
-                                    <div class="mb-3 mt-3">
-                                        <label for="shipping" class="form-label">Tiền ship</label>
-                                        <input type="text" name="shipping" class="form-control"  wire:model="shipping" readonly>
-                                    </div>
-                                    <div class="mb-3 mt-3">
-                                        <label for="amount" class="form-label">Tổng tiền</label>
-                                        <input type="text" name="amount" class="form-control"  wire:model="amount" readonly>
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="tracking" class="form-label">Vận chuyển</label>

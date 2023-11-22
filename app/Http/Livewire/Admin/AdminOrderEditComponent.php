@@ -24,6 +24,7 @@ class AdminOrderEditComponent extends Component
     public $amount;
     public $note;
     public $tracking;
+    
 
     public function mount($order_id){
         $order = Order::find($order_id);
@@ -41,33 +42,31 @@ class AdminOrderEditComponent extends Component
         $this->amount = number_format($order->amount, 0, ',', ',') . ' VND';
         $this->note = $order->note;
         $this->tracking = $order->tracking;
+        $this->orderItems = session('orderItems');
+        $this->products = session('products');
+        $this->order = session('order');
     }
 
     public function updateOrder()
     {
         $order = Order::find($this->order_id);
         $previousStatus = $order->order_status;
-
-        // Update the order status
         $order->order_status = $this->order_status;
         $order->tracking = $this->tracking;
         $order->save();
-
-        // Check if the order status is now "Đang giao hàng"
         if (in_array($this->order_status, ['2', '3', '4']) && $previousStatus !== $this->order_status) {
-            // Fetch the associated user's email from the User model using the relationship
             $userEmail = $order->user->email;
-        
-            // Send the shipping email
             Mail::to($userEmail)->send(new ShippingNotification($order));
         }        
+       
         session()->flash('message', 'Đã cập nhật đơn hàng thành công!');
+        
     }
 
 
     public function render()
     {
         
-        return view('livewire.admin.admin-order-edit-component');
+        return view('livewire.admin.admin-order-edit-component' ,['order' => $this->order,'orderItems' => $this->orderItems, 'products'=>$this->products]);
     }
 }
