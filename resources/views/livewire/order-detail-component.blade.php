@@ -12,6 +12,20 @@
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
+                    @if (session('success'))
+                    <div class="col-md-12 mb-3">
+                        <div class="alert alert-success mb-3 col-md-12">
+                            {{session('success')}}
+                        </div>
+                    </div>
+                    @endif
+                    @if (session('error'))
+                    <div class="col-md-12 mb-3">
+                        <div class="alert alert-danger mb-3 col-md-12">
+                            {{session('error')}}
+                        </div>
+                    </div>
+                    @endif
                     <div class="col-md-12">
                         <div class="order_review">
                             <div class="mb-20">
@@ -43,7 +57,7 @@
                                     <thead>
                                         <tr>
                                             <th colspan="2">Sản phẩm</th>
-                                            <th >Đơn giá</th>
+                                            <th>Đơn giá</th>
                                             <th>Tổng tiền</th>
                                         </tr>
                                     </thead>
@@ -58,17 +72,20 @@
                                                         href="{{route('product.details',['slug'=>$products[$item->product_id]->slug])}}">{{$products[$item->product_id]->name}}</a>
                                                 </h5> <span class="product-qty">x {{$item->quantity}}</span>
                                             </td>
-                                            <td>{{number_format(intval($item->amount) / intval($item->quantity))}} VND </td>
+                                            <td>{{number_format(intval($item->amount) / intval($item->quantity))}} VND
+                                            </td>
                                             <td>{{number_format($item->amount)}} VND</td>
                                         </tr>
                                         @endforeach
                                         <tr>
                                             <th>Tổng tiền các sản phẩm</th>
-                                            <td class="product-subtotal" colspan="3">{{number_format($order->sub_total)}} VND</td>
+                                            <td class="product-subtotal" colspan="3">
+                                                {{number_format($order->sub_total)}} VND</td>
                                         </tr>
                                         <tr>
                                             <th>Thuế</th>
-                                            <td class="product-subtotal" colspan="3"> {{number_format($order->tax)}} VND</td>
+                                            <td class="product-subtotal" colspan="3"> {{number_format($order->tax)}} VND
+                                            </td>
                                         </tr>
 
                                         <tr>
@@ -78,8 +95,8 @@
                                         <tr>
                                             <th>Thành tiền</th>
                                             <td colspan="3" class="product-subtotal"><span
-                                           
-                                                    class="font-xl text-brand fw-900">{{number_format($order->amount)}} VND</span></td>
+                                                    class="font-xl text-brand fw-900">{{number_format($order->amount)}}
+                                                    VND</span></td>
                                         </tr>
                                         @if(isset($order->tracking))
                                         <tr>

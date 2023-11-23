@@ -121,7 +121,7 @@
                                         <input class="form-check-input" required="" checked type="radio"
                                             name="payment_option" id="exampleRadios5" value="vnp">
                                         <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse"
-                                            data-target="#vnp" aria-controls="vnp">Thanh toán quan VNPay</label>
+                                            data-target="#vnp" aria-controls="vnp">Thanh toán qua VNPay</label>
                                     </div>
                                     @foreach(Cart::instance('cart')->content() as $item)
                                     <input type="hidden" name="products[]"
