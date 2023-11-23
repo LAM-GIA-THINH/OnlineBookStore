@@ -40,7 +40,7 @@
                                 <div class="card-body">
                                         <table class="table table-striped">
                                             <thead>
-                                                <tr>
+                                                <tr class="text-center">
                                                 <th>#</th>
                                                 <th>Ảnh</th>
                                                 <th>Tên sách</th>
@@ -53,12 +53,12 @@
                                             </thead>
                                             <tbody>
                                                 @foreach($products as $product)
-                                                    <tr>
+                                                    <tr class="text-center">
                                                     <td>{{$product->id}}</td>
                                                     <td><img src="{{ asset('assets/imgs/products/products')}}/{{$product->image}}" alt="{{$product->name}}" width="60" /></td>
                                                     <td>{{$product->name}}</td>
                                                     <td>{{$product->stock_status}}</td>
-                                                    <td>{{$product->regular_price}}</td>
+                                                    <td>{{ number_format($product->regular_price, 0, ',', ',') }} VND</td>
                                                     <td>{{$product->category->name}}</td>
                                                     <td>{{$product->created_at}}</td>
                                                     <td>
