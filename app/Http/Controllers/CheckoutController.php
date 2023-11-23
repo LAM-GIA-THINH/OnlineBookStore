@@ -13,13 +13,13 @@ class CheckoutController extends Controller
 {
     public function payment(Request $request)
     {
-        $orderId = date('YmdHis');
         $data = $request->all();
+        $orderId = date('YmdHis');
         $orderItems = [];
         $order = new Order([
             'id' => $orderId,
             'user_id' => $data['user_id'],
-            'address' => $data['address'],
+            'address' => $data['address'] . ','. $data['ward'] .','. $data['district'] .','. $data['city'],
             'name' => $data['fullName'],
             'email' => $data['email'],
             'phone' => $data['phone'],
