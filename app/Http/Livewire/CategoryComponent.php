@@ -12,8 +12,10 @@ class CategoryComponent extends Component
 {   
     use WithPagination;
     public $pageSize = 12;
-    public $orderBy ="Default Sorting";
+    public $orderBy ="Mặc định";
     public $slug ;
+    public $min_value =10000;
+    public $max_value = 900000;
 
     public function store($product_id, $product_name, $product_price){
         Cart::instance('cart')->add($product_id,$product_name,1,$product_price)->associate('\App\Models\Product');
@@ -52,19 +54,20 @@ class CategoryComponent extends Component
         $category = Category::where('slug', $this->slug)->first();
         $category_id = $category->id;
         $category_name = $category->name;
-        if($this->orderBy == "Price: Low to High"){
-            $products = Product::where('category_id',$category_id)->orderBy('regular_price', 'ASC')->paginate($this->pageSize); 
+        if($this->orderBy == "Giá: thấp đến cao"){
+            $products = Product::whereBetween('regular_price', [$this->min_value, $this->max_value])->orderBy('regular_price', 'ASC')->paginate($this->pageSize); 
         }
-        else if($this->orderBy == "Price: High to Low")
+        else if($this->orderBy == "Giá: cao đến thấp")
         {
-            $products = Product::where('category_id',$category_id)->orderBy('regular_price', 'DESC')->paginate($this->pageSize); 
+            $products = Product::whereBetween('regular_price', [$this->min_value, $this->max_value])->orderBy('regular_price', 'DESC')->paginate($this->pageSize); 
         }
-        else if($this->orderBy == 'Sort By Newness')
+        else if($this->orderBy == 'Sản phẩm mới')
         {
-            $products = Product::where('category_id',$category_id)->orderBy('created_at', 'DESC')->paginate($this->pageSize); 
+            $products = Product::whereBetween('regular_price', [$this->min_value, $this->max_value])->orderBy('created_at', 'DESC')->paginate($this->pageSize); 
         }
         else {
-            $products = Product::where('category_id',$category_id)->paginate($this->pageSize); 
+            $products = Product::whereBetween('regular_price', [$this->min_value, $this->max_value])->paginate($this->pageSize); 
+        
         }
         $categories = Category::orderBy('name','ASC')->get();
         
