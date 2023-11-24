@@ -101,7 +101,8 @@ class OrderController extends Controller
             foreach ($orderItems as $value) {
                 product::withTrashed()->where('id', $value->product_id)->increment('quantity', $value->quantity);
             }
-            $order->order_status = 4;
+            $order->order_status = 4; // Đã hủy
+            $order->payment_status = 3; // Đã hoàn tiền
             $order->save();
             return redirect(route('order.detail.view', ['order_id' => $order_id]))->with('success', 'Hủy đơn hàng thành công. ' . $vnp_message);
         }

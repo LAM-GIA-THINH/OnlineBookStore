@@ -206,14 +206,24 @@ class CheckoutController extends Controller
             //Check Orderid    
             //Kiểm tra checksum của dữ liệu
             if ($secureHash == $vnp_SecureHash) {
-
-                if (($data['vnp_ResponseCode'] == '24')) { // payment canceled by customer
-                    return redirect()->route('shop.checkout');
-                }
-
                 $order = Order::where('id', $orderId)->first();
 
-                if ($order != NULL) {
+                if ($order) {
+                    if (($data['vnp_ResponseCode'] == '24' && $order->order_status !== 4)) { // payment canceled by customer
+                        $order->order_status = 4; // Đã hủy
+                        $order->payment_status = 0; // Chưa thanh toán
+                        $orderItems = Order_item::where('order_id', $order->id)->get();
+                        foreach ($orderItems as $orderItem) {
+                            $product = Product::where('id', $orderItem->product_id)->first();
+                            if($product) {
+                                $product->increment('quantity', $orderItem->quantity);
+                            }
+                            $orderItem->delete();
+                        }
+                        $order->delete();
+                        return redirect()->route('shop.checkout');
+                    }
+
                     if ($order["amount"] == $vnp_Amount) //Kiểm tra số tiền thanh toán của giao dịch: giả sử số tiền kiểm tra là đúng. //$order["Amount"] == $vnp_Amount
                     {
                         if ($order["payment_status"] !== NULL && $order["payment_status"] === 0) {
