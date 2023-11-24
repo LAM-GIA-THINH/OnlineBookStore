@@ -4,20 +4,23 @@
                 <div class="container">
                     <div class="breadcrumb">
                         <a href="/" rel="nofollow">Trang chủ</a>
-                        <span></span> Tất cả đơn hàng
+                        <span></span> Quản lý đơn hàng
                     </div>
                 </div>
             </div>
-            <section class="mt-50 mb-50">
+            <div style="background-color: #07b55b; color: #fff; padding: 20px 0; text-align: center;">
+                <div class="container">
+                    <h2 style="margin: 0; font-size: 24px; font-weight: bold; color:white;">Quản lý đơn hàng</h2>
+                </div>
+            </div>
+
+            <section class="mt-10 mb-50">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card">
-                            <div class="card-header"> 
-                                <div class="row align-items-center">
-                                    <div class="p-2">
-                                        <h4 class="mb-0">Tất cả đơn hàng</h4>
-                                    </div>
+                            <div class="card" >
+                            <div class="card-header"  style=" border: 2px solid #ccc; border-radius: 4px;"> 
+                                <div class="row align-items-center" >
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên hoặc mã đơn..." style="border: 1px solid #ccc; border-radius: 4px;">
@@ -51,8 +54,8 @@
                                     </div>
                                 </div>
                             </div>
-                                <div class="card-body">
-                                        <table class="table table-striped">
+                                <div class="card-body" >
+                                        <table class="table table-striped" style="border: 2px solid #ccc;">
                                             <thead>
                                                 <tr class="text-center">
                                                 <th>Mã đơn</th>
@@ -99,7 +102,7 @@
                                                     </td>
                                                     
                                                     <td>{{ number_format($order->amount, 0, ',', ',') }} VND</td>
-                                                    <td>{{$order->created_at}}</td>
+                                                    <td>{{$order->created_at->timezone('Asia/Ho_Chi_Minh');}}</td>
                                                     <td>
                                                     <a href="{{route('admin.order.edit', ['order_id'=>$order->id])}}" class="text-info">Cập nhật</a>
                                                     </td>

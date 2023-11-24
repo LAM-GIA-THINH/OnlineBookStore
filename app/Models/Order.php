@@ -14,6 +14,7 @@ class Order extends Model
         'address',
         'name',
         'phone',
+        'email',
         'order_status',
         'payment_method',
         'payment_status',
@@ -24,4 +25,13 @@ class Order extends Model
         'amount',
         'note',
     ];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function orderItems()
+{
+    return $this->hasMany(Order_item::class);
+}
 }

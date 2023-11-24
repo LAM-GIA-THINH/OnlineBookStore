@@ -27,7 +27,7 @@ return new class extends Migration
             $table->integer('weight')->nullable();
             $table->string('language')->nullable();
             $table->string('demographic')->nullable();
-            $table->enum('stock_status',['Còn hàng', 'Hết Hàng']);;
+            $table->string('stock_status');
             $table->boolean('featured')->default(false);
             $table->unsignedInteger('quantity')->default(10);
             $table->string('image');

@@ -4,8 +4,13 @@
                 <div class="container">
                     <div class="breadcrumb">
                         <a href="/" rel="nofollow">Trang chủ</a>
-                        <span></span> Tất cả sản phẩm
+                        <span></span> Quản lý Sản phẩm
                     </div>
+                </div>
+            </div>
+            <div style="background-color: #07b55b; color: #fff; padding: 20px 0; text-align: center;">
+                <div class="container">
+                    <h2 style="margin: 0; font-size: 24px; font-weight: bold; color:white;">Quản lý Sản phẩm</h2>
                 </div>
             </div>
             <section class="mt-50 mb-50">
@@ -13,11 +18,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                            <div class="card-header"> 
+                            <div class="card-header" style=" border: 2px solid #ccc; border-radius: 4px;"> 
                                 <div class="row align-items-center">
-                                    <div class="p-2">
-                                        <h4 class="mb-0">Tất cả sản phẩm</h4>
-                                    </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên..." style="border: 1px solid #ccc; border-radius: 4px;">
@@ -38,9 +40,9 @@
                                 </div>
                             </div>
                                 <div class="card-body">
-                                        <table class="table table-striped">
+                                        <table class="table table-striped" style="border: 2px solid #ccc;">
                                             <thead>
-                                                <tr>
+                                                <tr class="text-center">
                                                 <th>#</th>
                                                 <th>Ảnh</th>
                                                 <th>Tên sách</th>
@@ -53,14 +55,14 @@
                                             </thead>
                                             <tbody>
                                                 @foreach($products as $product)
-                                                    <tr>
+                                                    <tr class="text-center">
                                                     <td>{{$product->id}}</td>
                                                     <td><img src="{{ asset('assets/imgs/products/products')}}/{{$product->image}}" alt="{{$product->name}}" width="60" /></td>
                                                     <td>{{$product->name}}</td>
                                                     <td>{{$product->stock_status}}</td>
-                                                    <td>{{$product->regular_price}}</td>
+                                                    <td>{{ number_format($product->regular_price, 0, ',', ',') }} VND</td>
                                                     <td>{{$product->category->name}}</td>
-                                                    <td>{{$product->created_at}}</td>
+                                                    <td>{{$product->created_at->timezone('Asia/Ho_Chi_Minh');}}</td>
                                                     <td>
                                                         <a href="{{route('admin.product.edit', ['product_id'=>$product->id])}}" class="text-info">Chỉnh sửa</a>
                                                         <a href="{{route('admin.product.delete', ['product_id'=>$product->id])}}" class="text-danger" style="margin-left:20px;">Xoá</a>   

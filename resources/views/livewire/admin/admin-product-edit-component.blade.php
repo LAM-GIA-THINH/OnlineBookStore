@@ -202,21 +202,21 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-                                    <div class="mb-3 mt-3">
-                                        <label for="category_id" class="form-label" >Danh mục</label>
-                                        <select class="form-control" name="category_id" wire:model="category_id">
-                                        <option value="">Chọn danh mục</option>>
-                                        @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                        @endforeach
+                                    <div class="mb-3 mt-3" wire:ignore>
+                                        <label for="category_id" class="form-label">Danh mục</label>
+                                        <select class="form-control" name="category_id" wire:model="category_id" id="categorySelect">
+                                            <option value="">Chọn danh mục</option>
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
                                         </select>
                                         @error('category_id')
-                                        <p class="text-danger">{{$message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
-                                    </div>     
-                                    <div class="mb-3 mt-3">
+                                    </div>    
+                                    <div class="mb-3 mt-3" wire:ignore>
                                         <label for="publisher_id" class="form-label" >Nhà phát hành</label>
-                                        <select class="form-control" name="publisher_id" wire:model="publisher_id">
+                                        <select class="form-control" name="publisher_id" wire:model="publisher_id" id="publisherSelect">
                                         <option value="">Chọn nhà phát hành</option>>
                                         @foreach($publishers as $publisher)
                                         <option value="{{$publisher->id}}">{{$publisher->name}}</option>
@@ -226,9 +226,9 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>        
-                                    <div class="mb-3 mt-3">
+                                    <div class="mb-3 mt-3" wire:ignore>
                                         <label for="author_id" class="form-label" >Tác giả</label>
-                                        <select class="form-control" name="author_id" wire:model="author_id">
+                                        <select class="form-control" name="author_id" wire:model="author_id" id="authorSelect">
                                         <option value="">Chọn tác giả</option>>
                                         @foreach($authors as $author)
                                         <option value="{{$author->id}}">{{$author->name}}</option>
@@ -248,3 +248,55 @@
                 </div>
             </section>
     </main>
+    @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Category Select2
+            $('#categorySelect').select2({
+                placeholder: 'Chọn danh mục',
+                
+                
+            });
+
+            // Publisher Select2
+            $('#publisherSelect').select2({
+                placeholder: 'Chọn nhà phát hành',
+                
+            });
+
+            // Author Select2
+            $('#authorSelect').select2({
+                placeholder: 'Chọn tác giả',
+                
+            });
+
+            // Wire up Livewire to update the model when the select boxes change
+            $('#categorySelect').on('change', function (e) {
+                @this.set('category_id', e.target.value);
+            });
+
+            $('#publisherSelect').on('change', function (e) {
+                @this.set('publisher_id', e.target.value);
+            });
+
+            $('#authorSelect').on('change', function (e) {
+                @this.set('author_id', e.target.value);
+            });
+        });
+    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<!-- Add this script after including the Bootstrap Datepicker JS -->
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: 'dd-mm-yyyy', // Use the desired date format
+            autoclose: true,
+            todayHighlight: true
+        }).on('changeDate', function(e){
+            @this.set('release_date', e.format());
+        });
+    });
+</script>
+
+@endpush

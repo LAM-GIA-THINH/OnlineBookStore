@@ -16,18 +16,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
     @livewireStyles
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-    <!-- Add this script after including the Bootstrap Datepicker JS -->
-    <script>
-        $(document).ready(function () {
-            $('.datepicker').datepicker({
-                format: 'dd-mm-yyyy', // Use the desired date format
-                autoclose: true,
-                todayHighlight: true
-            });
-        });
-    </script>
+
     @livewireScripts
 </head>
 
@@ -38,7 +31,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
+                        <a href="index.html"><img src="{{ asset('assets/imgs/logo/logo.png')}}" alt="logo"></a>
                     </div>
                     <div class="header-right">
                         @livewire('search')
@@ -46,16 +39,15 @@
                             <div class="header-action-2">
                                 @livewire('wishlist-icon-component')
                                 @livewire('cart-icon-component')
-                                <!-- <div class="search-style-1">
-                            <form action="#">                                
-                                <input type="text" placeholder="Tìm kiếm sản phẩm...">
-                            </form>
-                        </div> -->
+                                
+                                            <div class="search-style-1">
+
+                                    </div>
                                 <div class="header-action-right">
                                     <div class="header-action-2">
                                         @auth
                                         <ul style="font-size: 16px;">
-                                            <li><i class="fi-rs-user"></i> {{ Auth::user()->name }} /
+                                            <li><i class="fi-rs-user"></i> {{ Auth::user()->name }} 
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a href="{{ route('logout') }}"
@@ -144,18 +136,25 @@
                                                 </ul>
 
                                                 </li>
+                                                <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
+                                                
+                                                <ul class="sub-menu">
+                                                    <li><a href="{{route('user.profile.edit')}}">Trang cá nhân</a></li>
+                                                </ul>
+
+                                                </li>
                                                 @else
                                                 <li><a href="#">Tài khoản<i class="fi-rs-angle-down"></i></a>
                                                 
                                                 <ul class="sub-menu">
-                                                    <li><a href="{{route('user.dashboard')}}">Trang cá nhân</a></li>
+                                                    <li><a href="{{route('user.profile.edit')}}">Trang cá nhân</a></li>
                                                 </ul>
 
                                                 </li>
                                                 @endif
                                             @endif
 
-                                            <li><a href="{{route('shop')}}">Shop</a></li>
+                                            <li><a href="{{route('shop')}}">Mua sắm</a></li>
                                             <li><a href="{{route('about')}}">Về website</a></li>
                                             <li><a href="{{route('blog')}}">Blog </a></li>
                                             
@@ -164,194 +163,14 @@
                                 </div>
                             </div>
                             <div class="hotline d-none d-lg-block">
-                                <p><i class="fi-rs-smartphone"></i><span>Toll Free</span> (+84) 0966-948-914 </p>
+                                <p><i class="fi-rs-smartphone"></i><span>Liên hệ</span> (+84) 0966-948-914 </p>
                             </div>
-                            <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up
-                                to 40%
-                            </p>
-                            <div class="header-action-right d-block d-lg-none">
-                                <div class="header-action-2">
-                                    <div class="header-action-icon-2">
-                                        <a href="shop-wishlist.php">
-                                            <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-heart.svg">
-                                            <span class="pro-count white">4</span>
-                                        </a>
-                                    </div>
-                                    <div class="header-action-icon-2">
-                                        <a class="mini-cart-icon" href="cart.html">
-                                            <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-cart.svg">
-                                            <span class="pro-count white">2</span>
-                                        </a>
-                                        <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                            <ul>
-                                                <li>
-                                                    <div class="shopping-cart-img">
-                                                        <a href="product-details.html"><img alt="Surfside Media"
-                                                                src="assets/imgs/shop/thumbnail-3.jpg"></a>
-                                                    </div>
-                                                    <div class="shopping-cart-title">
-                                                        <h4><a href="product-details.html">Plain Striola Shirts</a></h4>
-                                                        <h3><span>1 × </span>$800.00</h3>
-                                                    </div>
-                                                    <div class="shopping-cart-delete">
-                                                        <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="shopping-cart-img">
-                                                        <a href="product-details.html"><img alt="Surfside Media"
-                                                                src="assets/imgs/shop/thumbnail-4.jpg"></a>
-                                                    </div>
-                                                    <div class="shopping-cart-title">
-                                                        <h4><a href="product-details.html">Macbook Pro 2022</a></h4>
-                                                        <h3><span>1 × </span>$3500.00</h3>
-                                                    </div>
-                                                    <div class="shopping-cart-delete">
-                                                        <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <div class="shopping-cart-footer">
-                                                <div class="shopping-cart-total">
-                                                    <h4>Total <span>$383.00</span></h4>
-                                                </div>
-                                                <div class="shopping-cart-button">
-                                                    <a href="cart.html">View cart</a>
-                                                    <a href="shop-checkout.php">Checkout</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="header-action-icon-2 d-block d-lg-none">
-                                        <div class="burger-icon burger-icon-white">
-                                            <span class="burger-icon-top"></span>
-                                            <span class="burger-icon-mid"></span>
-                                            <span class="burger-icon-bottom"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        
                         </div>
                     </div>
                 </div>
     </header>
-    <div class="mobile-header-active mobile-header-wrapper-style">
-        <div class="mobile-header-wrapper-inner">
-            <div class="mobile-header-top">
-                <div class="mobile-header-logo">
-                    <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
-                </div>
-                <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
-                    <button class="close-style search-close">
-                        <i class="icon-top"></i>
-                        <i class="icon-bottom"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="mobile-header-content-area">
-
-                <div class="mobile-menu-wrap mobile-header-border">
-                    <div class="main-categori-wrap mobile-header-border">
-                        <a class="categori-button-active-2" href="#">
-                            <span class="fi-rs-apps"></span> Browse Categories
-                        </a>
-                        <div class="categori-dropdown-wrap categori-dropdown-active-small">
-                            <ul>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Women's Clothing</a>
-                                </li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Men's Clothing</a></li>
-                                <li> <a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Cellphones</a>
-                                </li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Computer & Office</a>
-                                </li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Consumer Electronics</a>
-                                </li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Home & Garden</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-high-heels"></i>Shoes</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-teddy-bear"></i>Mother & Kids</a>
-                                </li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-kite"></i>Outdoor fun</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- mobile menu start -->
-                    <nav>
-                        <ul class="mobile-menu">
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                    href="index.html">Home</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                    href="shop.html">shop</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Our
-                                    Collections</a>
-                                <ul class="dropdown">
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                            href="#">Women's Fashion</a>
-                                        <ul class="dropdown">
-                                            <li><a href="product-details.html">Dresses</a></li>
-                                            <li><a href="product-details.html">Blouses & Shirts</a></li>
-                                            <li><a href="product-details.html">Hoodies & Sweatshirts</a></li>
-                                            <li><a href="product-details.html">Women's Sets</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                            href="#">Men's Fashion</a>
-                                        <ul class="dropdown">
-                                            <li><a href="product-details.html">Jackets</a></li>
-                                            <li><a href="product-details.html">Casual Faux Leather</a></li>
-                                            <li><a href="product-details.html">Genuine Leather</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                            href="#">Technology</a>
-                                        <ul class="dropdown">
-                                            <li><a href="product-details.html">Gaming Laptops</a></li>
-                                            <li><a href="product-details.html">Ultraslim Laptops</a></li>
-                                            <li><a href="product-details.html">Tablets</a></li>
-                                            <li><a href="product-details.html">Laptop Accessories</a></li>
-                                            <li><a href="product-details.html">Tablet Accessories</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a
-                                    href="blog.html">Blog</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                    <li><a href="#">Spanish</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- mobile menu end -->
-                </div>
-                <div class="mobile-header-info-wrap mobile-header-border">
-                    <div class="single-mobile-header-info mt-30">
-                        <a href="contact.html"> Our location </a>
-                    </div>
-                    <div class="single-mobile-header-info">
-                        <a href="login.html">Log In </a>
-                    </div>
-                    <div class="single-mobile-header-info">
-                        <a href="register.html">Sign Up</a>
-                    </div>
-                    <div class="single-mobile-header-info">
-                        <a href="#">(+1) 0000-000-000 </a>
-                    </div>
-                </div>
-                <div class="mobile-social-icon">
-                    <h5 class="mb-15 text-grey-4">Follow Us</h5>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     {{$slot}}
 
@@ -359,26 +178,7 @@
         <section class="newsletter p-30 text-white wow fadeIn animated">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-7 mb-md-3 mb-lg-0">
-                        <div class="row align-items-center">
-                            <div class="col flex-horizontal-center">
-                                <img class="icon-email" src="assets/imgs/theme/icons/icon-email.svg" alt="">
-                                <h4 class="font-size-20 mb-0 ml-3">Sign up to Newsletter</h4>
-                            </div>
-                            <div class="col my-4 my-md-0 des">
-                                <h5 class="font-size-15 ml-4 mb-0">...and receive <strong>$25 coupon for first
-                                        shopping.</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <!-- Subscribe Form -->
-                        <form class="form-subcriber d-flex wow fadeIn animated">
-                            <input type="email" class="form-control bg-white font-small" placeholder="Enter your email">
-                            <button class="btn bg-dark text-white" type="submit">Subscribe</button>
-                        </form>
-                        <!-- End Subscribe Form -->
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -392,15 +192,15 @@
                             </div>
                             <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                             <p class="wow fadeIn animated">
-                                <strong>Address: </strong>48 Cao Thắng - Hải Châu - Đà Nẵng
+                                <strong>Địa chỉ: </strong>48 Cao Thắng - Hải Châu - Đà Nẵng
                             </p>
                             <p class="wow fadeIn animated">
-                                <strong>Phone: </strong>+84 966-948-914
+                                <strong>Số điện thoại: </strong>+84 966-948-914
                             </p>
                             <p class="wow fadeIn animated">
                                 <strong>Email: </strong>levanthang230902@gmail.com
                             </p>
-                            <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
+                            <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Theo dõi chúng tôi</h5>
                             <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
                                 <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
                                 <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
@@ -411,30 +211,30 @@
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3">
-                        <h5 class="widget-title wow fadeIn animated">About</h5>
+                        <h5 class="widget-title wow fadeIn animated">Thông tin</h5>
                         <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
-                            <li><a href="{{route('about')}}">About Us</a></li>
-                            <li><a href="#">Delivery Information</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="{{route('about')}}">Về chúng tôi</a></li>
+                            <li><a href="#">Thông tin vận chuyển</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Các điều khoản</a></li>
+                            <li><a href="#">Liên hệ</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-2  col-md-3">
-                        <h5 class="widget-title wow fadeIn animated">My Account</h5>
+                        <h5 class="widget-title wow fadeIn animated">Tài khoản</h5>
                         <ul class="footer-list wow fadeIn animated">
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="{{route('shop.cart')}}">View Cart</a></li>
-                            <li><a href="#">My Wishlist</a></li>
-                            <li><a href="#">Track My Order</a></li>
-                            <li><a href="{{route('shop.checkout')}}">Order</a></li>
+                            <li><a href="my-account.html">Thông tin tài khoản</a></li>
+                            <li><a href="{{route('shop.cart')}}">Xem giỏ hàng</a></li>
+                            <li><a href="#">Xem sản phẩm yêu thích</a></li>
+                            <li><a href="#">Theo dõi đơn hàng</a></li>
+                            <li><a href="{{route('shop.checkout')}}">Đơn hàng</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 mob-center">
-                        <h5 class="widget-title wow fadeIn animated">Install App</h5>
+                        <h5 class="widget-title wow fadeIn animated">Cài đặt App</h5>
                         <div class="row">
                             <div class="col-md-8 col-lg-12">
-                                <p class="wow fadeIn animated">From App Store or Google Play</p>
+                                <p class="wow fadeIn animated">Từ App Store hoặc Google Play</p>
                                 <div class="download-app wow fadeIn animated mob-app">
                                     <a href="#" class="hover-up mb-sm-4 mb-lg-0"><img class="active"
                                             src="assets/imgs/theme/app-store.jpg" alt=""></a>
@@ -443,7 +243,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-lg-12 mt-md-3 mt-lg-0">
-                                <p class="mb-20 wow fadeIn animated">Secured Payment Gateways</p>
+                                <p class="mb-20 wow fadeIn animated">Các phương thức thanh toán</p>
                                 <img class="wow fadeIn animated" src="assets/imgs/theme/payment-method.png" alt="">
                             </div>
                         </div>
@@ -458,13 +258,12 @@
                 </div>
                 <div class="col-lg-6">
                     <p class="float-md-left font-sm text-muted mb-0">
-                        <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms &
-                            Conditions</a>
+                        <a href="privacy-policy.html">Chính sách bảo mật</a> | <a href="terms-conditions.html">Điều khoản sử dụng</a>
                     </p>
                 </div>
                 <div class="col-lg-6">
                     <p class="text-lg-end text-start font-sm text-muted mb-0">
-                        &copy; <strong class="text-brand">SurfsideMedia</strong> All rights reserved
+                    Thuộc quyền sở hửu &copy; <strong class="text-brand">Bookstorettt</strong> 
                     </p>
                 </div>
             </div>
@@ -504,7 +303,6 @@
         <!-- Your Plugin chat code -->
         <div id="fb-customer-chat" class="fb-customerchat">
         </div>
-
         <script>
         var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "164229313445795");
