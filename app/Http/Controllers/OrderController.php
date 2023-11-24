@@ -87,7 +87,7 @@ class OrderController extends Controller
                     $content = $response->body();
                     parse_str($content, $queryArray);
                     if ($queryArray['vnp_ResponseCode'] === "00") {
-                        $vnp_message = "Vui lòng chờ từ 1 đến 7 ngày để được sử lý hoàn tiền";
+                        $vnp_message = "Vui lòng chờ từ 1 đến 7 ngày để được xử lý hoàn tiền";
                     } else {
                         $vnp_message = "Đã xảy ra lỗi khi gửi yêu cầu hoàn tiền, vui lòng liên hệ CSKH để được hỗ trợ";
                         return redirect(route('order.detail.view', ['order_id' => $order_id]))->with('error', $vnp_message);

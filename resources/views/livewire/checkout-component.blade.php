@@ -18,6 +18,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        @if ($errors->any())
+                        <div class=" alert alert-danger mt-3 mb-3">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
                         <div class="order_review">
                             <div class="mb-20">
                                 <h4>Đơn hàng của bạn</h4>
@@ -52,11 +61,14 @@
                                         @endforeach
                                         <tr>
                                             <th>Tổng tiền các sản phẩm</th>
-                                            <td class="product-subtotal" colspan="3">{{number_format(intval(str_replace(',', '',Cart::subtotal())))}} VND</td>
+                                            <td class="product-subtotal" colspan="3">
+                                                {{number_format(intval(str_replace(',', '',Cart::subtotal())))}} VND
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>Thuế</th>
-                                            <td class="product-subtotal" colspan="3">{{number_format(intval(str_replace(',', '',Cart::tax())))}} VND</td>
+                                            <td class="product-subtotal" colspan="3">
+                                                {{number_format(intval(str_replace(',', '',Cart::tax())))}} VND</td>
                                         </tr>
 
                                         <tr>
@@ -66,7 +78,8 @@
                                         <tr>
                                             <th>Thành tiền</th>
                                             <td colspan="3" class="product-subtotal"><span
-                                                class="font-xl text-brand fw-900">{{number_format(intval(str_replace(',', '',Cart::total())) +30000)}} VND</span></td>
+                                                    class="font-xl text-brand fw-900">{{number_format(intval(str_replace(',',
+                                                    '',Cart::total())) +30000)}} VND</span></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -79,30 +92,81 @@
                                 <form method="POST" action="{{route('user.payment')}}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" required="" name="fullName" placeholder="Họ tên *">
+                                        <input type="text" value="{{Auth::user()->name}}" required name="fullName" placeholder="Họ tên *">
                                     </div>
-                                    
+                                    <?php
+                                        if(isset(Auth::user()->address)) {
+                                            $address = explode(',', Auth::user()->address);
+                                            $length = count($address);
+                                        }
+                                    ?>
+
+                                    @if(Auth::user()->address)
                                     <div class="form-group d-flex gap-3">
-                                        <select class="form-control form-select form-select-sm" name="city" id="city" required aria-label=".form-select-sm">
-                                        <option value="" selected disabled>Chọn tỉnh thành *</option>           
+                                        <select class="form-control form-select form-select-sm"
+                                            name="city" id="city" required aria-label=".form-select-sm">
+                                            <option value="" selected disabled>Chọn tỉnh thành *
+                                            </option>
+                                            <option value="{{
+                                                $address[$length-1]}}" selected>{{
+                                                $address[$length-1]}}
+                                            </option>
                                         </select>
-                                                
-                                        <select class="form-control form-select form-select-sm" name="district" id="district" required aria-label=".form-select-sm">
-                                        <option value="" selected disabled>Chọn quận huyện *</option>
+
+                                        <select class="form-control form-select form-select-sm"
+                                            name="district" id="district" required
+                                            aria-label=".form-select-sm">
+                                            <option value="" disabled>Chọn tỉnh thành *</option>
+
+                                            <option value="{{
+                                                $address[$length-2]}}" selected>{{
+                                                    $address[$length-2]}}
+                                            </option>
                                         </select>
-    
-                                        <select class="form-control form-select form-select-sm" name="ward" id="ward" required aria-label=".form-select-sm">
-                                        <option value="" selected disabled>Chọn phường xã *</option>
+
+                                        <select class="form-control form-select form-select-sm"
+                                            name="ward" id="ward" required aria-label=".form-select-sm">
+                                            <option value="" disabled>Chọn tỉnh thành *</option>
+
+                                            <option value="{{
+                                                $address[$length-3]}}" selected>{{
+                                                    $address[$length-3]}}</option>
                                         </select>
                                     </div>
+                                    @else
+                                    <div class="form-group d-flex gap-3">
+                                        <select class="form-control form-select form-select-sm"
+                                            name="city" id="city" required aria-label=".form-select-sm">
+                                            <option value="" selected disabled>Chọn tỉnh
+                                                thành *
+                                            </option>
+                                        </select>
+
+                                        <select class="form-control form-select form-select-sm"
+                                            name="district" id="district" required
+                                            aria-label=".form-select-sm">
+                                            <option value="" selected disabled>Chọn quận
+                                                huyện *
+                                            </option>
+                                        </select>
+
+                                        <select class="form-control form-select form-select-sm"
+                                            name="ward" id="ward" required aria-label=".form-select-sm">
+                                            <option value="" selected disabled>Chọn phường xã
+                                                *</option>
+                                        </select>
+                                    </div>
+                                    @endif
                                     <div class="form-group">
-                                        <input type="text" name="address" required="" placeholder="Số nhà, tên đường *">
+                                        <input type="text" name="address" value="{{implode(',',array_slice(explode(',', Auth::user()->address), 0, -3))}}" required placeholder="Số nhà, tên đường *">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="tel" name="phone" pattern="[0-9]{10}" placeholder="Số điện thoại *">
+                                        <input required type="tel" name="phone" value="{{Auth::user()->phone}}" pattern="[0-9]{10,11}"
+                                            placeholder="Số điện thoại *">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="text" name="email" pattern=".+@gmail.com" placeholder="Email *">
+                                        <input required type="email" name="email" value="{{Auth::user()->order_email}}"
+                                            placeholder="Email *">
                                     </div>
 
                                     <div class="mb-20">
@@ -112,13 +176,14 @@
                                         <textarea rows="5" name="note" placeholder="Ghi chú đơn hàng"></textarea>
                                     </div>
                                     <div class="custome-radio">
-                                        <input class="form-check-input" required="" type="radio" name="payment_option"
+                                        <input class="form-check-input" required type="radio" name="payment_option"
                                             id="exampleRadios3" value="cod">
                                         <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse"
-                                            data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Thanh toán khi giao hàng</label>
+                                            data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Thanh toán khi
+                                            giao hàng</label>
                                     </div>
                                     <div class="custome-radio">
-                                        <input class="form-check-input" required="" checked type="radio"
+                                        <input class="form-check-input" required checked type="radio"
                                             name="payment_option" id="exampleRadios5" value="vnp">
                                         <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse"
                                             data-target="#vnp" aria-controls="vnp">Thanh toán qua VNPay</label>
@@ -133,22 +198,8 @@
                                     <input type="hidden" name="sub_total" value="{{Cart::subtotal()}}" />
                                     <input type="hidden" name="tax" value="{{Cart::tax()}}" />
                                     <input type="hidden" name="shipping" value="30000" />
-
-
-                                    <button type="submit" name="redirect" class="btn btn-fill-out btn-block mt-30">Đặt hàng</button>
-                                        @if ($errors->any())
-                                        <div class=" alert alert-danger mt-3 mb-3">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                @if($error === 'The email has already been taken.')
-                                                <li>Email đã được sử dụng</li>
-                                                @else
-                                                <li>{{ $error }}</li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        @endif
+                                    <button type="submit" name="redirect" class="btn btn-fill-out btn-block mt-30">Đặt
+                                        hàng</button>
                                 </form>
                             </div>
                         </div>
@@ -162,13 +213,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script>
-	var cities = document.getElementById("city");
+    var cities = document.getElementById("city");
     var districts = document.getElementById("district");
     var wards = document.getElementById("ward");
     var Parameter = {
-        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
-        method: "GET", 
-        responseType: "application/json", 
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+        method: "GET",
+        responseType: "application/json",
     };
     var promise = axios(Parameter);
     promise.then(function (result) {
@@ -182,7 +233,7 @@
         cities.onchange = function () {
             district.length = 1;
             ward.length = 1;
-            if(this.value != ""){
+            if (this.value != "") {
                 const result = data.filter(n => n.Name === this.value);
 
                 for (const k of result[0].Districts) {
