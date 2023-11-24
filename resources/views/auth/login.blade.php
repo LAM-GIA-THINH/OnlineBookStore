@@ -20,6 +20,11 @@
                                         <div class="heading_s1">
                                             <h3 class="mb-30">Đăng nhập</h3>
                                         </div>
+                                        @if(session('error')) 
+                                        <div class="alert alert-danger mt-3 mb-3">
+                                                {{session('error')}}
+                                            </div>
+                                        @endif
                                         @if ($errors->any())
                                             <div class="alert alert-danger mt-3 mb-3">
                                                 Email hoặc mật khẩu sai vui lòng thử lại.

@@ -10,9 +10,10 @@ class PaymentResultComponent extends Component
     {
         $this->message = session('message');
         $this->orderId = session('order_id');
+        $this->messageType = session('messageType');
     }
     public function render()
     {
-        return view('livewire.payment-result-component', ['message' => $this->message, 'order_id' => $this->orderId]);
+        return view('livewire.payment-result-component', ['message' => $this->message, 'messageType' => $this->messageType, 'order_id' => $this->orderId]);
     }
 }

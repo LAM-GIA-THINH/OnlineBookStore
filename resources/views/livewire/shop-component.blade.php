@@ -24,14 +24,14 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found <strong class="text-brand">{{$products->total()}}</strong> items for you!
+                                <p> Chúng tôi đã tìm thấy <strong class="text-brand">{{$products->total()}}</strong> sản phẩm cho bạn!
                                 </p>
                             </div>
                             <div class="sort-by-product-area">
                                 <div class="sort-by-cover mr-10">
                                     <div class="sort-by-product-wrap">
                                         <div class="sort-by">
-                                            <span><i class="fi-rs-apps"></i>Show:</span>
+                                            <span><i class="fi-rs-apps"></i>Hiển thị:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
                                             <span>{{$pageSize}} <i class="fi-rs-angle-small-down"></i></span>
@@ -88,15 +88,20 @@
                                             <a href="{{route('product.details',['slug'=>$product->slug])}}">
                                                 <img class="default-img"
                                                     src="{{ asset('assets/imgs/products/products')}}/{{$product->image}}"
-                                                    alt="{{$product->name}}">
+                                                    alt="{{$product->name}}"
+                                                    width="100px"
+                                                    height="300px"
+                                                    >
                                                 <img class="hover-img"
                                                     src="{{ asset('assets/imgs/products/products')}}/{{$product->image}}"
-                                                    alt="{{$product->name}}">
+                                                    alt="{{$product->name}}"
+                                                    width="100px"
+                                                    height="300px">
                                             </a>
                                         </div>
                                         
                                         <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
+                                            <span class="hot">Nổi bật</span>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">

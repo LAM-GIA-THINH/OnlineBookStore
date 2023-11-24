@@ -28,6 +28,9 @@
                                     @if(Session::has('message'))
                                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                     @endif
+                                    @if(Session::has('error'))
+                                    <div class="alert alert-danger" role="alert">{{Session::get('error')}}</div>
+                                    @endif
                                     <form wire:submit.prevent="updateOrder">
                                     <div class="row">   
                                     <div class="mb-3 mt-3  col-md-3">
@@ -125,6 +128,8 @@
                                             <select class="form-control" name="payment_status" wire:model="payment_status" disabled>
                                                 <option value="0">Chưa thanh toán</option>
                                                 <option value="1">Đã thanh toán</option>
+                                                <option value="2">Thanh toán lỗi</option>
+                                                <option value="3">Đã hoàn tiền</option>
                                             </select>
                                     </div>
                                     </div>
