@@ -86,6 +86,10 @@
                                                                 Chưa thanh toán
                                                             @elseif($order->payment_status == 1)
                                                                 Đã thanh toán
+                                                            @elseif($order->payment_status == 2)
+                                                                Thanh toán lỗi
+                                                            @elseif($order->payment_status == 3)
+                                                                Đã hoàn tiền
                                                             @endif
                                                     </td>
                                                     <td>    @if($order->order_status == 0)

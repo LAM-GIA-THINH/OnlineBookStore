@@ -28,6 +28,9 @@
                                     @if(Session::has('message'))
                                     <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
                                     @endif
+                                    @if(Session::has('error'))
+                                    <div class="alert alert-danger" role="alert">{{Session::get('error')}}</div>
+                                    @endif
                                     <form wire:submit.prevent="updateOrder">
                                     <div class="mb-3 mt-3">
                                         <label for="order_id" class="form-label">Mã đơn hàng</label>
