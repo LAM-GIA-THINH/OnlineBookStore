@@ -13,13 +13,13 @@ class CheckoutController extends Controller
 {
     public function payment(Request $request)
     {
-        $orderId = date('YmdHis');
         $data = $request->all();
+        $orderId = date('YmdHis');
         $orderItems = [];
         $order = new Order([
             'id' => $orderId,
             'user_id' => $data['user_id'],
-            'address' => $data['address'],
+            'address' => $data['address'] . ','. $data['ward'] .','. $data['district'] .','. $data['city'],
             'name' => $data['fullName'],
             'email' => $data['email'],
             'phone' => $data['phone'],
@@ -70,7 +70,7 @@ class CheckoutController extends Controller
             return redirect(route('order.detail.view', ['order_id' => $orderId]));
         } else if ($data["payment_option"] == "vnp") {
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_ReturnUrl = "http://localhost:8000/handle-vnpay-return";
+            $vnp_ReturnUrl = "https://bookstorettt.com/handle-vnpay-return";
             $vnp_TmnCode = env('VNP_TMN_CODE');
             $vnp_HashSecret = env('VNP_HASH_SECRET');
 

@@ -28,7 +28,7 @@ class AdminProductAddComponent extends Component
     public $weight =300;
     public $language="Tiếng Việt";
     public $demographic="3+";
-    public $stock_status = "instock";
+    public $stock_status = "Còn Hàng";
     public $featured = false;
     public $quantity = 100;
     public $image;
