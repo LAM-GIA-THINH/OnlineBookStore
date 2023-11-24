@@ -237,7 +237,7 @@
                                 <p class="wow fadeIn animated">Từ App Store hoặc Google Play</p>
                                 <div class="download-app wow fadeIn animated mob-app">
                                     <a href="#" class="hover-up mb-sm-4 mb-lg-0"><img class="active"
-                                            src="assets/imgs/theme/app-store.jpg" alt=""></a>
+                                            src="{{ asset('assets/imgs/theme/app-store.jpg')}}" alt=""></a>
                                     <a href="#" class="hover-up"><img src="{{ asset('assets/imgs/theme/google-play.jpg')}}"
                                             alt=""></a>
                                 </div>
