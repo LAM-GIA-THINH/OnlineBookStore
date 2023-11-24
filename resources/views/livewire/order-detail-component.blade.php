@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow">Trang chủ</a>
-                    <span></span> Shop
+                    <span></span> Mua sắm
                     <span></span> Thông tin đơn hàng
                 </div>
             </div>
@@ -137,9 +137,11 @@
                                 <textarea rows="5" disabled>{{$order->note}}</textarea>
                             </div>
                             @if ($order->order_status == 0)
-                            <form method="POST" action="{{ route('order.cancel', ['order_id' => $order->id]) }}">
+                            <form method="POST" action="{{ route('order.cancel', ['order_id' => $order->id]) }}"
+                                id="cancelForm">
                                 @csrf
-                                <button type="submit" class="btn btn-fill-out btn-block mt-30">Huỷ đơn hàng</button>
+                                <button type="button" class="btn btn-fill-out btn-block mt-30"
+                                    onclick="confirmCancel()">Huỷ đơn hàng</button>
                             </form>
                             @endif
                         </div>
@@ -149,3 +151,15 @@
         </section>
     </main>
 </div>
+
+<script>
+    function confirmCancel() {
+        var result = confirm("Bạn có chắc chắn muốn huỷ đơn hàng không?");
+        if (result) {
+            // Nếu người dùng đồng ý, submit form
+            document.getElementById("cancelForm").submit();
+        } else {
+            // Nếu người dùng không đồng ý, không thực hiện gì cả
+        }
+    }
+</script>

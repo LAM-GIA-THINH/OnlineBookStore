@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="breadcrumb">
                     <a href="index.html" rel="nofollow">Trang chủ</a>
-                    <span></span> Shop
+                    <span></span> Mua sắm
                     <span></span> Thủ tục thanh toán
                 </div>
             </div>
