@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('order_email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->string('password');
             $table->string('utype')->default('USR')->comment('ADM for Admin and USR for Normal User');
             $table->string('provider_id')->nullable();

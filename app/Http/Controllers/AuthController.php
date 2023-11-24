@@ -33,6 +33,7 @@ class AuthController extends Controller
                 $newUser = User::updateOrCreate(['email' => $facebookUser->getEmail()],[
                         'name' => $facebookUser->getName(),
                         'email' => $facebookUser->getEmail(),
+                        'order_email' => $facebookUser->getEmail(),
                         'provider_id'=> $facebookUser->getId(),
                         'provider' => 'facebook',
                         'password' => bcrypt(Str::random(8)),
@@ -68,6 +69,7 @@ class AuthController extends Controller
                 $newUser = User::create([
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
+                    'order_email' => $googleUser->getEmail(),
                     'provider_id' => $googleUser->getId(),
                     'email_verified_at' => date('m/d/Y h:i:s a', time()),
                     'password' => bcrypt(Str::random(8)),
