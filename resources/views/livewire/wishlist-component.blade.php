@@ -13,8 +13,8 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="/" rel="nofollow">Home</a>
-                    <span></span> Wishlist
+                    <a href="/" rel="nofollow">Trang Chủ</a>
+                    <span></span> Sản Phẩm Được yêu thích
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                                         </h2>
                                        
                                         <div class="product-price">
-                                            <span>{{number_format($product->regular_price)}} VND </span>
+                                            <span>{{number_format($item->model->regular_price)}} VND </span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">

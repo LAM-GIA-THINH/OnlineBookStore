@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use Cart;
+use App\Models\Publisher;
 use App\Models\Category;
 
 class DetailsComponent extends Component
@@ -37,11 +38,14 @@ class DetailsComponent extends Component
         $rproducts = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
         $nproducts = Product::latest()->take(4)->get();
         $categories = Category::orderBy('name','ASC')->get();
+        $publisher = Publisher::where('id', $product->publisher_id)->first();
+
         return view('livewire.details-component', [
             'product' => $product,
             'rproducts' => $rproducts,
             'nproducts' => $nproducts,
-            'categories'=>$categories 
+            'categories'=>$categories ,
+            'publisher' => $publisher
         ]);
     }
 }

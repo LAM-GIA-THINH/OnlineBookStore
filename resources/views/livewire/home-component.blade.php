@@ -70,7 +70,7 @@
                                     <h2 class="animated fw-900">BLACK FIDAY</h2>
                                     <h1 class="animated fw-900 text-brand">Giảm giá đến 70%</h1>
                                     <p class="animated">Cho tất cả sản phẩm</p>
-                                    <a class="animated btn btn-brush btn-brush-3" href="product-details.html"> Mua ngay </a>
+                                    <a class="animated btn btn-brush btn-brush-3" href="{{route('shop')}}"> Mua ngay </a>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-6">
@@ -90,7 +90,7 @@
                                     <h2 class="animated fw-900">Ngày Giáng Sinh</h2>
                                     <h1 class="animated fw-900 text-7">Truyện trọn bộ</h1>
                                     <p class="animated">Tiết kiệm đén 20%</p>
-                                    <a class="animated btn btn-brush btn-brush-2" href="product-details.html"> Mua ngay  </a>
+                                    <a class="animated btn btn-brush btn-brush-2" href="{{route('shop')}}"> Mua ngay  </a>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-6">

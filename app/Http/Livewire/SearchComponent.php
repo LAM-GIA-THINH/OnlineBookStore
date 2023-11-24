@@ -12,7 +12,7 @@ class SearchComponent extends Component
 {   
     use WithPagination;
     public $pageSize = 12;
-    public $orderBy ="Default Sorting";
+    public $orderBy ="Mặc định";
     public $q;
     public $search_term;
     public $min_value =10000;
@@ -54,14 +54,14 @@ class SearchComponent extends Component
 
     public function render()
     {   
-        if($this->orderBy == "Price: Low to High"){
+        if($this->orderBy == "Giá: thấp đến cao"){
             $products = Product::whereBetween('regular_price', [$this->min_value, $this->max_value])->where('name','like',$this->search_term)->orderBy('regular_price', 'ASC')->paginate($this->pageSize); 
         }
-        else if($this->orderBy == "Price: High to Low")
+        else if($this->orderBy == "Giá: cao đến thấp")
         {
             $products = Product::whereBetween('regular_price', [$this->min_value, $this->max_value])->where('name','like',$this->search_term)->orderBy('regular_price', 'DESC')->paginate($this->pageSize); 
         }
-        else if($this->orderBy == 'Sort By Newness')
+        else if($this->orderBy == 'Sản phẩm mới')
         {
             $products = Product::whereBetween('regular_price', [$this->min_value, $this->max_value])->where('name','like',$this->search_term)->orderBy('created_at', 'DESC')->paginate($this->pageSize); 
         }

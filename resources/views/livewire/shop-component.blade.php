@@ -54,26 +54,22 @@
                                 <div class="sort-by-cover">
                                     <div class="sort-by-product-wrap">
                                         <div class="sort-by">
-                                            <span><i class="fi-rs-apps-sort"></i>Lọc theo:</span>
+                                            <span><i class="fi-rs-apps-sort"></i>Sắp xếp:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
-                                            <span>mặc định<i class="fi-rs-angle-small-down"></i></span>
+                                            <span>{{$orderBy}}<i class="fi-rs-angle-small-down"></i></span>
                                         </div>
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="{{ $orderBy=='Default Sorting' ? 'active': ''}}"
-                                                    wire:click.prevent="changeOrderBy('Default Sorting')">Mặc định
-                                                    </a></li>
-                                            <li><a class="{{ $orderBy=='Price: Low to High' ? 'active': ''}}"
-                                                    wire:click.prevent="changeOrderBy('Price: Low to High')">Giá: Thấp
-                                                    đén Cao</a></li>
-                                            <li><a class="{{ $orderBy=='Price: High to Low' ? 'active': ''}}"
-                                                    wire:click.prevent="changeOrderBy('Price: High to Low')">Giá: Cao
-                                                    đến Thấp</a></li>
-                                            <li><a class="{{ $orderBy=='Sort By Newness' ? 'active': ''}}"
-                                                    wire:click.prevent="changeOrderBy('Sort By Newness')">
-                                                    Mới nhất</a></li>
+                                            <li><a class="{{ $orderBy=='Mặc định' ? 'active': ''}}"
+                                                    wire:click.prevent="changeOrderBy('Mặc định')">Mặc định</a></li>
+                                            <li><a class="{{ $orderBy=='Giá: thấp đến cao' ? 'active': ''}}"
+                                                    wire:click.prevent="changeOrderBy('Giá: thấp đến cao')">Giá: thấp đến cao</a></li>
+                                            <li><a class="{{ $orderBy=='Giá: cao đến thấp' ? 'active': ''}}"
+                                                    wire:click.prevent="changeOrderBy('Giá: cao đến thấp')">Giá: cao đến thấp</a></li>
+                                            <li><a class="{{ $orderBy=='Sản phẩm mới' ? 'active': ''}}"
+                                                    wire:click.prevent="changeOrderBy('Sản phẩm mới')">Sản phẩm mới</a></li>
 
                                         </ul>
                                     </div>
@@ -103,15 +99,7 @@
                                                     height="300px">
                                             </a>
                                         </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up"
-                                                data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                                <i class="fi-rs-search"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up"
-                                                href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i
-                                                    class="fi-rs-shuffle"></i></a>
-                                        </div>
+                                        
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">Nổi bật</span>
                                         </div>
@@ -131,11 +119,11 @@
                                         <div class="product-action-1 show">
                                             @livewireStyles
                                             @if($witems->contains($product->id))
-                                                <a aria-label="Remove From Wishlist" class="action-btn hover-up wishlisted" href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fi-rs-heart"></i></a>
+                                                <a aria-label="Bỏ yêu thích" class="action-btn hover-up wishlisted" href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fi-rs-heart"></i></a>
                                             @else
-                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-heart"></i></a>
+                                                <a aria-label="Yêu Thích" class="action-btn hover-up" href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-heart"></i></a>
                                             @endif
-                                            <a aria-label="Add To Cart" class="action-btn hover-up"
+                                            <a aria-label="Thêm vào giỏ hàng" class="action-btn hover-up"
                                                 wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i
                                                     class="fi-rs-shopping-bag-add"></i></a>
                                             @livewireScripts
@@ -169,10 +157,9 @@
                         </div>
                     </div>
                     <div class="col-lg-3 primary-sidebar sticky-sidebar">
-                                            <!-- Fillter By Price -->
-                                            <div class=" sidebar-widget price_range range mb-30">
+                    <div class=" sidebar-widget price_range range mb-30">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">Lọc theo giá</h5>
+                                <h5 class="widget-title mb-10">Lọc Theo Giá</h5>
                                 <div class="bt-1 border-color-1"></div>
                             </div>
                             <div class="price-filter">
@@ -180,20 +167,18 @@
                                     <div id="slider-range" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                            <span>Khoảng:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">{{$max_value}} VND</span>
+                                            <span></span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">{{$max_value}} VND</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="shop.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i>
-                                Áp dụng lọc</a>
-                        </div>    
-                    <div class="row">
+                        </div>
+                        <div class="row">
                             <div class="col-lg-12 col-mg-6"></div>
                             <div class="col-lg-12 col-mg-6"></div>
                         </div>
                         <div class="widget-category mb-30">
-                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
+                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Danh Mục</h5>
                             <ul class="categories">
                                 @foreach($categories as $category)
                                 <li>
@@ -205,7 +190,8 @@
 
                             </ul>
                         </div>
-
+                        <!-- Fillter By Price -->
+                        
                       
                         
                     </div>
