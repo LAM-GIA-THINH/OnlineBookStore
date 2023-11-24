@@ -135,8 +135,12 @@
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
                                             <a href="product-details.html">
-                                                <img class="default-img" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
-                                                <img class="hover-img" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
+                                                <img class="default-img" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt=""
+                                                width="70px"
+                                                    height="300px">
+                                                <img class="hover-img" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt=""
+                                                width="70px"
+                                                    height="300px">
                                             </a>
                                         </div>
                                         <div class="product-action-1">

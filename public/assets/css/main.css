@@ -7621,30 +7621,33 @@ span.fi-rs-apps {
 }
 
 #scrollUp {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background-color: #07b55b;
   color: #ffffff;
   right: 30px;
   bottom: 30px;
-  border-radius: 5px;
+  border-radius: 50%; /* Set border-radius to 50% to create a circle */
   text-align: center;
   overflow: hidden;
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   z-index: 999 !important;
+  display: flex; /* Use flexbox to center the content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
 }
 
 #scrollUp i {
-  display: block;
   line-height: 40px !important;
   font-size: 16px;
 }
 
 #scrollUp:hover {
   -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  transform: translateY(-5px);
 }
+
 
 .footer-mid .widget-title {
   margin: 15px 0 20px 0;
