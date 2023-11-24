@@ -18,6 +18,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                    @if ($errors->any())
+                    <div class=" alert alert-danger mt-3 mb-3">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                         <div class="order_review">
                             <div class="mb-20">
                                 <h4>Đơn hàng của bạn</h4>
@@ -79,7 +88,7 @@
                                 <form method="POST" action="{{route('user.payment')}}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="text" required="" name="fullName" placeholder="Họ tên *">
+                                        <input type="text" required name="fullName" placeholder="Họ tên *">
                                     </div>
                                     
                                     <div class="form-group d-flex gap-3">
@@ -96,13 +105,13 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="address" required="" placeholder="Số nhà, tên đường *">
+                                        <input type="text" name="address" required placeholder="Số nhà, tên đường *">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="tel" name="phone" pattern="[0-9]{10}" placeholder="Số điện thoại *">
+                                        <input required type="tel" name="phone" pattern="[0-9]{10,11}" placeholder="Số điện thoại *">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="text" name="email" pattern=".+@gmail.com" placeholder="Email *">
+                                        <input required type="text" name="email" pattern=".+@gmail.com" placeholder="Email *">
                                     </div>
 
                                     <div class="mb-20">
@@ -112,13 +121,13 @@
                                         <textarea rows="5" name="note" placeholder="Ghi chú đơn hàng"></textarea>
                                     </div>
                                     <div class="custome-radio">
-                                        <input class="form-check-input" required="" type="radio" name="payment_option"
+                                        <input class="form-check-input" required type="radio" name="payment_option"
                                             id="exampleRadios3" value="cod">
                                         <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse"
                                             data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Thanh toán khi giao hàng</label>
                                     </div>
                                     <div class="custome-radio">
-                                        <input class="form-check-input" required="" checked type="radio"
+                                        <input class="form-check-input" required checked type="radio"
                                             name="payment_option" id="exampleRadios5" value="vnp">
                                         <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse"
                                             data-target="#vnp" aria-controls="vnp">Thanh toán qua VNPay</label>
@@ -133,22 +142,7 @@
                                     <input type="hidden" name="sub_total" value="{{Cart::subtotal()}}" />
                                     <input type="hidden" name="tax" value="{{Cart::tax()}}" />
                                     <input type="hidden" name="shipping" value="30000" />
-
-
                                     <button type="submit" name="redirect" class="btn btn-fill-out btn-block mt-30">Đặt hàng</button>
-                                        @if ($errors->any())
-                                        <div class=" alert alert-danger mt-3 mb-3">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                @if($error === 'The email has already been taken.')
-                                                <li>Email đã được sử dụng</li>
-                                                @else
-                                                <li>{{ $error }}</li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                        @endif
                                 </form>
                             </div>
                         </div>

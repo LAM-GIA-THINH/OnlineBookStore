@@ -45,7 +45,7 @@ class AuthController extends Controller
             }
        
         } catch (\Throwable $th) {
-            dd('Something went wrong! '. $th->getMessage());
+            return redirect(route('login'))->with('error', 'Đã xảy ra lỗi khi thực hiên đăng nhập bằng facebook. Vui lòng thử lại sau');
         }
     }
 
@@ -79,7 +79,7 @@ class AuthController extends Controller
             }
         } catch (\Throwable $th) {
             //throw $th;
-            dd('Something went wrong! '. $th->getMessage());
+            return redirect(route('login'))->with('error', 'Đã xảy ra lỗi khi thực hiên đăng nhập bằng google. Vui lòng thử lại sau');
         }
     }
 }
