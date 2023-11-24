@@ -4,8 +4,13 @@
                 <div class="container">
                     <div class="breadcrumb">
                         <a href="/" rel="nofollow">Trang chủ</a>
-                        <span></span> Tất cả sản phẩm
+                        <span></span> Quản lý Sản phẩm
                     </div>
+                </div>
+            </div>
+            <div style="background-color: #07b55b; color: #fff; padding: 20px 0; text-align: center;">
+                <div class="container">
+                    <h2 style="margin: 0; font-size: 24px; font-weight: bold; color:white;">Quản lý Sản phẩm</h2>
                 </div>
             </div>
             <section class="mt-50 mb-50">
@@ -13,11 +18,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
-                            <div class="card-header"> 
+                            <div class="card-header" style=" border: 2px solid #ccc; border-radius: 4px;"> 
                                 <div class="row align-items-center">
-                                    <div class="p-2">
-                                        <h4 class="mb-0">Tất cả sản phẩm</h4>
-                                    </div>
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <input wire:model="search" type="text" class="form-control" placeholder="Tìm kiếm bằng tên..." style="border: 1px solid #ccc; border-radius: 4px;">
@@ -38,7 +40,7 @@
                                 </div>
                             </div>
                                 <div class="card-body">
-                                        <table class="table table-striped">
+                                        <table class="table table-striped" style="border: 2px solid #ccc;">
                                             <thead>
                                                 <tr class="text-center">
                                                 <th>#</th>

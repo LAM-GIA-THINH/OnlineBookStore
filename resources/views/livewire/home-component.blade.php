@@ -66,11 +66,11 @@
                         <div class="row align-items-center slider-animated-1">
                             <div class="col-lg-5 col-md-6">
                                 <div class="hero-slider-content-2">
-                                    <h4 class="animated">Trade-in offer</h4>
-                                    <h2 class="animated fw-900">Supper value deals</h2>
-                                    <h1 class="animated fw-900 text-brand">On all products</h1>
-                                    <p class="animated">Save more with coupons & up to 70% off</p>
-                                    <a class="animated btn btn-brush btn-brush-3" href="product-details.html"> Shop Now </a>
+                                    <h4 class="animated">Đại lễ giảm giá</h4>
+                                    <h2 class="animated fw-900">BLACK FIDAY</h2>
+                                    <h1 class="animated fw-900 text-brand">Giảm giá đến 70%</h1>
+                                    <p class="animated">Cho tất cả sản phẩm</p>
+                                    <a class="animated btn btn-brush btn-brush-3" href="product-details.html"> Mua ngay </a>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-6">
@@ -86,11 +86,11 @@
                         <div class="row align-items-center slider-animated-1">
                             <div class="col-lg-5 col-md-6">
                                 <div class="hero-slider-content-2">
-                                    <h4 class="animated">Hot promotions</h4>
-                                    <h2 class="animated fw-900">Fashion Trending</h2>
-                                    <h1 class="animated fw-900 text-7">Great Collection</h1>
-                                    <p class="animated">Save more with coupons & up to 20% off</p>
-                                    <a class="animated btn btn-brush btn-brush-2" href="product-details.html"> Discover Now </a>
+                                    <h4 class="animated">Ưu đãi cuối năm</h4>
+                                    <h2 class="animated fw-900">Ngày Giáng Sinh</h2>
+                                    <h1 class="animated fw-900 text-7">Truyện trọn bộ</h1>
+                                    <p class="animated">Tiết kiệm đén 20%</p>
+                                    <a class="animated btn btn-brush btn-brush-2" href="product-details.html"> Mua ngay  </a>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-6">
@@ -104,64 +104,23 @@
             </div>
             <div class="slider-arrow hero-slider-1-arrow"></div>
         </section>
-        <section class="featured section-padding position-relative">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-1.png" alt="">
-                            <h4 class="bg-1">Free Shipping</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-2.png" alt="">
-                            <h4 class="bg-3">Online Order</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-3.png" alt="">
-                            <h4 class="bg-2">Save Money</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-4.png" alt="">
-                            <h4 class="bg-4">Promotions</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-5.png" alt="">
-                            <h4 class="bg-5">Happy Sell</h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
-                        <div class="banner-features wow fadeIn animated hover-up">
-                            <img src="assets/imgs/theme/icons/feature-6.png" alt="">
-                            <h4 class="bg-6">24/7 Support</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
         <section class="product-tabs section-padding position-relative wow fadeIn animated">
             <div class="bg-square"></div>
             <div class="container">
                 <div class="tab-header">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Featured</button>
+                            <button class="nav-link active" id="nav-tab-one" data-bs-toggle="tab" data-bs-target="#tab-one" type="button" role="tab" aria-controls="tab-one" aria-selected="true">Nổi bật</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Popular</button>
+                            <button class="nav-link" id="nav-tab-two" data-bs-toggle="tab" data-bs-target="#tab-two" type="button" role="tab" aria-controls="tab-two" aria-selected="false">Bán chạy</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">New added</button>
+                            <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">Mới nhất</button>
                         </li>
                     </ul>
-                    <a href="#" class="view-more d-none d-md-flex">View More<i class="fi-rs-angle-double-small-right"></i></a>
+                    <a href="#" class="view-more d-none d-md-flex">Xem thêm<i class="fi-rs-angle-double-small-right"></i></a>
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
@@ -229,10 +188,51 @@
                 <!--End tab-content-->
             </div>
         </section>
-        
+        <section class="featured section-padding position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <img src="assets/imgs/theme/icons/feature-1.png" alt="">
+                            <h4 class="bg-1">Vận chuyển nhanh chóng</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <img src="assets/imgs/theme/icons/feature-2.png" alt="">
+                            <h4 class="bg-3">Mua hàng online</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <img src="assets/imgs/theme/icons/feature-3.png" alt="">
+                            <h4 class="bg-2">Tiết kiệm tiền</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <img src="assets/imgs/theme/icons/feature-4.png" alt="">
+                            <h4 class="bg-4">Ưu đãi lớn</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <img src="assets/imgs/theme/icons/feature-5.png" alt="">
+                            <h4 class="bg-5">Dễ dàng</h4>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 mb-md-3 mb-lg-0">
+                        <div class="banner-features wow fadeIn animated hover-up">
+                            <img src="assets/imgs/theme/icons/feature-6.png" alt="">
+                            <h4 class="bg-6">Hỗ trợ 24/7</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>        
         <section class="section-padding">
             <div class="container wow fadeIn animated">
-                <h3 class="section-title mb-20"><span>New</span> Arrivals</h3>
+                <h3 class="section-title mb-20"><span>Mới </span>phát hành</h3>
                 <div class="carausel-6-columns-cover position-relative">
                     <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-2-arrows"></div>
                     <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2">
@@ -275,30 +275,30 @@
        
         <section class="section-padding">
             <div class="container">
-                <h3 class="section-title mb-20 wow fadeIn animated"><span>Featured</span> Brands</h3>
+                <h3 class="section-title mb-20 wow fadeIn animated"><span>Các hãng </span>đối tác</h3>
                 <div class="carausel-6-columns-cover position-relative wow fadeIn animated">
                     <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-3-arrows"></div>
                     <div class="carausel-6-columns text-center" id="carausel-6-columns-3">
                         <div class="brand-logo">
-                            <img class="img-grey-hover" src="assets/imgs/banner/brand-1.png" alt="">
+                            <img class="img-grey-hover" src="assets/imgs/banner/brand-1.png" alt="" style="width: 100px;">
                         </div>
                         <div class="brand-logo">
-                            <img class="img-grey-hover" src="assets/imgs/banner/brand-2.png" alt="">
+                            <img class="img-grey-hover" src="assets/imgs/banner/brand-3.png" alt="" style="width: 100px;">
                         </div>
                         <div class="brand-logo">
-                            <img class="img-grey-hover" src="assets/imgs/banner/brand-3.png" alt="">
+                            <img class="img-grey-hover" src="assets/imgs/banner/brand-2.png" alt="" style="width: 100px;">
                         </div>
                         <div class="brand-logo">
-                            <img class="img-grey-hover" src="assets/imgs/banner/brand-4.png" alt="">
+                            <img class="img-grey-hover" src="assets/imgs/banner/brand-4.png" alt="" style="width: 100px;">
                         </div>
                         <div class="brand-logo">
-                            <img class="img-grey-hover" src="assets/imgs/banner/brand-5.png" alt="">
+                            <img class="img-grey-hover" src="assets/imgs/banner/brand-5.png" alt="" style="width: 100px;">
                         </div>
                         <div class="brand-logo">
-                            <img class="img-grey-hover" src="assets/imgs/banner/brand-6.png" alt="">
+                            <img class="img-grey-hover" src="assets/imgs/banner/brand-6.png" alt="" style="width: 100px;">
                         </div>
                         <div class="brand-logo">
-                            <img class="img-grey-hover" src="assets/imgs/banner/brand-3.png" alt="">
+                            <img class="img-grey-hover" src="assets/imgs/banner/brand-7.png" alt="" style="width: 100px;">
                         </div>
                     </div>
                 </div>

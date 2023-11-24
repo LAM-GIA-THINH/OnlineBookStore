@@ -231,10 +231,10 @@
                         </ul>
                     </div>
                     <div class="col-lg-4 mob-center">
-                        <h5 class="widget-title wow fadeIn animated">Install App</h5>
+                        <h5 class="widget-title wow fadeIn animated">Cài đặt App</h5>
                         <div class="row">
                             <div class="col-md-8 col-lg-12">
-                                <p class="wow fadeIn animated">From App Store or Google Play</p>
+                                <p class="wow fadeIn animated">Từ App Store hoặc Google Play</p>
                                 <div class="download-app wow fadeIn animated mob-app">
                                     <a href="#" class="hover-up mb-sm-4 mb-lg-0"><img class="active"
                                             src="assets/imgs/theme/app-store.jpg" alt=""></a>
@@ -243,7 +243,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4 col-lg-12 mt-md-3 mt-lg-0">
-                                <p class="mb-20 wow fadeIn animated">Secured Payment Gateways</p>
+                                <p class="mb-20 wow fadeIn animated">Các phương thức thanh toán</p>
                                 <img class="wow fadeIn animated" src="assets/imgs/theme/payment-method.png" alt="">
                             </div>
                         </div>

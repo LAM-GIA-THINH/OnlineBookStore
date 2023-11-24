@@ -2147,12 +2147,12 @@ label {
 
 .nav-tabs .nav-link.active {
   color: #07b55b;
-  background-color: #fde1bd;
+  background-color: #9cffd4;
 }
 
 .nav-tabs .nav-link:hover {
   color: #07b55b;
-  background-color: #fde1bd;
+  background-color: #9cffd4;
   -webkit-transform: translateY(-3px);
           transform: translateY(-3px);
   -webkit-transition: 0.2s;
@@ -7536,7 +7536,7 @@ span.fi-rs-apps {
 }
 
 .newsletter {
-  background-color: #f4f4d8;
+  background-color: #198754;
 }
 
 .newsletter .icon-email {
