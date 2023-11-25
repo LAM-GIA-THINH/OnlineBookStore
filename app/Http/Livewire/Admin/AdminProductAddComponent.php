@@ -26,10 +26,10 @@ class AdminProductAddComponent extends Component
     public $size;
     public $release_date;
     public $weight =300;
+    public $pages =300;
     public $language="Tiếng Việt";
     public $demographic="3+";
     public $stock_status = "Còn Hàng";
-    public $featured = false;
     public $quantity = 100;
     public $image;
     public $images; // Assuming this is for additional images
@@ -53,6 +53,15 @@ class AdminProductAddComponent extends Component
     public function decreaseWeight()
     {
         $this->weight -= 100;
+    }
+    public function increasePage()
+    {
+        $this->pages += 100;
+    }
+
+    public function decreasePage()
+    {
+        $this->pages -= 100;
     }
     public function increaseRegularprice()
     {
@@ -92,8 +101,8 @@ class AdminProductAddComponent extends Component
             'language' => 'required',
             'demographic' => 'required',
             'stock_status' => 'required',
-            'featured' => 'required',
             'quantity' => 'required',
+            'pages' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'category_id' => 'required',
             'author_id' => 'required',
@@ -110,10 +119,10 @@ class AdminProductAddComponent extends Component
             $product->size = $this->size;
             $product->release_date = $this->release_date;
             $product->weight = $this->weight;
+            $product->pages = $this->pages;
             $product->language = $this->language;
             $product->demographic = $this->demographic;
             $product->stock_status = $this->stock_status;
-            $product->featured = $this->featured;
             $product->quantity = $this->quantity;
     
             // Upload and store the main product image

@@ -86,12 +86,12 @@
                                     </div>   
                                     <div class="row">   
                                     <div class="mb-3 mt-3  col-md-3">
-                                        <label for="regular_price" class="form-label">Giá bình thường</label>
+                                        <label for="regular_price" class="form-label">Giá bán</label>
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-secondary" type="button" wire:click="decreaseRegularprice">-</button>
                                             </span>
-                                            <input type="text" name="regular_price" class="form-control" placeholder="Nhập giá bình thường" wire:model="regular_price"/>
+                                            <input type="text" name="regular_price" class="form-control" placeholder="Nhập giá bán" wire:model="regular_price"/>
                                             <span class="input-group-btn">
                                                 <button class="btn btn-secondary" type="button" wire:click="increaseRegularprice">+</button>
                                             </span>
@@ -101,12 +101,12 @@
                                         @enderror
                                     </div>  
                                     <div class="mb-3 mt-3  col-md-3">
-                                        <label for="sale_price" class="form-label">Giá khuyến mãi</label>
+                                        <label for="sale_price" class="form-label">Giá gốc</label>
                                         <div class="input-group">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-secondary" type="button" wire:click="decreaseSaleprice">-</button>
                                             </span>
-                                            <input type="text" name="sale_price" class="form-control" placeholder="Nhập giá giảm" wire:model="sale_price"/>
+                                            <input type="text" name="sale_price" class="form-control" placeholder="Nhập gốc" wire:model="sale_price"/>
                                             <span class="input-group-btn">
                                                 <button class="btn btn-secondary" type="button" wire:click="increaseSaleprice">+</button>
                                             </span>
@@ -131,6 +131,23 @@
                                         @enderror
                                     </div>  
                                     <div class="mb-3 mt-3  col-md-3">
+                                        <label for="pages" class="form-label">Số trang</label>
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" wire:click="decreasePage">-</button>
+                                            </span>
+                                            <input type="text" name="pages" class="form-control" placeholder="Nhập số trang" wire:model="pages"/>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-secondary" type="button" wire:click="increasePage">+</button>
+                                            </span>
+                                        </div>
+                                        @error('pages')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>  
+                                    </div>
+                                    <div class="row">   
+                                    <div class="mb-3 mt-3  col-md-3">
                                         <label for="quantity" class="form-label">Số lượng sản phẩm</label>
                                         <div class="input-group">
                                             <span class="input-group-btn">
@@ -145,12 +162,10 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-                                    </div>
-                                    <div class="row">   
                                     <div class="mb-3 mt-3  col-md-3">
                                         <label for="ISBN" class="form-label">ISBN</label>
                                         <input type="text" name="ISBN" class="form-control" placeholder="Nhập ISBN" wire:model="ISBN"/>
-                                        @error('sku')
+                                        @error('ISBN')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror                                        
                                     </div>
@@ -159,6 +174,8 @@
                                             <select class="form-control" name="cover_type" wire:model="cover_type">
                                                 <option value="Bìa mềm">Bìa mềm</option>
                                                 <option value="Bìa cứng">Bìa cứng</option>
+                                                <option value="Bìa rời">Bìa rời</option>
+                                                <option value="Bìa gập">Bìa gập</option>
                                             </select>
                                         @error('cover_type')
                                         <p class="text-danger">{{$message}}</p>
@@ -173,6 +190,9 @@
                                     </div>
 
 
+
+                                    </div>  
+                                    <div class="row">   
                                     <div class="mb-3 mt-3 col-md-3">
                                         <label for="language" class="form-label" wire:model="language">Ngôn ngữ</label>
                                             <select class="form-control" name="language" wire:model="language">
@@ -186,8 +206,6 @@
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div> 
-                                    </div>  
-                                    <div class="row">   
                                     <div class="mb-3 mt-3  col-md-3">
                                         <label for="demographic" class="form-label" >Đối tượng</label>
                                             <select class="form-control" name="demographic" wire:model="demographic">
@@ -216,16 +234,6 @@
                                                 <option value="Hết hàng">Hết hàng</option>
                                             </select>
                                         @error('stock_status')
-                                        <p class="text-danger">{{$message}}</p>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3 mt-3 col-md-3">
-                                        <label for="featured" class="form-label" >Được tài trợ</label>
-                                            <select class="form-control" name="featured" wire:model="featured">
-                                                <option value="0">Không</option>
-                                                <option value="1">Có</option>
-                                            </select>
-                                        @error('featured')
                                         <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>

@@ -128,7 +128,7 @@
                                     <div style=" padding: 5px; "><strong>Trọng Lượng : </strong><span> {{$product->weight}}g</span></div>
                                 </div>
                                 <div style="display: inline-block; width: 33%; padding-left:80px ;">
-                                    <div style=" padding: 5px; "><strong>Số Trang : </strong><span> {{$product->weight}}</span></div>
+                                    <div style=" padding: 5px; "><strong>Số Trang : </strong><span> {{$product->pages}}</span></div>
                                     <div style=" padding: 5px; "><strong>Trạng thái : </strong><span> {{$product->stock_status}}</span></div>
                                     <div style=" padding: 5px; "><strong>Ngày Phát Hành : </strong><span> {{$product->release_date}}</span></div>
                                 </div>

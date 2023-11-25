@@ -25,10 +25,10 @@ return new class extends Migration
             $table->string('size')->nullable();
             $table->string('release_date')->nullable();
             $table->integer('weight')->nullable();
+            $table->integer('pages')->nullable();
             $table->string('language')->nullable();
             $table->string('demographic')->nullable();
             $table->string('stock_status');
-            $table->boolean('featured')->default(false);
             $table->unsignedInteger('quantity')->default(10);
             $table->string('image');
             $table->softDeletes();
