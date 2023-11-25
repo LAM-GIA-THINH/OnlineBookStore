@@ -27,10 +27,6 @@
                                             <figure class="border-radius-10">
                                                 <img src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="product image">
                                             </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="product image">
-                                            </figure>
-                                           
                                         </div>
                                         <!-- THUMBNAILS -->
                                       
@@ -138,7 +134,53 @@
                                     <div style=" padding: 5px; "><strong>Đối tượng : </strong><span> {{$product->demographic}}</span></div>
                                 </div>
                             </div>
+                <div style="background-color: #f4f4f4; padding: 20px;">
+                    <h3 style="padding-top:20px;">Đánh giá sản phẩm</h3>
+                    <p style="color: #666; margin-top: 20px; font-size:20px">Thêm đánh giá của bạn</p>
+                    <form wire:submit.prevent="submitReview" wire:ignore>
+                    <div id="stars" style="margin-top: 20px;">
+                <!-- Create 5 stars using labels and hide radio buttons -->
+                        <label id="label1" for="star1" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(1)">
+                            <input type="radio" name="rating" id="star1" value="1" style="display: none" wire:model="rating">★
+                        </label>
+
+                        <label id="label2" for="star2" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(2)">
+                            <input type="radio" name="rating" id="star2" value="2" style="display: none" wire:model="rating">★
+                        </label>
+
+                        <label id="label3" for="star3" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(3)">
+                            <input type="radio" name="rating" id="star3" value="3" style="display: none" wire:model="rating">★
+                        </label>
+
+                        <label id="label4" for="star4" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(4)">
+                            <input type="radio" name="rating" id="star4" value="4" style="display: none" wire:model="rating">★
+                        </label>
+
+                        <label id="label5" for="star5" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(5)">
+                            <input type="radio" name="rating" id="star5" value="5" style="display: none" wire:model="rating">★
+                        </label>
+                    </div>
+                    <p id="selectedRating" style="color: #333; margin-top: 10px;font-size: 20px">Đánh giá: </p>
+                    <div style="display: flex; align-items: flex-start; margin-top: 10px;">
+                        <img src="{{ asset('assets/imgs/user.png')}}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                        <textarea id="comment" placeholder="Nhập đánh giá..." style="width: 100%;font-size: 20px" wire:model="comment"></textarea>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                        <button style="margin-left: auto; font-size: 15px" type="submit">Đăng đánh giá</button>
+                    </div>
+                    </form>
+                    <h3 style="padding-top:20px;">Tất cả đánh giá</h3>
+                    @foreach($product->reviews as $review)
+                    <div style="display: flex; align-items: flex-start; width: 100%; margin-top:20px">
+                        <img src="{{ asset('assets/imgs/user.png')}}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                        <div style="width: 100%">
+                            <p style="font-size: 17px"><strong>{{ $review->user->name }} (Đã đánh giá {{ $review->rating }} <span style="color: gold;">★</span>)</strong></p>
                             
+                            <p style="font-size: 20px; width: 100%; background-color: white; border: 2px solid #ddd; margin-top: 5px; height: 80px; overflow-y: auto;">{{ $review->comment }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
                             
                             <div class="row mt-60">
                                 <div class="col-12">
@@ -246,5 +288,20 @@
             });
         }); 
     </script>
-    
+    <script>
+        // Function to update the selected rating and highlight the selected star
+        function setRating(rating) {
+            document.getElementById('selectedRating').innerText = 'Đánh giá: ' + rating + ' sao';
+
+            // Reset all star colors to default
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('label' + i).style.color = '#ccc';
+            }
+
+            // Highlight the selected stars in yellow
+            for (let i = 1; i <= rating; i++) {
+                document.getElementById('label' + i).style.color = 'yellow';
+            }
+        }
+    </script>
 @endpush
