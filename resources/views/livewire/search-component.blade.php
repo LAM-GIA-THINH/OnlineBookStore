@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="shop.html">Music</a>
+                                           
                                         </div>
                                         <h2><a
                                                 href="{{route('product.details',['slug'=>$product->slug])}}">{{$product->name}}</a>
