@@ -213,7 +213,7 @@
                                         <label for="stock_status" class="form-label"> Tình trạng hàng hoá</label>
                                             <select class="form-control" name="stock_status" wire:model="stock_status">
                                                 <option value="Còn hàng">Còn hàng</option>
-                                                <option value="Hết Hàng">Hết Hàng</option>
+                                                <option value="Hết hàng">Hết hàng</option>
                                             </select>
                                         @error('stock_status')
                                         <p class="text-danger">{{$message}}</p>
