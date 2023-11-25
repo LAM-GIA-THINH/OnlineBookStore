@@ -49,6 +49,18 @@
                                             <div class="pro-details-brand">
                                                
                                                <p style="font-size:17px">Nhà phát hành: <a href="#" >{{$publisher->name}}</a></p>
+                                               @php
+                                                    $totalRatings = count($product->reviews);
+                                                    $sumRatings = 0;
+
+                                                    foreach ($product->reviews as $review) {
+                                                        $sumRatings += $review->rating;
+                                                    }
+
+                                                    $averageRating = $totalRatings > 0 ? $sumRatings / $totalRatings : 0;
+                                                @endphp
+
+                                                <p style="font-size:17px">Đánh giá trung bình: {{ number_format($averageRating, 2) }} <img src="{{ asset('assets/imgs/star.png')}}" width="20" height="20"></p>
                                             </div>
                                             <div>
 
@@ -175,7 +187,7 @@
                     <div style="display: flex; align-items: flex-start; width: 100%; margin-top:20px">
                         <img src="{{ asset('assets/imgs/user.png')}}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
                         <div style="width: 100%">
-                            <p style="font-size: 17px"><strong>{{ $review->user->name }} (Đã đánh giá {{ $review->rating }} <span style="color: gold;">★</span>)</strong></p>
+                            <p style="font-size: 17px"><strong>{{ $review->user->name }} (Đã đánh giá {{ $review->rating }} <img src="{{ asset('assets/imgs/star.png')}}" width="17" height="17">)</strong></p>
                             
                             <p style="font-size: 20px; width: 100%; background-color: white; border: 2px solid #ddd; margin-top: 5px; height: 80px; overflow-y: auto;">{{ $review->comment }}</p>
                         </div>
