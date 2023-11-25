@@ -26,8 +26,8 @@
                         <div class="shop-product-fillter">
                             <div class="totall-product">
                                 <p> Chúng tôi tìm thấy <strong class="text-brand">{{$products->total()}} </strong>
-                                    của danh mục
-                                    <strong class="text-brand"> {{$category_name}}</strong>
+                                    của danh mục 
+                                    <strong class="text-brand">{{$category_name}}</strong>
                                 </p>
                             </div>
                             <div class="sort-by-product-area">
@@ -110,8 +110,11 @@
                                                 href="{{route('product.details',['slug'=>$product->slug])}}">{{$product->name}}</a>
                                         </h2>
                                         
+                                        <div class="row">
+                                        <div class="mb-3 mt-3"> 
                                         <div class="product-price">
-                                            <span>{{number_format($product->regular_price)}} VND</span>
+                                            <span>{{number_format($product->regular_price)}} VND </span>
+                                            <span class="old-price font-md ml-1">{{number_format($product->sale_price)}}</span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
@@ -126,6 +129,8 @@
                                                     class="fi-rs-shopping-bag-add"></i></a>
                                             @livewireScripts
 
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +169,7 @@
                         <!-- Fillter By Price -->
                         <div class=" sidebar-widget price_range range mb-30">
                             <div class="widget-header position-relative mb-20 pb-10">
-                                <h5 class="widget-title mb-10">Fillter by price</h5>
+                                <h5 class="widget-title mb-10">Lọc Theo Giá</h5>
                                 <div class="bt-1 border-color-1"></div>
                             </div>
                             <div class="price-filter">
@@ -172,7 +177,7 @@
                                     <div id="slider-range" wire:ignore></div>
                                     <div class="price_slider_amount">
                                         <div class="label-input">
-                                            <span>Range:</span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">{{$max_value}} VND</span>
+                                            <span></span> <span class="text-info">{{$min_value}} VND</span> - <span class="text-info">{{$max_value}} VND</span>
                                         </div>
                                     </div>
                                 </div>
@@ -181,7 +186,7 @@
                            
                         </div>
                         <div class="widget-category mb-30">
-                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
+                            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Danh Mục</h5>
                             <ul class="categories">
                                 @foreach($categories as $category)
                                 <li>
