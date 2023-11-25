@@ -13,7 +13,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Trang chủ</a>
+                    <a href="/" rel="nofollow">Trang chủ</a>
                     <span></span> Mua sắm
                 </div>
             </div>

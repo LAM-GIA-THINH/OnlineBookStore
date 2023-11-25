@@ -14,7 +14,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Trang Chủ</a>
+                    <a href="/" rel="nofollow">Trang Chủ</a>
                     <span></span> Mua Sắm
                 </div>
             </div>

@@ -7,7 +7,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Trang chủ</a>
+                    <a href="/" rel="nofollow">Trang chủ</a>
                     <span></span> Chi tiết sản phẩm
                     <span></span>{{$product->name}}
                 </div>
@@ -71,7 +71,13 @@
                                             <div class="product-price primary-color float-left">
                                                 <ins><span class="text-brand">{{number_format($product->regular_price)}} VND</span></ins>
                                                 <ins><span class="old-price font-md ml-15">{{number_format($product->sale_price)}}</span></ins>
-                                                <span class="save-price  font-md color3 ml-15">25% Off</span>
+                                                @php
+                                                    
+                                                    $percentageOff = (($product->sale_price - $product->regular_price) / $product->sale_price) * 100;
+                                                @endphp
+                                                <span class="discount-percentage" style="font-size:20px">
+                                                    {{ number_format($percentageOff, 2) }}% off
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="product-extra-link2 mt-15  mb-15">
@@ -149,6 +155,9 @@
                             </div>
                 <div style="background-color: #f4f4f4; padding: 20px;">
                     <h3 style="padding-top:20px;">Đánh giá sản phẩm</h3>
+                    @if(Session::has('error_message'))
+                        <div class="alert alert-danger" role="alert">{{Session::get('error_message')}}</div>
+                    @endif
                     <p style="color: #666; margin-top: 20px; font-size:20px">Thêm đánh giá của bạn</p>
                     <form wire:submit.prevent="submitReview" wire:ignore>
                     <div id="stars" style="margin-top: 20px;">
@@ -313,7 +322,7 @@
 
             // Highlight the selected stars in yellow
             for (let i = 1; i <= rating; i++) {
-                document.getElementById('label' + i).style.color = 'yellow';
+                document.getElementById('label' + i).style.color = 'gold';
             }
         }
     </script>

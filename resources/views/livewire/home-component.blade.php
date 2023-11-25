@@ -120,7 +120,7 @@
                             <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">Mới nhất</button>
                         </li>
                     </ul>
-                    <a href="#" class="view-more d-none d-md-flex">Xem thêm<i class="fi-rs-angle-double-small-right"></i></a>
+                    <a href="{{route('shop')}}" class="view-more d-none d-md-flex">Xem thêm<i class="fi-rs-angle-double-small-right"></i></a>
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
@@ -134,7 +134,7 @@
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap" >
                                         <div class="product-img product-img-zoom">
-                                            <a href="product-details.html" >
+                                            <a href="{{route('product.details',['slug'=>$product->slug])}}" >
                                                 <img class="default-img" style="height: 400px" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                                 <img class="hover-img"  style="height: 400px" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                             </a>
@@ -248,7 +248,7 @@
                         <div class="product-cart-wrap small hover-up">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="">
+                                    <a href="{{route('product.details',['slug'=>$product->slug])}}">
                                         <img class="default-img" style="height: 250px" src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                         <img class="hover-img" src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                     </a>
