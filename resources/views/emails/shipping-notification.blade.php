@@ -6,12 +6,18 @@
 
     <div style="max-width: 600px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
         <h1 style="color: #3490dc;">Thông tin đơn hàng</h1>
-        @if ($order->order_status === '2')
-            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Đơn hàng của bạn đang được vận chuyển! Chi tiết:</p>
+        @if ($order->order_status === '1')
+            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Đơn hàng của bạn đã được duyệt</p>
+            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Chi tiết:</p>
+        @elseif ($order->order_status === '2')
+            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Đơn hàng của bạn đang được giao!</p>
+            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Chi tiết:</p>
         @elseif ($order->order_status === '3')
-            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Đơn hàng của bạn đã thành công! Chi tiết:</p>
+            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Đơn hàng của bạn đã thành công!</p>
+            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Chi tiết:</p>
         @elseif ($order->order_status === '4')
-            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Đơn hàng của bạn đã bị huỷ! Chi tiết:</p>
+            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Đơn hàng của bạn đã bị huỷ!</p>
+            <p style="line-height: 1.6; color: #333; font-size: 18px; font-weight: bold;">Chi tiết:</p>
         @endif
 
         <div style="margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px;">

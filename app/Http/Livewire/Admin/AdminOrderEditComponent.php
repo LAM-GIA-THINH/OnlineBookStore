@@ -111,7 +111,7 @@ class AdminOrderEditComponent extends Component
             }
         }
         $order->save();
-        if (in_array($this->order_status, ['2', '3', '4']) && $previousStatus !== $this->order_status) {
+        if (in_array($this->order_status, ['1','2', '3', '4']) && $previousStatus !== $this->order_status) {
             $userEmail = $order->email;
             Mail::to($userEmail)->send(new ShippingNotification($order));
         }        

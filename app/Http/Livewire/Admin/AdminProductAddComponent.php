@@ -32,7 +32,7 @@ class AdminProductAddComponent extends Component
     public $stock_status = "Còn Hàng";
     public $quantity = 100;
     public $image;
-    public $images; // Assuming this is for additional images
+    public $images;
     public $category_id;
     public $author_id;
     public $publisher_id;
@@ -124,20 +124,16 @@ class AdminProductAddComponent extends Component
             $product->demographic = $this->demographic;
             $product->stock_status = $this->stock_status;
             $product->quantity = $this->quantity;
-    
-            // Upload and store the main product image
             $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
             $this->image->storeAs('products', $imageName);
             $product->image = $imageName;
-    
-            // Additional logic for handling multiple images if needed
-    
             $product->category_id = $this->category_id;
             $product->author_id = $this->author_id;
-            $product->publisher_id = $this->publisher_id; // Corrected typo in the field name
+            $product->publisher_id = $this->publisher_id;
             $product->save();
     
             session()->flash('message', 'Thêm sản phẩm thành công!');
+            return redirect()->route('admin.product.add');
     }
     public function render()
     {

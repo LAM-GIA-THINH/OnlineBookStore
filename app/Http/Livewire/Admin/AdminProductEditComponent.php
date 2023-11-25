@@ -152,14 +152,9 @@ class AdminProductEditComponent extends Component
                 $this->newimage->storeAs('products', $imageName);
                 $product->image = $imageName;
             }
-            // Upload and store the main product image
-            
-    
-            // Additional logic for handling multiple images if needed
-    
             $product->category_id = $this->category_id;
             $product->author_id = $this->author_id;
-            $product->publisher_id = $this->publisher_id; // Corrected typo in the field name
+            $product->publisher_id = $this->publisher_id; 
             $product->save();
     
             session()->flash('message', 'Đã cập nhật sản phẩm thành công!');
