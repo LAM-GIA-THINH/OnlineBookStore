@@ -59,7 +59,7 @@ class DetailsComponent extends Component
             return;
         }
         if (!$this->userHasBoughtProduct($product->id)) {
-            session()->flash('error_message', 'Bản chỉ có thể đánh giá sau khi mua sản phẩm.');
+            session()->flash('error_message', 'Bạn chỉ có thể đánh giá sau khi mua sản phẩm.');
             return;
         }
 
