@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Product;
 use Cart;
 use App\Models\Publisher;
+use App\Models\Author;
 use App\Models\Category;
 use App\Models\Review; // Add the Review model
 use Illuminate\Support\Facades\Auth;
@@ -107,6 +108,7 @@ class DetailsComponent extends Component
         $nproducts = Product::latest()->take(4)->get();
         $categories = Category::orderBy('name', 'ASC')->get();
         $publisher = Publisher::where('id', $product->publisher_id)->first();
+        $author = Author::where('id', $product->author_id)->first();
         $reviews = Review::where('product_id', $product->id)->get(); 
 
         return view('livewire.details-component', [
@@ -115,6 +117,7 @@ class DetailsComponent extends Component
             'nproducts' => $nproducts,
             'categories' => $categories,
             'publisher' => $publisher,
+            'author' => $author,
             'reviews' => $reviews,
         ]);
     }

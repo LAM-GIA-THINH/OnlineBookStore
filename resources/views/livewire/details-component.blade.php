@@ -7,7 +7,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Trảng chủ</a>
+                    <a href="index.html" rel="nofollow">Trang chủ</a>
                     <span></span> Chi tiết sản phẩm
                     <span></span>{{$product->name}}
                 </div>
@@ -34,7 +34,7 @@
                                     <!-- End Gallery -->
                                     <div class="social-icons single-share">
                                         <ul class="text-grey-5 d-inline-block">
-                                            <li><strong class="mr-10">Chia sẽ:</strong></li>
+                                            <li><strong class="mr-10">Chia sẻ:</strong></li>
                                             <li class="social-facebook"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-facebook.svg') }}" alt=""></a></li>
                                             <li class="social-twitter"> <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-twitter.svg') }}" alt=""></a></li>
                                             <li class="social-instagram"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-instagram.svg') }}" alt=""></a></li>
@@ -47,7 +47,8 @@
                                         <h2 class="title-detail">{{$product->name}}</h2>
                                         <div class="product-detail-rating">
                                             <div class="pro-details-brand">
-                                               <span>Nhà sản xuất: {{$publisher->name}}</span>
+                                               
+                                               <p style="font-size:17px">Nhà phát hành: <a href="#" >{{$publisher->name}}</a></p>
                                             </div>
                                             <div>
 
@@ -84,11 +85,11 @@
                                         </div>
                                         <div class=" mb-20">
                                             <ul class="product-meta  ">
-                                                <li class="mb-5">ISBN: <a href="#">{{$product->ISBN}}</a></li>
+                                                <li class="mb-5"><p style="font-size:17px">Tác giả: <a href="#" >{{$author->name}}</a></p></li>
                                                 @if($product->quantity > 0)
-                                                    <li>Số lượng:<span class="in-stock text-success ml-5">{{$product->quantity}} Sản phẩm</span></li>
+                                                    <li><p style="font-size:17px">Số lượng:<span class="in-stock text-success ml-5">{{$product->quantity}} Sản phẩm</span></p></li>
                                                 @else 
-                                                    <li>Số lượng:<span class="in-stock text-success ml-5">Hết hàng</span></li>
+                                                    <li><p style="font-size:17px">Số lượng:<span class="in-stock text-success ml-5">Hết hàng</span></p></li>
                                                 @endif   
                                             </ul>
                                         </div>
@@ -100,7 +101,7 @@
                                                 </li>
                                             
                                             </ul>
-                                            <div class="tab-content shop_info_tab entry-main-content">
+                                            <div class="tab-content shop_info_tab entry-main-content" style="margin-top:0px">
                                                 <div class="tab-pane fade show active" id="Description">
                                                     <div class="">
                                                         {{$product->description}}
