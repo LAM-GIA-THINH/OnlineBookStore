@@ -103,7 +103,7 @@ class AdminProductAddComponent extends Component
             'stock_status' => 'required',
             'quantity' => 'required',
             'pages' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'category_id' => 'required',
             'author_id' => 'required',
             'publisher_id' => 'required',
