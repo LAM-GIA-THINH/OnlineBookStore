@@ -48,12 +48,11 @@
                                         @auth
                                         
                                         <ul style="font-size: 16px;text-align: center;">
-                                            <li><img src="{{ asset('assets/imgs/logo/person.png')}}" width="20" height="20" style="margin-right:3px;">  {{ Auth::user()->name }} 
+                                            <li><img src="{{ asset('assets/imgs/logo/person.png')}}" width="20" height="20" style="margin-right:3px;"> {{ Auth::user()->name }} 
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a href="{{ route('logout') }}"
-                                                        onClick="event.preventDefault(); this.closest('form').submit();">Đăng
-                                                        xuất</a>
+                                                        onClick="event.preventDefault(); this.closest('form').submit();">Đăng xuất</a>
                                                 </form>
                                             </li>
                                         </ul>
