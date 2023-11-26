@@ -154,6 +154,8 @@
                                 </div>
                             </div>
                 <div style="background-color: #f4f4f4; padding: 20px;">
+                @auth
+                    @if(Auth::user()->utype =! '')
                     <h3 style="padding-top:20px;">Đánh giá sản phẩm</h3>
                     @if(Session::has('error_message'))
                         <div class="alert alert-danger" role="alert">{{Session::get('error_message')}}</div>
@@ -191,6 +193,10 @@
                         <button style="margin-left: auto; font-size: 15px" type="submit">Đăng đánh giá</button>
                     </div>
                     </form>
+                        @else
+                        <p style="color: #666; margin-top: 20px; font-size:20px">Đăng nhập để đăng đánh giá</p>
+                    @endif
+                    @endif
                     <h3 style="padding-top:20px;">Tất cả đánh giá</h3>
                     @foreach($product->reviews as $review)
                     <div style="display: flex; align-items: flex-start; width: 100%; margin-top:20px">

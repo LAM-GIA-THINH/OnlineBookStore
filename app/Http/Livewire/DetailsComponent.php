@@ -78,6 +78,7 @@ class DetailsComponent extends Component
         $this->reset(['rating', 'comment']);
     
         $this->emit('refreshReviews');
+        return redirect()->route('product.details', ['slug' => $this->slug]);
     }
     
     private function userHasReviewedProduct($productId)
