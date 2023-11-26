@@ -30,7 +30,8 @@ class AdminOrderEditComponent extends Component
     public $tracking;
     public $orderItemsWithProducts;
 
-    public function mount($order_id){
+    public function mount($order_id)
+    {
         $order = Order::find($order_id);
         $this->order_id = $order->id;
         $this->name = $order->name;
@@ -56,7 +57,7 @@ class AdminOrderEditComponent extends Component
         $previousStatus = $order->order_status;
         $order->order_status = $this->order_status;
         $order->tracking = $this->tracking;
-        if($order->payment_method == 'vnp' && $order->order_status === 4 && $order->payment_status !== 3) {
+        if ($order->payment_method == 'vnp'  && $order->order_status === '4' && $order->payment_status !== '3') {
             $vnp = vnpay_payments::where('vnp_TxnRef', $order->id)->first();
             if ($vnp) {
                 $vnp_TmnCode = env('VNP_TMN_CODE');
@@ -111,13 +112,15 @@ class AdminOrderEditComponent extends Component
             }
         }
         $order->save();
-        if (in_array($this->order_status, ['1','2', '3', '4']) && $previousStatus !== $this->order_status) {
+        if (in_array($this->order_status, ['1', '2', '3', '4']) && $previousStatus !== $this->order_status) {
             $userEmail = $order->email;
             Mail::to($userEmail)->send(new ShippingNotification($order));
-        }        
-        $orderItems = Order_Item::where('order_id', $order->id)->get();
-        foreach ($orderItems as $value) {
-            product::withTrashed()->where('id', $value->product_id)->increment('quantity', $value->quantity);
+        }
+        if($order->order_status === '4') {
+            $orderItems = Order_Item::where('order_id', $order->id)->get();
+            foreach ($orderItems as $value) {
+                product::withTrashed()->where('id', $value->product_id)->increment('quantity', $value->quantity);
+            }
         }
         session()->flash('message', 'Đã cập nhật đơn hàng thành công!');
         return redirect()->route('admin.order.edit', ['order_id' => $this->order_id]);
@@ -125,7 +128,6 @@ class AdminOrderEditComponent extends Component
 
     public function render()
     {
-        
-        return view('livewire.admin.admin-order-edit-component',['orderItemsWithProducts' => $this->orderItemsWithProducts] );
+        return view('livewire.admin.admin-order-edit-component', ['orderItemsWithProducts' => $this->orderItemsWithProducts]);
     }
 }
