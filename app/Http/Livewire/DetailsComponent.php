@@ -8,7 +8,7 @@ use Cart;
 use App\Models\Publisher;
 use App\Models\Author;
 use App\Models\Category;
-use App\Models\Review; // Add the Review model
+use App\Models\Review; 
 use Illuminate\Support\Facades\Auth;
 
 class DetailsComponent extends Component
@@ -94,10 +94,9 @@ class DetailsComponent extends Component
     {
         $user = Auth::user();
     
-        
         $hasBought = $user->orders()->whereHas('items', function ($query) use ($productId) {
             $query->where('product_id', $productId);
-        })->exists();
+        })->where('order_status', 3)->exists();
     
         return $hasBought;
     }
