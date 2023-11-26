@@ -19,7 +19,6 @@ class AdminCategoriesComponent extends Component
         return view('livewire.admin.admin-categories-component', ['categories' => $categories]);
     }
 
-    // Method to reset the search
     public function clearSearch()
     {
         $this->search = '';

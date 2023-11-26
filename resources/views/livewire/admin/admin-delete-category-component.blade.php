@@ -20,7 +20,7 @@
     .confirmation-box {
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f8f9fa; /* Add your desired background color */
+    background-color: #f8f9fa;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 </style>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('password');
-            $table->string('utype')->default('USR')->comment('ADM for Admin and USR for Normal User');
+            $table->string('utype')->default('USR');
             $table->string('provider_id')->nullable();
             $table->string('provider')->nullable();
             $table->rememberToken();

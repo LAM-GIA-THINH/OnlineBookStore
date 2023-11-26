@@ -22,16 +22,12 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="detail-gallery">
                                         <span class="zoom-icon"><i class="fi-rs-search"></i></span>
-                                        <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
                                                 <img src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="product image">
                                             </figure>
                                         </div>
-                                        <!-- THUMBNAILS -->
-                                      
                                     </div>
-                                    <!-- End Gallery -->
                                     <div class="social-icons single-share">
                                         <ul class="text-grey-5 d-inline-block">
                                             <li><strong class="mr-10">Chia sẻ:</strong></li>
@@ -65,7 +61,6 @@
                                             <div>
 
                                             </div>
-                                           
                                         </div>
                                         <div class="clearfix product-price-cover ">
                                             <div class="product-price primary-color float-left">
@@ -130,9 +125,7 @@
                                             </div>
                                         </div>
                                         </div>
-        
-                                        
-                                    <!-- Detail Info -->
+    
                                 </div>
                             </div>
                           
@@ -163,7 +156,7 @@
                     <p style="color: #666; margin-top: 20px; font-size:20px">Thêm đánh giá của bạn</p>
                     <form wire:submit.prevent="submitReview" wire:ignore>
                     <div id="stars" style="margin-top: 20px;">
-                <!-- Create 5 stars using labels and hide radio buttons -->
+               
                         <label id="label1" for="star1" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(1)">
                             <input type="radio" name="rating" id="star1" value="1" style="display: none" wire:model="rating">★
                         </label>
@@ -316,16 +309,13 @@
         }); 
     </script>
     <script>
-        // Function to update the selected rating and highlight the selected star
         function setRating(rating) {
             document.getElementById('selectedRating').innerText = 'Đánh giá: ' + rating + ' sao';
 
-            // Reset all star colors to default
             for (let i = 1; i <= 5; i++) {
                 document.getElementById('label' + i).style.color = '#ccc';
             }
 
-            // Highlight the selected stars in yellow
             for (let i = 1; i <= rating; i++) {
                 document.getElementById('label' + i).style.color = 'gold';
             }

@@ -19,7 +19,6 @@ class AdminAuthorsComponent extends Component
             return view('livewire.admin.admin-authors-component',['authors'=>$authors]);
     }
 
-    // Method to reset the search
     public function clearSearch()
     {
         $this->search = '';

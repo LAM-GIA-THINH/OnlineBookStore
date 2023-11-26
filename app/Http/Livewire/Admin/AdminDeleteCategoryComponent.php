@@ -30,11 +30,6 @@ class AdminDeleteCategoryComponent extends Component
 
     public function deleteCategory()
     {
-        // Implement your category deletion logic here
-        // You can use $this->categoryId to get the category ID
-        // For example: Category::find($this->categoryId)->delete();
-
-        // Close the modal after deletion
         $category = Category::find($this->category_id);
         $category->delete();
         session()->flash ('message', 'Đã xoá danh mục thành công!');
