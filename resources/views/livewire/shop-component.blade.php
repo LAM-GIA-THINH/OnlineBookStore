@@ -13,7 +13,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Trang chủ</a>
+                    <a href="/" rel="nofollow">Trang chủ</a>
                     <span></span> Mua sắm
                 </div>
             </div>
@@ -111,9 +111,11 @@
                                         <h2><a
                                                 href="{{route('product.details',['slug'=>$product->slug])}}">{{$product->name}}</a>
                                         </h2>
-                                       
+                                        <div class="row">
+                                        <div class="mb-3 mt-3"> 
                                         <div class="product-price">
                                             <span>{{number_format($product->regular_price)}} VND </span>
+                                            <span class="old-price font-md ml-1">{{number_format($product->sale_price)}}</span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
@@ -129,6 +131,9 @@
                                             @livewireScripts
 
                                         </div>
+                                        </div>
+                                        </div>
+                                        
                                     </div>
                                 </div>
 

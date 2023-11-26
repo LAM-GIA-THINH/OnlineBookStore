@@ -80,7 +80,7 @@
                                 </div>
                             </div>                            
                             <div class="col-lg-6">
-                               <img src="assets/imgs/login.png">
+                               <img src="assets/imgs/login.jpg">
                             </div>
                         </div>
                     </div>

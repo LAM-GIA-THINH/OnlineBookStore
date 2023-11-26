@@ -7,7 +7,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Trảng chủ</a>
+                    <a href="/" rel="nofollow">Trang chủ</a>
                     <span></span> Chi tiết sản phẩm
                     <span></span>{{$product->name}}
                 </div>
@@ -27,10 +27,6 @@
                                             <figure class="border-radius-10">
                                                 <img src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="product image">
                                             </figure>
-                                            <figure class="border-radius-10">
-                                                <img src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="product image">
-                                            </figure>
-                                           
                                         </div>
                                         <!-- THUMBNAILS -->
                                       
@@ -38,7 +34,7 @@
                                     <!-- End Gallery -->
                                     <div class="social-icons single-share">
                                         <ul class="text-grey-5 d-inline-block">
-                                            <li><strong class="mr-10">Chia sẽ:</strong></li>
+                                            <li><strong class="mr-10">Chia sẻ:</strong></li>
                                             <li class="social-facebook"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-facebook.svg') }}" alt=""></a></li>
                                             <li class="social-twitter"> <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-twitter.svg') }}" alt=""></a></li>
                                             <li class="social-instagram"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-instagram.svg') }}" alt=""></a></li>
@@ -51,7 +47,20 @@
                                         <h2 class="title-detail">{{$product->name}}</h2>
                                         <div class="product-detail-rating">
                                             <div class="pro-details-brand">
-                                               <span>Nhà sản xuất: {{$publisher->name}}</span>
+                                               
+                                               <p style="font-size:17px">Nhà phát hành: <a href="#" >{{$publisher->name}}</a></p>
+                                               @php
+                                                    $totalRatings = count($product->reviews);
+                                                    $sumRatings = 0;
+
+                                                    foreach ($product->reviews as $review) {
+                                                        $sumRatings += $review->rating;
+                                                    }
+
+                                                    $averageRating = $totalRatings > 0 ? $sumRatings / $totalRatings : 0;
+                                                @endphp
+
+                                                <p style="font-size:17px">Đánh giá trung bình: {{ number_format($averageRating, 2) }} <img src="{{ asset('assets/imgs/star.png')}}" width="20" height="20"></p>
                                             </div>
                                             <div>
 
@@ -62,7 +71,13 @@
                                             <div class="product-price primary-color float-left">
                                                 <ins><span class="text-brand">{{number_format($product->regular_price)}} VND</span></ins>
                                                 <ins><span class="old-price font-md ml-15">{{number_format($product->sale_price)}}</span></ins>
-                                                <span class="save-price  font-md color3 ml-15">25% Off</span>
+                                                @php
+                                                    
+                                                    $percentageOff = (($product->sale_price - $product->regular_price) / $product->sale_price) * 100;
+                                                @endphp
+                                                <span class="discount-percentage" style="font-size:20px">
+                                                    {{ number_format($percentageOff, 2) }}% off
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="product-extra-link2 mt-15  mb-15">
@@ -88,11 +103,11 @@
                                         </div>
                                         <div class=" mb-20">
                                             <ul class="product-meta  ">
-                                                <li class="mb-5">ISBN: <a href="#">{{$product->ISBN}}</a></li>
+                                                <li class="mb-5"><p style="font-size:17px">Tác giả: <a href="#" >{{$author->name}}</a></p></li>
                                                 @if($product->quantity > 0)
-                                                    <li>Số lượng:<span class="in-stock text-success ml-5">{{$product->quantity}} Sản phẩm</span></li>
+                                                    <li><p style="font-size:17px">Số lượng:<span class="in-stock text-success ml-5">{{$product->quantity}} Sản phẩm</span></p></li>
                                                 @else 
-                                                    <li>Số lượng:<span class="in-stock text-success ml-5">Hết hàng</span></li>
+                                                    <li><p style="font-size:17px">Số lượng:<span class="in-stock text-success ml-5">Hết hàng</span></p></li>
                                                 @endif   
                                             </ul>
                                         </div>
@@ -104,7 +119,7 @@
                                                 </li>
                                             
                                             </ul>
-                                            <div class="tab-content shop_info_tab entry-main-content">
+                                            <div class="tab-content shop_info_tab entry-main-content" style="margin-top:0px">
                                                 <div class="tab-pane fade show active" id="Description">
                                                     <div class="">
                                                         {{$product->description}}
@@ -128,7 +143,7 @@
                                     <div style=" padding: 5px; "><strong>Trọng Lượng : </strong><span> {{$product->weight}}g</span></div>
                                 </div>
                                 <div style="display: inline-block; width: 33%; padding-left:80px ;">
-                                    <div style=" padding: 5px; "><strong>Số Trang : </strong><span> {{$product->weight}}</span></div>
+                                    <div style=" padding: 5px; "><strong>Số Trang : </strong><span> {{$product->pages}}</span></div>
                                     <div style=" padding: 5px; "><strong>Trạng thái : </strong><span> {{$product->stock_status}}</span></div>
                                     <div style=" padding: 5px; "><strong>Ngày Phát Hành : </strong><span> {{$product->release_date}}</span></div>
                                 </div>
@@ -138,7 +153,56 @@
                                     <div style=" padding: 5px; "><strong>Đối tượng : </strong><span> {{$product->demographic}}</span></div>
                                 </div>
                             </div>
+                <div style="background-color: #f4f4f4; padding: 20px;">
+                    <h3 style="padding-top:20px;">Đánh giá sản phẩm</h3>
+                    @if(Session::has('error_message'))
+                        <div class="alert alert-danger" role="alert">{{Session::get('error_message')}}</div>
+                    @endif
+                    <p style="color: #666; margin-top: 20px; font-size:20px">Thêm đánh giá của bạn</p>
+                    <form wire:submit.prevent="submitReview" wire:ignore>
+                    <div id="stars" style="margin-top: 20px;">
+                <!-- Create 5 stars using labels and hide radio buttons -->
+                        <label id="label1" for="star1" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(1)">
+                            <input type="radio" name="rating" id="star1" value="1" style="display: none" wire:model="rating">★
+                        </label>
+
+                        <label id="label2" for="star2" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(2)">
+                            <input type="radio" name="rating" id="star2" value="2" style="display: none" wire:model="rating">★
+                        </label>
+
+                        <label id="label3" for="star3" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(3)">
+                            <input type="radio" name="rating" id="star3" value="3" style="display: none" wire:model="rating">★
+                        </label>
+
+                        <label id="label4" for="star4" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(4)">
+                            <input type="radio" name="rating" id="star4" value="4" style="display: none" wire:model="rating">★
+                        </label>
+
+                        <label id="label5" for="star5" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(5)">
+                            <input type="radio" name="rating" id="star5" value="5" style="display: none" wire:model="rating">★
+                        </label>
+                    </div>
+                    <p id="selectedRating" style="color: #333; margin-top: 10px;font-size: 20px">Đánh giá: </p>
+                    <div style="display: flex; align-items: flex-start; margin-top: 10px;">
+                        <img src="{{ asset('assets/imgs/user.png')}}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                        <textarea id="comment" placeholder="Nhập đánh giá..." style="width: 100%;font-size: 20px" wire:model="comment"></textarea>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+                        <button style="margin-left: auto; font-size: 15px" type="submit">Đăng đánh giá</button>
+                    </div>
+                    </form>
+                    <h3 style="padding-top:20px;">Tất cả đánh giá</h3>
+                    @foreach($product->reviews as $review)
+                    <div style="display: flex; align-items: flex-start; width: 100%; margin-top:20px">
+                        <img src="{{ asset('assets/imgs/user.png')}}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                        <div style="width: 100%">
+                            <p style="font-size: 17px"><strong>{{ $review->user->name }} (Đã đánh giá {{ $review->rating }} <img src="{{ asset('assets/imgs/star.png')}}" width="17" height="17">)</strong></p>
                             
+                            <p style="font-size: 20px; width: 100%; background-color: white; border: 2px solid #ddd; margin-top: 5px; height: 80px; overflow-y: auto;">{{ $review->comment }}</p>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
                             
                             <div class="row mt-60">
                                 <div class="col-12">
@@ -246,5 +310,20 @@
             });
         }); 
     </script>
-    
+    <script>
+        // Function to update the selected rating and highlight the selected star
+        function setRating(rating) {
+            document.getElementById('selectedRating').innerText = 'Đánh giá: ' + rating + ' sao';
+
+            // Reset all star colors to default
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('label' + i).style.color = '#ccc';
+            }
+
+            // Highlight the selected stars in yellow
+            for (let i = 1; i <= rating; i++) {
+                document.getElementById('label' + i).style.color = 'gold';
+            }
+        }
+    </script>
 @endpush

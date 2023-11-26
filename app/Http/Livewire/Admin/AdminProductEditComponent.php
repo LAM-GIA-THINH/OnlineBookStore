@@ -29,10 +29,9 @@ class AdminProductEditComponent extends Component
     public $language;
     public $demographic;
     public $stock_status;
-    public $featured;
     public $quantity;
     public $image;
-
+    public $pages;
     public $category_id;
     public $author_id;
     public $publisher_id;
@@ -54,11 +53,20 @@ class AdminProductEditComponent extends Component
         $this->language = $product->language;
         $this->demographic = $product->demographic;
         $this->stock_status = $product->stock_status;
-        $this->featured = $product->featured;
+        $this->pages = $product->pages;
         $this->quantity = $product->quantity;
         $this->category_id = $product->category_id;
         $this->author_id = $product->author_id;
         $this->publisher_id = $product->publisher_id;
+    }
+    public function increasePage()
+    {
+        $this->pages += 100;
+    }
+
+    public function decreasePage()
+    {
+        $this->pages -= 100;
     }
     public function increaseQuantity()
     {
@@ -116,7 +124,7 @@ class AdminProductEditComponent extends Component
             'language' => 'required',
             'demographic' => 'required',
             'stock_status' => 'required',
-            'featured' => 'required',
+            'pages' => 'required',
             'quantity' => 'required',
             'category_id' => 'required',
             'author_id' => 'required',
@@ -136,7 +144,7 @@ class AdminProductEditComponent extends Component
             $product->language = $this->language;
             $product->demographic = $this->demographic;
             $product->stock_status = $this->stock_status;
-            $product->featured = $this->featured;
+            $product->pages = $this->pages;
             $product->quantity = $this->quantity;
             if($this->newimage){
                 unlink('assets/imgs/products/products/'.$product->image);
@@ -144,14 +152,9 @@ class AdminProductEditComponent extends Component
                 $this->newimage->storeAs('products', $imageName);
                 $product->image = $imageName;
             }
-            // Upload and store the main product image
-            
-    
-            // Additional logic for handling multiple images if needed
-    
             $product->category_id = $this->category_id;
             $product->author_id = $this->author_id;
-            $product->publisher_id = $this->publisher_id; // Corrected typo in the field name
+            $product->publisher_id = $this->publisher_id; 
             $product->save();
     
             session()->flash('message', 'Đã cập nhật sản phẩm thành công!');

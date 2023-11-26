@@ -26,13 +26,13 @@ class AdminProductAddComponent extends Component
     public $size;
     public $release_date;
     public $weight =300;
+    public $pages =300;
     public $language="Tiếng Việt";
     public $demographic="3+";
     public $stock_status = "Còn Hàng";
-    public $featured = false;
     public $quantity = 100;
     public $image;
-    public $images; // Assuming this is for additional images
+    public $images;
     public $category_id;
     public $author_id;
     public $publisher_id;
@@ -53,6 +53,15 @@ class AdminProductAddComponent extends Component
     public function decreaseWeight()
     {
         $this->weight -= 100;
+    }
+    public function increasePage()
+    {
+        $this->pages += 100;
+    }
+
+    public function decreasePage()
+    {
+        $this->pages -= 100;
     }
     public function increaseRegularprice()
     {
@@ -92,9 +101,9 @@ class AdminProductAddComponent extends Component
             'language' => 'required',
             'demographic' => 'required',
             'stock_status' => 'required',
-            'featured' => 'required',
             'quantity' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pages' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'category_id' => 'required',
             'author_id' => 'required',
             'publisher_id' => 'required',
@@ -110,25 +119,21 @@ class AdminProductAddComponent extends Component
             $product->size = $this->size;
             $product->release_date = $this->release_date;
             $product->weight = $this->weight;
+            $product->pages = $this->pages;
             $product->language = $this->language;
             $product->demographic = $this->demographic;
             $product->stock_status = $this->stock_status;
-            $product->featured = $this->featured;
             $product->quantity = $this->quantity;
-    
-            // Upload and store the main product image
             $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
             $this->image->storeAs('products', $imageName);
             $product->image = $imageName;
-    
-            // Additional logic for handling multiple images if needed
-    
             $product->category_id = $this->category_id;
             $product->author_id = $this->author_id;
-            $product->publisher_id = $this->publisher_id; // Corrected typo in the field name
+            $product->publisher_id = $this->publisher_id;
             $product->save();
     
             session()->flash('message', 'Thêm sản phẩm thành công!');
+            return redirect()->route('admin.product.add');
     }
     public function render()
     {

@@ -120,7 +120,7 @@
                             <button class="nav-link" id="nav-tab-three" data-bs-toggle="tab" data-bs-target="#tab-three" type="button" role="tab" aria-controls="tab-three" aria-selected="false">Mới nhất</button>
                         </li>
                     </ul>
-                    <a href="#" class="view-more d-none d-md-flex">Xem thêm<i class="fi-rs-angle-double-small-right"></i></a>
+                    <a href="{{route('shop')}}" class="view-more d-none d-md-flex">Xem thêm<i class="fi-rs-angle-double-small-right"></i></a>
                 </div>
                 <!--End nav-tabs-->
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
@@ -132,15 +132,11 @@
                         @foreach($products as $product )
                             <div class="col-lg-3 col-md-4 col-6 col-sm-6">
                                 <div class="product-cart-wrap mb-30">
-                                    <div class="product-img-action-wrap">
+                                    <div class="product-img-action-wrap" >
                                         <div class="product-img product-img-zoom">
-                                            <a href="product-details.html">
-                                                <img class="default-img" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt=""
-                                                width="70px"
-                                                    height="300px">
-                                                <img class="hover-img" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt=""
-                                                width="70px"
-                                                    height="300px">
+                                            <a href="{{route('product.details',['slug'=>$product->slug])}}" >
+                                                <img class="default-img" style="height: 400px" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
+                                                <img class="hover-img"  style="height: 400px" src="{{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                             </a>
                                         </div>
                                         <div class="product-action-1">
@@ -149,7 +145,7 @@
                                             <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
                                         </div>
                                         <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
+                                            <span class="hot">Nổi bật</span>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
@@ -160,8 +156,12 @@
                                                 href="{{route('product.details',['slug'=>$product->slug])}}">{{$product->name}}</a>
                                         </h2>
                                        
+
+                                        <div class="row">
+                                        <div class="mb-3 mt-3"> 
                                         <div class="product-price">
                                             <span>{{number_format($product->regular_price)}} VND </span>
+                                            <span class="old-price font-md ml-1">{{number_format($product->sale_price)}}</span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
@@ -176,6 +176,8 @@
                                                     class="fi-rs-shopping-bag-add"></i></a>
                                             @livewireScripts
 
+                                        </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +248,7 @@
                         <div class="product-cart-wrap small hover-up">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="">
+                                    <a href="{{route('product.details',['slug'=>$product->slug])}}">
                                         <img class="default-img" style="height: 250px" src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                         <img class="hover-img" src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="">
                                     </a>
