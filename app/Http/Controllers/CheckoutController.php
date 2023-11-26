@@ -221,7 +221,7 @@ class CheckoutController extends Controller
                             $orderItem->delete();
                         }
                         $order->delete();
-                        return redirect()->route('shop.checkout');
+                        return redirect()->route('user.checkout');
                     }
 
                     if ($order["amount"] == $vnp_Amount) //Kiểm tra số tiền thanh toán của giao dịch: giả sử số tiền kiểm tra là đúng. //$order["Amount"] == $vnp_Amount
