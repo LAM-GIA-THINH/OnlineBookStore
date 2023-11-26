@@ -227,7 +227,7 @@
                             <li><a href="{{route('shop.cart')}}">Xem giỏ hàng</a></li>
                             <li><a href="#">Xem sản phẩm yêu thích</a></li>
                             <li><a href="#">Theo dõi đơn hàng</a></li>
-                            <li><a href="{{route('shop.checkout')}}">Đơn hàng</a></li>
+                            <li><a href="{{route('user.checkout')}}">Đơn hàng</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 mob-center">

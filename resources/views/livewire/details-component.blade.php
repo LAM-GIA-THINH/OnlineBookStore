@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                 <div style="background-color: #f4f4f4; padding: 20px;">
-                
+              
                     @if( Auth::check())
                     <h3 style="padding-top:20px;">Đánh giá sản phẩm</h3>
                     @if(Session::has('error_message'))
@@ -196,7 +196,6 @@
                         @else
                         <p style="color: #666; margin-top: 20px; font-size:20px">Đăng nhập để đăng đánh giá</p>
                     @endif
-                    
                     <h3 style="padding-top:20px;">Tất cả đánh giá</h3>
                     @foreach($product->reviews->reverse() as $review)
                     <div style="display: flex; align-items: flex-start; width: 100%; margin-top:20px">

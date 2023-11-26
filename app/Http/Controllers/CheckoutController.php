@@ -99,7 +99,7 @@ class CheckoutController extends Controller
                     $value->save();
                 }
                 Cart::instance('cart')->destroy();
-                return redirect(route('order.detail.view', ['order_id' => $orderId]))->with('success', 'Đặt hàng thành công');
+                return redirect()->route('user.order_detail', ['order_id' => $orderId])->with('success', 'Đặt hàng thành công');
 
             } else if ($data["payment_option"] == "vnp") {
                 $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
@@ -221,7 +221,7 @@ class CheckoutController extends Controller
                             $orderItem->delete();
                         }
                         $order->delete();
-                        return redirect()->route('shop.checkout');
+                        return redirect()->route('user.checkout');
                     }
 
                     if ($order["amount"] == $vnp_Amount) //Kiểm tra số tiền thanh toán của giao dịch: giả sử số tiền kiểm tra là đúng. //$order["Amount"] == $vnp_Amount
@@ -251,7 +251,7 @@ class CheckoutController extends Controller
                             $payment->save();
                             $message = 'Thanh toán thành công';
                             Cart::instance('cart')->destroy();
-                            return redirect()->route('payment.result.view')->with(['message' => $message, 'messageType' => 'success', 'order_id' => $orderId]);
+                            return redirect()->route('user.payment_result')->with(['message' => $message, 'messageType' => 'success', 'order_id' => $orderId]);
                         } else {
                             $message = 'Đơn hàng đã được thanh toán';
                         }
@@ -267,6 +267,6 @@ class CheckoutController extends Controller
         } catch (\Exception $e) {
             $message = 'Lỗi';
         }
-        return redirect()->route('payment.result.view')->with(['message' => $message, 'messageType' => 'error']);
+        return redirect()->route('user.payment_result')->with(['message' => $message, 'messageType' => 'error']);
     }
 }
