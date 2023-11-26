@@ -30,7 +30,7 @@ class CartComponent extends Component
     public function destroy($id){
         Cart::instance('cart')->remove($id);
         $this->emitTo('livewire.cart-icon-component','refreshComponent' );
-        session()->flash('success_message','Item has been remove');
+        session()->flash('success_message','Sản phẩm đã bị xoá');
         
     }
 
