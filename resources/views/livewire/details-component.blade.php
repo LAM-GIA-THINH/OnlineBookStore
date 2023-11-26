@@ -154,8 +154,8 @@
                                 </div>
                             </div>
                 <div style="background-color: #f4f4f4; padding: 20px;">
-                @auth
-                    @if(Auth::user()->utype =! '')
+              
+                    @if( Auth::check())
                     <h3 style="padding-top:20px;">Đánh giá sản phẩm</h3>
                     @if(Session::has('error_message'))
                         <div class="alert alert-danger" role="alert">{{Session::get('error_message')}}</div>
@@ -196,13 +196,12 @@
                         @else
                         <p style="color: #666; margin-top: 20px; font-size:20px">Đăng nhập để đăng đánh giá</p>
                     @endif
-                    @endif
                     <h3 style="padding-top:20px;">Tất cả đánh giá</h3>
-                    @foreach($product->reviews as $review)
+                    @foreach($product->reviews->reverse() as $review)
                     <div style="display: flex; align-items: flex-start; width: 100%; margin-top:20px">
                         <img src="{{ asset('assets/imgs/user.png')}}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
                         <div style="width: 100%">
-                            <p style="font-size: 17px"><strong>{{ $review->user->name }} (Đã đánh giá {{ $review->rating }} <img src="{{ asset('assets/imgs/star.png')}}" width="17" height="17">)</strong></p>
+                            <p style="font-size: 17px"><strong>{{ $review->user->name }} (Đã đánh giá {{ $review->rating }} <img src="{{ asset('assets/imgs/star.png')}}" width="17" height="17">)</strong> vào {{ $review->created_at->timezone('Asia/Ho_Chi_Minh')->format('H:i d-m-Y')}}</p>
                             
                             <p style="font-size: 20px; width: 100%; background-color: white; border: 2px solid #ddd; margin-top: 5px; height: 80px; overflow-y: auto;">{{ $review->comment }}</p>
                         </div>
