@@ -48,7 +48,9 @@ class AdminOrderEditComponent extends Component
         $this->amount = number_format($order->amount, 0, ',', ',') . ' VND';
         $this->note = $order->note;
         $this->tracking = $order->tracking;
-        $this->orderItemsWithProducts = $order->orderItems()->with('product')->get();
+        $this->orderItemsWithProducts = $order->orderItems()->with(['product' => function ($query) {
+            $query->withTrashed(); 
+        }])->get();
     }
 
     public function updateOrder()
