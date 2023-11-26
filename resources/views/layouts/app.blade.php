@@ -46,19 +46,20 @@
                                 <div class="header-action-right">
                                     <div class="header-action-2">
                                         @auth
-                                        <ul style="font-size: 16px;">
-                                            <li><i class="fi-rs-user"></i> {{ Auth::user()->name }} 
+                                        
+                                        <ul style="font-size: 16px;text-align: center;">
+                                            <li><img src="{{ asset('assets/imgs/logo/person.png')}}" width="20" height="20" style="margin-right:3px;"> {{ Auth::user()->name }} 
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <a href="{{ route('logout') }}"
-                                                        onClick="event.preventDefault(); this.closest('form').submit();">Đăng
-                                                        xuất</a>
+                                                        onClick="event.preventDefault(); this.closest('form').submit();">Đăng xuất</a>
                                                 </form>
                                             </li>
                                         </ul>
                                         @else
+                                        <img src="{{ asset('assets/imgs/login.png')}}" width="17" height="17" style="margin-right:2px;margin-bottom:1px"><a href="{{ route('login') }}">
                                         <ul style="font-size: 16px;">
-                                            <li><i class="fi-rs-key"></i><a href="{{ route('login') }}">Đăng nhập </a> /
+                                            <li> Đăng nhập </a> /
                                                 <a href="{{ route('register') }}">Đăng ký</a></li>
                                         </ul>
                                         @endif
