@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\User;
 
 use Livewire\Component;
 
-class OrderDetailComponent extends Component
+class UserOrderDetailComponent extends Component
 {
     public function mount()
     {
@@ -14,6 +14,6 @@ class OrderDetailComponent extends Component
     }
     public function render()
     {
-        return view('livewire.order-detail-component', ['order' => $this->order, 'orderItems' => $this->orderItems, 'products'=>$this->products]);
+        return view('livewire.user.user-order-detail-component', ['order' => $this->order, 'orderItems' => $this->orderItems, 'products'=>$this->products]);
     }
 }

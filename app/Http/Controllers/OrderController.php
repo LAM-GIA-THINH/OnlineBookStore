@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 use \App\Models\Order;
 use \App\Models\product;
 use \App\Models\Order_item;
-use App\Http\Livewire\OrderDetailComponent;
+use App\Http\Livewire\User\UserOrderDetailComponent;
 use Illuminate\Support\Facades\Http;
 use App;
 
 class OrderController extends Controller
 {
-    //
     public function show(Request $request, $order_id)
     {
         $order = Order::where("id", $order_id)->where("user_id", auth()->user()->id)->first();
@@ -29,7 +28,7 @@ class OrderController extends Controller
             session(['orderItems' => $orderItems]);
             session(['products' => $products]);
 
-            return App::call(OrderDetailComponent::class);
+            return App::call(UserOrderDetailComponent::class);
         }
 
         return redirect(route('shop'));
@@ -42,7 +41,7 @@ class OrderController extends Controller
 
         if ($order) {
             if($order->order_status !== 0) {
-                return redirect(route('order.detail.view', ['order_id' => $order_id]))->with('error', 'Hủy đơn hàng thất bại. Vui lòng liên hệ CSKH để được hỗ trợ.');
+                return redirect(route('user.order_detail', ['order_id' => $order_id]))->with('error', 'Hủy đơn hàng thất bại. Vui lòng liên hệ CSKH để được hỗ trợ.');
             }
             $vnp = vnpay_payments::where('vnp_TxnRef', $order->id)->first();
             if ($vnp) {
@@ -104,7 +103,7 @@ class OrderController extends Controller
             $order->order_status = 4; // Đã hủy
             $order->payment_status = 3; // Đã hoàn tiền
             $order->save();
-            return redirect(route('order.detail.view', ['order_id' => $order_id]))->with('success', 'Hủy đơn hàng thành công. ' . $vnp_message);
+            return redirect(route('user.order_detail', ['order_id' => $order_id]))->with('success', 'Hủy đơn hàng thành công. ' . $vnp_message);
         }
         return redirect(route('shop'));
     }

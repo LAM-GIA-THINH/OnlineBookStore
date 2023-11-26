@@ -16,7 +16,7 @@
                             <div class="dashboard-menu">
                                 <ul class="nav flex-row" role="tablist">
                                 <li class="nav-item">
-                                        <a class="nav-link active" id="orders-tab" href="{{route('user.orders.show')}}"><i
+                                        <a class="nav-link active" id="orders-tab" href="{{route('user.orders')}}"><i
                                                 class="fi-rs-shopping-bag mr-10"></i>Đơn hàng</a>
                                     </li>
                                     <li class="nav-item">
@@ -75,7 +75,7 @@
                                                             </td>
                                                             <td>{{$order->created_at->timezone('Asia/Ho_Chi_Minh')}}</td>
                                                             <td>
-                                                                <a href="{{route('order.detail.view', ['order_id' => $order->id])}}"
+                                                                <a href="{{route('user.order_detail', ['order_id' => $order->id])}}"
                                                                     class="btn-small d-block">Xem chi tiết</a>
                                                             </td>
                                                         </tr>

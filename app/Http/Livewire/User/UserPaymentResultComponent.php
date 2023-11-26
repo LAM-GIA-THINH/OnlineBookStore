@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\User;
 
 use Livewire\Component;
 
-class PaymentResultComponent extends Component
+class UserPaymentResultComponent extends Component
 {
     public function mount()
     {
@@ -14,6 +14,6 @@ class PaymentResultComponent extends Component
     }
     public function render()
     {
-        return view('livewire.payment-result-component', ['message' => $this->message, 'messageType' => $this->messageType, 'order_id' => $this->orderId]);
+        return view('livewire.user.user-payment-result-component', ['message' => $this->message, 'messageType' => $this->messageType, 'order_id' => $this->orderId]);
     }
 }
