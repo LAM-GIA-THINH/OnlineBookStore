@@ -1,6 +1,6 @@
 <style>
     .search-style-1 {
-        text-align: left; /* Align the content to the left */
+        text-align: left; 
     }
 
     .search-style-1 form {
