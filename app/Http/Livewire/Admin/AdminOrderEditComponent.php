@@ -56,7 +56,7 @@ class AdminOrderEditComponent extends Component
         $previousStatus = $order->order_status;
         $order->order_status = $this->order_status;
         $order->tracking = $this->tracking;
-        if($order->payment_method == 'vnp') {
+        if($order->payment_method == 'vnp' && $order->order_status === 4 && $order->payment_status !== 3) {
             $vnp = vnpay_payments::where('vnp_TxnRef', $order->id)->first();
             if ($vnp) {
                 $vnp_TmnCode = env('VNP_TMN_CODE');
