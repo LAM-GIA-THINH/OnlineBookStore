@@ -104,21 +104,36 @@ class DetailsComponent extends Component
     public function render()
     {
         $product = Product::where('slug', $this->slug)->first();
-        $rproducts = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
-        $nproducts = Product::latest()->take(4)->get();
-        $categories = Category::orderBy('name', 'ASC')->get();
-        $publisher = Publisher::where('id', $product->publisher_id)->first();
-        $author = Author::where('id', $product->author_id)->first();
-        $reviews = Review::where('product_id', $product->id)->get(); 
+        if($product != null){
+            $rproducts = Product::where('category_id', $product->category_id)->inRandomOrder()->limit(4)->get();
+            $nproducts = Product::latest()->take(4)->get();
+            $categories = Category::orderBy('name', 'ASC')->get();
+            $publisher = Publisher::where('id', $product->publisher_id)->first();
+            $author = Author::where('id', $product->author_id)->first();
+            $reviews = Review::where('product_id', $product->id)->get(); 
 
-        return view('livewire.details-component', [
-            'product' => $product,
-            'rproducts' => $rproducts,
-            'nproducts' => $nproducts,
-            'categories' => $categories,
-            'publisher' => $publisher,
-            'author' => $author,
-            'reviews' => $reviews,
-        ]);
+            return view('livewire.details-component', [
+                'product' => $product,
+                'rproducts' => $rproducts,
+                'nproducts' => $nproducts,
+                'categories' => $categories,
+                'publisher' => $publisher,
+                'author' => $author,
+                'reviews' => $reviews,
+            ]);
+        }else{
+            return view('livewire.details-component', [
+                'product' => null,
+                'rproducts' => null,
+                'nproducts' => null,
+                'categories' => null,
+                'publisher' => null,
+                'author' => null,
+                'reviews' => null,
+            ]);
+        }
+       
+
+        
     }
 }
