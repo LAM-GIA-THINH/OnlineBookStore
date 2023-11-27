@@ -96,7 +96,7 @@
                                         </div>
                                        
                                         <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
+                                            <span class="hot">Nổi bật</span>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">
@@ -106,22 +106,27 @@
                                         <h2><a
                                                 href="{{route('product.details',['slug'=>$product->slug])}}">{{$product->name}}</a>
                                         </h2>
+                                        <div class="row">
+                                        <div class="mb-3 mt-3"> 
                                         <div class="product-price">
-                                            <span>{{number_format($product->regular_price)}} VND</span>
+                                            <span>{{number_format($product->regular_price)}} VND </span>
+                                            <span class="old-price font-md ml-1">{{number_format($product->sale_price)}}</span>
                                             <!-- <span class="old-price">$245.8</span> -->
                                         </div>
                                         <div class="product-action-1 show">
                                             @livewireStyles
                                             @if($witems->contains($product->id))
-                                                <a aria-label="Xóa yêu thích" class="action-btn hover-up wishlisted" href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fi-rs-heart"></i></a>
+                                                <a aria-label="Bỏ yêu thích" class="action-btn hover-up wishlisted" href="#" wire:click.prevent="removeFromWishlist({{$product->id}})"><i class="fi-rs-heart"></i></a>
                                             @else
-                                                <a aria-label="Yêu thích" class="action-btn hover-up" href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-heart"></i></a>
+                                                <a aria-label="Yêu Thích" class="action-btn hover-up" href="#" wire:click.prevent="addToWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-heart"></i></a>
                                             @endif
-                                            <a aria-label="thêm vào giỏ hàng" class="action-btn hover-up"
+                                            <a aria-label="Thêm vào giỏ hàng" class="action-btn hover-up"
                                                 wire:click.prevent="store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i
                                                     class="fi-rs-shopping-bag-add"></i></a>
                                             @livewireScripts
 
+                                        </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
