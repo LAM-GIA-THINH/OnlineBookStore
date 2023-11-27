@@ -41,7 +41,7 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="hero-card box-shadow-outer-6 wow fadeIn animated mb-30 hover-up d-flex">
                             <div class="hero-card-icon icon-left-2 hover-up ">
-                                <img class="btn-shadow-brand hover-up border-radius-5 bg-brand-muted" src="assets/imgs/page/avatar-2.jpg" alt="">
+                                <img class="btn-shadow-brand hover-up border-radius-5 bg-brand-muted" src="assets/imgs/page/avatar-1.jpg" alt="">
                             </div>
                             <div class="pl-30">
                                 <h5 class="mb-5 fw-500">
@@ -62,14 +62,14 @@
                                     Lê Văn Thắng
                                 </h5>
                                 <p class="font-sm text-grey-5">Member</p>
-                                <p class="text-grey-3">MaSV: 2050531200336.<br>Position: Backend <br>Function: view(product detail, product ), search, shoping cart, category and about</p>
+                                <p class="text-grey-3">MaSV: 2050531200336.<br>Position: Backend <br>Function: view(product detail, product ), search, shoping cart, category, wishlist, fillter and about</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="hero-card box-shadow-outer-6 wow fadeIn animated mb-30 hover-up d-flex">
                             <div class="hero-card-icon icon-left-2 hover-up ">
-                                <img class="btn-shadow-brand hover-up border-radius-5 bg-brand-muted" src="assets/imgs/page/avatar-2.jpg" alt="">
+                                <img class="btn-shadow-brand hover-up border-radius-5 bg-brand-muted" src="assets/imgs/page/avatar-1.jpg" alt="">
                             </div>
                             <div class="pl-30">
                                 <h5 class="mb-5 fw-500">

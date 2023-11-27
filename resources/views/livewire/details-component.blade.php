@@ -4,6 +4,15 @@
     
 
 <main class="main">
+        @if($product == null)
+        <div class="page-header breadcrumb-wrap">
+            <div class="container">
+                <div class="breadcrumb">
+                <a href="/" rel="nofollow">Sản Phẩm Không tại Hoặc đã xóa</a>
+                </div>
+            </div>
+        </div>
+        @else
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
@@ -283,6 +292,7 @@
                 </div>
             </div>
         </section>
+        @endif
     </main>
     @livewireScripts
 </div>
