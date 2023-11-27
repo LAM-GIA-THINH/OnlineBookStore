@@ -6,7 +6,7 @@
                 {{$message}}
             </div>
             @if(isset($order_id))
-            <a href="{{route('order.detail.view', ['order_id' => $order_id])}}"
+            <a href="{{route('user.order_detail', ['order_id' => $order_id])}}"
                 class="btn btn-fill-out btn-block mt-30">Chi tiết đơn hàng</a>
             @endif
             @else

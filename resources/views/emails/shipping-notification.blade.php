@@ -25,9 +25,10 @@
             @if ($order->order_status === '2')
             <p style="margin: 0;"><strong>Theo dõi đơn hàng:</strong> {{ $order->tracking }}</p>
             @endif
-            <p style="margin: 0;"><strong>Vào lúc:</strong> {{ now()->format('Y-m-d H:i:s') }}</p>
+            <p> </p>
+            <p style="margin: 0;"><strong>Vào lúc:</strong> {{  \Carbon\Carbon::now()->timezone('Asia/Ho_Chi_Minh')->format('Y-m-d H:i:s') }}</p>
             
-            <a href="{{ route('order.detail.view', ['order_id' => $order->id]) }}" 
+            <a href="{{ route('user.order_detail', ['order_id' => $order->id]) }}" 
                style="display: inline-block; padding: 10px 20px; background-color: #3490dc; color: #fff; text-decoration: none; border-radius: 5px;">
                Xem chi tiết đơn hàng
             </a>

@@ -102,7 +102,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <a href="{{route('shop.checkout')}}" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Thanh Toán</a>
+                                    <a href="{{route('user.checkout')}}" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Thanh Toán</a>
                                 </div>
                             </div>
                         

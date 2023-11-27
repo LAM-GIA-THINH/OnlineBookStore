@@ -19,7 +19,6 @@ class AdminPublishersComponent extends Component
         return view('livewire.admin.admin-publishers-component', ['publishers' => $publishers]);
     }
 
-    // Method to reset the search
     public function clearSearch()
     {
         $this->search = '';

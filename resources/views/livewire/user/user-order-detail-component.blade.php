@@ -137,7 +137,7 @@
                                 <textarea rows="5" disabled>{{$order->note}}</textarea>
                             </div>
                             @if ($order->order_status == 0)
-                            <form method="POST" action="{{ route('order.cancel', ['order_id' => $order->id]) }}"
+                            <form method="POST" action="{{ route('user.order_cancel', ['order_id' => $order->id]) }}"
                                 id="cancelForm">
                                 @csrf
                                 <button type="button" class="btn btn-fill-out btn-block mt-30"

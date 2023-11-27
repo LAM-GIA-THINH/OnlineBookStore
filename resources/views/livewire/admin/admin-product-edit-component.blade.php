@@ -266,26 +266,23 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Category Select2
             $('#categorySelect').select2({
                 placeholder: 'Chọn danh mục',
                 
                 
             });
 
-            // Publisher Select2
             $('#publisherSelect').select2({
                 placeholder: 'Chọn nhà phát hành',
                 
             });
 
-            // Author Select2
             $('#authorSelect').select2({
                 placeholder: 'Chọn tác giả',
                 
             });
 
-            // Wire up Livewire to update the model when the select boxes change
+
             $('#categorySelect').on('change', function (e) {
                 @this.set('category_id', e.target.value);
             });
@@ -300,7 +297,6 @@
         });
     </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<!-- Add this script after including the Bootstrap Datepicker JS -->
 <script>
     $(document).ready(function () {
         $('.datepicker').datepicker({

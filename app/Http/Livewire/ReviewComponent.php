@@ -19,13 +19,11 @@ class ReviewComponent extends Component
 
     public function submitReview()
     {
-        // Validate the input
         $this->validate([
             'rating' => 'required|numeric|min:1|max:5',
             'comment' => 'required',
         ]);
 
-        // Create a new review
         Review::create([
             'user_id' => Auth::id(),
             'product_id' => $this->productId,
@@ -33,10 +31,7 @@ class ReviewComponent extends Component
             'comment' => $this->comment,
         ]);
 
-        // Clear the form fields
         $this->reset(['rating', 'comment']);
-
-        // Trigger an event to refresh the parent component (DetailsComponent)
         $this->emitUp('refreshComponent');
     }
 }

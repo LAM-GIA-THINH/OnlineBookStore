@@ -122,7 +122,7 @@
                     </ul>
                     <a href="{{route('shop')}}" class="view-more d-none d-md-flex">Xem thêm<i class="fi-rs-angle-double-small-right"></i></a>
                 </div>
-                <!--End nav-tabs-->
+
                 <div class="tab-content wow fadeIn animated" id="myTabContent">
                     <div class="tab-pane fade show active" id="tab-one" role="tabpanel" aria-labelledby="tab-one">
                         <div class="row product-grid-4">
@@ -185,13 +185,11 @@
                             
                         @endforeach   
                         </div>
-                        <!--End product-grid-4-->
+                     
                     </div>
-                    <!--En tab one (Featured)-->
-                   
-                    <!--En tab three (New added)-->
+
                 </div>
-                <!--End tab-content-->
+           
             </div>
         </section>
         <section class="featured section-padding position-relative">
@@ -243,7 +241,7 @@
                     <div class="slider-arrow slider-arrow-2 carausel-6-columns-arrow" id="carausel-6-columns-2-arrows"></div>
                     <div class="carausel-6-columns carausel-arrow-center" id="carausel-6-columns-2">
                         
-                        <!--End product-cart-wrap-2-->
+     
                         @foreach($products as $product )
                         <div class="product-cart-wrap small hover-up">
                             <div class="product-img-action-wrap">
@@ -272,7 +270,7 @@
                             </div>
                         </div>
                         @endforeach
-                        <!--End product-cart-wrap-2-->
+                    
                         
                     </div>
                 </div>

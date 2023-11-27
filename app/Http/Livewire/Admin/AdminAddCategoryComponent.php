@@ -4,11 +4,10 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Illuminate\Support\Str;
-use App\Models\Category; // Add this line to import the Category model
+use App\Models\Category; 
 
 class AdminAddCategoryComponent extends Component
 {
-    // ... rest of your code
     public $name;
     public $slug;
     public function generateSlug()
@@ -36,6 +35,4 @@ class AdminAddCategoryComponent extends Component
 
         session()->flash('message', 'Đã thêm danh mục thành công!');
     }
-
-    // ... rest of your code
 }

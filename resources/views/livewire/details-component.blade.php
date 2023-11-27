@@ -22,16 +22,12 @@
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="detail-gallery">
                                         <span class="zoom-icon"><i class="fi-rs-search"></i></span>
-                                        <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
                                                 <img src=" {{asset('assets/imgs/products/products')}}/{{$product->image}}" alt="product image">
                                             </figure>
                                         </div>
-                                        <!-- THUMBNAILS -->
-                                      
                                     </div>
-                                    <!-- End Gallery -->
                                     <div class="social-icons single-share">
                                         <ul class="text-grey-5 d-inline-block">
                                             <li><strong class="mr-10">Chia sẻ:</strong></li>
@@ -65,7 +61,6 @@
                                             <div>
 
                                             </div>
-                                           
                                         </div>
                                         <div class="clearfix product-price-cover ">
                                             <div class="product-price primary-color float-left">
@@ -130,9 +125,7 @@
                                             </div>
                                         </div>
                                         </div>
-        
-                                        
-                                    <!-- Detail Info -->
+    
                                 </div>
                             </div>
                           
@@ -154,6 +147,8 @@
                                 </div>
                             </div>
                 <div style="background-color: #f4f4f4; padding: 20px;">
+              
+                    @if( Auth::check())
                     <h3 style="padding-top:20px;">Đánh giá sản phẩm</h3>
                     @if(Session::has('error_message'))
                         <div class="alert alert-danger" role="alert">{{Session::get('error_message')}}</div>
@@ -161,7 +156,7 @@
                     <p style="color: #666; margin-top: 20px; font-size:20px">Thêm đánh giá của bạn</p>
                     <form wire:submit.prevent="submitReview" wire:ignore>
                     <div id="stars" style="margin-top: 20px;">
-                <!-- Create 5 stars using labels and hide radio buttons -->
+               
                         <label id="label1" for="star1" style="cursor: pointer; font-size: 35px; color: #ccc; margin: 0 5px;" onclick="setRating(1)">
                             <input type="radio" name="rating" id="star1" value="1" style="display: none" wire:model="rating">★
                         </label>
@@ -191,12 +186,15 @@
                         <button style="margin-left: auto; font-size: 15px" type="submit">Đăng đánh giá</button>
                     </div>
                     </form>
+                        @else
+                        <p style="color: #666; margin-top: 20px; font-size:20px">Đăng nhập để đăng đánh giá</p>
+                    @endif
                     <h3 style="padding-top:20px;">Tất cả đánh giá</h3>
-                    @foreach($product->reviews as $review)
+                    @foreach($product->reviews->reverse() as $review)
                     <div style="display: flex; align-items: flex-start; width: 100%; margin-top:20px">
                         <img src="{{ asset('assets/imgs/user.png')}}" alt="User Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
                         <div style="width: 100%">
-                            <p style="font-size: 17px"><strong>{{ $review->user->name }} (Đã đánh giá {{ $review->rating }} <img src="{{ asset('assets/imgs/star.png')}}" width="17" height="17">)</strong></p>
+                            <p style="font-size: 17px"><strong>{{ $review->user->name }} (Đã đánh giá {{ $review->rating }} <img src="{{ asset('assets/imgs/star.png')}}" width="17" height="17">)</strong> vào {{ $review->created_at->timezone('Asia/Ho_Chi_Minh')->format('H:i d-m-Y')}}</p>
                             
                             <p style="font-size: 20px; width: 100%; background-color: white; border: 2px solid #ddd; margin-top: 5px; height: 80px; overflow-y: auto;">{{ $review->comment }}</p>
                         </div>
@@ -311,16 +309,13 @@
         }); 
     </script>
     <script>
-        // Function to update the selected rating and highlight the selected star
         function setRating(rating) {
             document.getElementById('selectedRating').innerText = 'Đánh giá: ' + rating + ' sao';
 
-            // Reset all star colors to default
             for (let i = 1; i <= 5; i++) {
                 document.getElementById('label' + i).style.color = '#ccc';
             }
 
-            // Highlight the selected stars in yellow
             for (let i = 1; i <= rating; i++) {
                 document.getElementById('label' + i).style.color = 'gold';
             }
